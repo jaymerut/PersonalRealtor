@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DdiZv3aJQztSuhWpL+Qaal2FJ88IaI+RZsIMOrcdu1URBEHr+Ty+BJSuqH/V1NzZcQItN7aESlvmJgWEycWF3A==",
+  "dgSpecHash": "ILLLdcgs1M17V4EIBIrXx94RNQ0ngwCMBadzs2Cv1Uwgoom6eHXlbdvhvrNKsG5obBSeG+ADa8YIQ8Nua9ikVA==",
   "success": true,
   "projectFilePath": "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\refit\\6.0.38\\refit.6.0.38.nupkg.sha512",
+    "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\refit.newtonsoft.json\\6.0.38\\refit.newtonsoft.json.6.0.38.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\system.net.http.json\\5.0.0\\system.net.http.json.5.0.0.nupkg.sha512",

@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "EVeCgecbLDTlb4/NLwrdFk/ZdZ8MWBleY+1oF7vWi5mm1/X99t9KZabKQzI/JmGEp8sWr5PzlM590fCjQG2LGg==",
+  "dgSpecHash": "oCG1yejUWxRaeHZ0/zR2LrV1NINT0AM4bMz44s2wEu65ptxNIclX+bjIIOtOOcWqf9xCda0l5mzvbgLxd/UCmg==",
   "success": true,
   "projectFilePath": "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor.iOS\\PersonalRealtor.iOS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\refit\\6.0.38\\refit.6.0.38.nupkg.sha512",
+    "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\refit.newtonsoft.json\\6.0.38\\refit.newtonsoft.json.6.0.38.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\system.net.http.json\\5.0.0\\system.net.http.json.5.0.0.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",

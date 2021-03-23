@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "eVSxC5hE0+3TsCQYH9BHodukGYYH1ooR4Vb2XkfWATLBDCS1viUbN4U5cEUWSHrYLLLFMx7pDRqV4RbRIdcxpg==",
+  "dgSpecHash": "AdSD11bT8DdSKiXV78737GSiRU4/TtWrVzCUZ2wRRECKfjvtwiPByTdaEAaDXPFGk5nY5Ox7XvECLPF6IrBagg==",
   "success": true,
   "projectFilePath": "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor.Android\\PersonalRealtor.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\refit\\6.0.38\\refit.6.0.38.nupkg.sha512",
+    "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\refit.newtonsoft.json\\6.0.38\\refit.newtonsoft.json.6.0.38.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\system.net.http.json\\5.0.0\\system.net.http.json.5.0.0.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
