@@ -6,30 +6,30 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using PersonalRealtor.Network.RealtorAPI.Models;
+using PersonalRealtor.Network.RapidAPI.Models;
 
-namespace PersonalRealtor.Network.RealtorAPI.API
+namespace PersonalRealtor.Network.RapidAPI.API
 {
-    public class RealtorAPI
+    public class RapidAPI
     {
-        private IRealtorAPI _API;
-        private IRealtorAPI API
+        private IRapidAPI _API;
+        private IRapidAPI API
         {
             get
             {
                 if (_API == null)
                 {
 
-                    var client = new HttpClient(new RealtorClientHandler()
+                    var client = new HttpClient(new RapidClientHandler()
                     {
                         ServerCertificateCustomValidationCallback = (message, certificate, chain, sslPolicyErrors) => true,
                     })
                     {
-                        BaseAddress = new Uri("https://www.realtor.com")
+                        BaseAddress = new Uri("https://realtor.p.rapidapi.com")
                     };
 
 
-                    _API = RestService.For<IRealtorAPI>(client, new RefitSettings()
+                    _API = RestService.For<IRapidAPI>(client, new RefitSettings()
                     {
                         ContentSerializer = new NewtonsoftJsonContentSerializer(new JsonSerializerSettings()
                         {
@@ -44,9 +44,13 @@ namespace PersonalRealtor.Network.RealtorAPI.API
             }
         }
 
-        public async Task<RealtorListingsResponse> RealtorListings(RealtorListingsRequest request)
+        public async Task<AgentsListResponse> AgentsList(String postalCode, String name)
         {
-            return await this.API.RealtorListings(request);
+            return await this.API.AgentsList(postalCode, name);
+        }
+        public async Task<PropertyDetailsResponse> GetPropertyDetails(String propertyId)
+        {
+            return await this.API.GetPropertyDetails(propertyId);
         }
     }
 }
