@@ -8,7 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using PersonalRealtor.Network.RealtorAPI;
 
-namespace PersonalRealtor.Views
+namespace PersonalRealtor.Views.Pages.RealtorListings.UI
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RealtorListingsPage : ContentPage

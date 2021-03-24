@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace PersonalRealtor.Views
+namespace PersonalRealtor.Views.Pages.BrowseListings.UI
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BrowseListingsPage : ContentPage
