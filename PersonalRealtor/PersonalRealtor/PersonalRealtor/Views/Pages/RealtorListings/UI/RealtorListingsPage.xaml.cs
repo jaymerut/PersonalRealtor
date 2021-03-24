@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using PersonalRealtor.Network.RealtorAPI;
 
 namespace PersonalRealtor.Views
 {
@@ -14,6 +15,7 @@ namespace PersonalRealtor.Views
     {
         public RealtorListingsPage()
         {
+
             InitializeComponent();
         }
     }
