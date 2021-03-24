@@ -6,6 +6,6 @@ namespace PersonalRealtor.Network.RapidAPI.Models
 {
     public class AgentsListResponse
     {
-        // TODO
+        // TODO (Might not need this)
     }
 }
