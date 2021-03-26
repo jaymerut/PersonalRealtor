@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace PersonalRealtor.Views
+namespace PersonalRealtor.Views.Pages.RealtorChat.UI
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class BrowseListingsPage : ContentPage
+    public partial class RealtorChatPage : ContentPage
     {
-        public BrowseListingsPage()
+        public RealtorChatPage()
         {
             InitializeComponent();
         }

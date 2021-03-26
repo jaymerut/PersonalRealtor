@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace PersonalRealtor.Views
+namespace PersonalRealtor.Views.Pages.GeneralInquiry.UI
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RealtorListingsPage : ContentPage
+    public partial class GeneralInquiryPage : ContentPage
     {
-        public RealtorListingsPage()
+        public GeneralInquiryPage()
         {
             InitializeComponent();
         }

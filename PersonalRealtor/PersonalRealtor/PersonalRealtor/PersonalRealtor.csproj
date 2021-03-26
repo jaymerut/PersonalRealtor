@@ -6,24 +6,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Refit" Version="6.0.38" />
+    <PackageReference Include="Refit.Newtonsoft.Json" Version="6.0.38" />
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\BrowseListingsPage.xaml">
+    <EmbeddedResource Update="Views\Pages\BrowseListings\UI\BrowseListingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\GeneralInquiryPage.xaml">
+    <EmbeddedResource Update="Views\Pages\GeneralInquiry\UI\GeneralInquiryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\RealtorChatPage.xaml">
+    <EmbeddedResource Update="Views\Pages\RealtorChat\UI\RealtorChatPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\RealtorListingsPage.xaml">
+    <EmbeddedResource Update="Views\Pages\RealtorListings\UI\RealtorListingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SavedHomesPage.xaml">
+    <EmbeddedResource Update="Views\Pages\SavedHomes\UI\SavedHomesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

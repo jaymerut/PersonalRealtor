@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:local="clr-namespace:PersonalRealtor.Views"
+       xmlns:browseListings="clr-namespace:PersonalRealtor.Views.Pages.BrowseListings.UI"
+       xmlns:generalInquiry="clr-namespace:PersonalRealtor.Views.Pages.GeneralInquiry.UI"
+       xmlns:realtorChat="clr-namespace:PersonalRealtor.Views.Pages.RealtorChat.UI"
+       xmlns:realtorListings="clr-namespace:PersonalRealtor.Views.Pages.RealtorListings.UI"
+       xmlns:savedHomes="clr-namespace:PersonalRealtor.Views.Pages.SavedHomes.UI"
        Title="PersonalRealtor"
        x:Class="PersonalRealtor.AppShell">
 
@@ -79,26 +83,16 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-    <FlyoutItem Title="View Corey's Listings" Icon="icon_about.png">
-        <ShellContent Route="RealtorListingsPage" ContentTemplate="{DataTemplate local:RealtorListingsPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Browse Homes" Icon="icon_feed.png">
-        <ShellContent Route="BrowseListingsPage" ContentTemplate="{DataTemplate local:BrowseListingsPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="Chat With Your Realtor!" Icon="icon_feed.png">
-        <ShellContent Route="RealtorChatPage" ContentTemplate="{DataTemplate local:RealtorChatPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="General Inquiry" Icon="icon_feed.png">
-        <ShellContent Route="GeneralInquiryPage" ContentTemplate="{DataTemplate local:GeneralInquiryPage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="View Saved Homes" Icon="icon_feed.png">
-        <ShellContent Route="SavedHomesPage" ContentTemplate="{DataTemplate local:SavedHomesPage}" />
-    </FlyoutItem>
-
-    <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  
-    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    <MenuItem x:Name="BrowseListings" Text="View Corey's Listings" IconImageSource="icon_about.png" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
     </MenuItem>
--->
+    <MenuItem x:Name="BrowseHomes" Text="Browse Homes" IconImageSource="icon_about.png" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    </MenuItem>
+    <MenuItem x:Name="RealtorChat" Text="Chat With Your Realtor!" IconImageSource="icon_about.png" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    </MenuItem>
+    <MenuItem x:Name="GeneralInquiry" Text="General Inquiry" IconImageSource="icon_about.png" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    </MenuItem>
+    <MenuItem x:Name="SavedHomes" Text="View Saved Homes" IconImageSource="icon_about.png" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    </MenuItem>
     <!--
         TabBar lets you define content that won't show up in a flyout menu. When this content is active
         the flyout menu won't be available. This is useful for creating areas of the application where 
