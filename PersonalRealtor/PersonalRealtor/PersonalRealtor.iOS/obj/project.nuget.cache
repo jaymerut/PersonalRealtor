@@ -1,10 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "15uSDBCuol7+zKwU2XMtA7ldGgAUnRMwKpXCQsMnlP6uDROKZn+iBdVy2MGVz8KNEVYi2F2DfJRCA1/2bbIfEg==",
+  "dgSpecHash": "I+WJrlGIPHzNKtCyrr4MuG3Il5ddJxoLq68qRbD5UsefvmhJro5BWQtj9M5FoWK4S6D+jXFTZeSH9qp7FXV8TQ==",
   "success": true,
   "projectFilePath": "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor.iOS\\PersonalRealtor.iOS.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\refit\\6.0.38\\refit.6.0.38.nupkg.sha512",
+    "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\refit.newtonsoft.json\\6.0.38\\refit.newtonsoft.json.6.0.38.nupkg.sha512",
+    "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\system.net.http.json\\5.0.0\\system.net.http.json.5.0.0.nupkg.sha512",
+    "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\system.text.encodings.web\\5.0.0\\system.text.encodings.web.5.0.0.nupkg.sha512",
+    "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\system.text.json\\5.0.1\\system.text.json.5.0.1.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
     "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\xamarin.forms\\4.8.0.1451\\xamarin.forms.4.8.0.1451.nupkg.sha512"
   ],

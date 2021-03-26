@@ -3,6 +3,7 @@ using PersonalRealtor.Views;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
+using PersonalRealtor.Views.Pages.RealtorListings.Composer;
 
 namespace PersonalRealtor
 {
@@ -17,7 +18,11 @@ namespace PersonalRealtor
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//LoginPage");
+            if (sender == this.BrowseListings)
+            {
+                await Navigation.PushModalAsync(RealtorListingsUIComposer.MakeRealtorListingsUI());
+            }
+            //await Shell.Current.GoToAsync("//LoginPage");
         }
     }
 }
