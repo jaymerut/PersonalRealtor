@@ -30,7 +30,7 @@ namespace PersonalRealtor
             {
                 // Add Navigation
             }
-            else if (sender == this.GeneralInquiryl)
+            else if (sender == this.GeneralInquiry)
             {
                 // Add Navigation
             }
