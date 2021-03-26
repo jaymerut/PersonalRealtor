@@ -22,7 +22,22 @@ namespace PersonalRealtor
             {
                 await Navigation.PushModalAsync(RealtorListingsUIComposer.MakeRealtorListingsUI());
             }
-            //await Shell.Current.GoToAsync("//LoginPage");
+            else if (sender == this.BrowseHomes)
+            {
+                // Add Navigation
+            }
+            else if (sender == this.RealtorChat)
+            {
+                // Add Navigation
+            }
+            else if (sender == this.GeneralInquiryl)
+            {
+                // Add Navigation
+            }
+            else if (sender == this.SavedHomes)
+            {
+                // Add Navigation
+            }
         }
     }
 }

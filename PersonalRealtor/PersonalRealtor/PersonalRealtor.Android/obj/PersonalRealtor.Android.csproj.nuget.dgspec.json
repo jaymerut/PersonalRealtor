@@ -1,40 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor.Android\\PersonalRealtor.Android.csproj": {}
+    "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.Android/PersonalRealtor.Android.csproj": {}
   },
   "projects": {
-    "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor.Android\\PersonalRealtor.Android.csproj": {
+    "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.Android/PersonalRealtor.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor.Android\\PersonalRealtor.Android.csproj",
+        "projectUniqueName": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.Android/PersonalRealtor.Android.csproj",
         "projectName": "PersonalRealtor.Android",
-        "projectPath": "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor.Android\\PersonalRealtor.Android.csproj",
-        "packagesPath": "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\",
-        "outputPath": "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor.Android\\obj\\",
+        "projectPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.Android/PersonalRealtor.Android.csproj",
+        "packagesPath": "/Users/jaymerutkoski/.nuget/packages/",
+        "outputPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.Android/obj/",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jayme-rutkoski\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/jaymerutkoski/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "monoandroid90"
         ],
         "sources": {
-          "C:\\Users\\jayme-rutkoski\\.nuget\\packages": {},
-          "http://devintranet/NuGetFeed/nuget/": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "monoandroid90": {
             "projectReferences": {
-              "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor.csproj": {
-                "projectPath": "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor.csproj"
+              "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj": {
+                "projectPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj"
               }
             }
           }
@@ -55,30 +48,22 @@
         }
       }
     },
-    "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor.csproj": {
+    "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor.csproj",
+        "projectUniqueName": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj",
         "projectName": "PersonalRealtor",
-        "projectPath": "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor.csproj",
-        "packagesPath": "C:\\Users\\jayme-rutkoski\\.nuget\\packages\\",
-        "outputPath": "C:\\PersonalProjects\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\PersonalRealtor\\obj\\",
+        "projectPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj",
+        "packagesPath": "/Users/jaymerutkoski/.nuget/packages/",
+        "outputPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jayme-rutkoski\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/Users/jaymerutkoski/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
-          "C:\\Users\\jayme-rutkoski\\.nuget\\packages": {},
-          "http://devintranet/NuGetFeed/nuget/": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -134,7 +119,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
         }
       }
     }
