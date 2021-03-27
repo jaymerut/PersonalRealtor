@@ -29,13 +29,10 @@ namespace PersonalRealtor.Network.RealtorAPI.API
                     };
 
 
-                    _API = RestService.For<IRealtorAPI>(client, new RefitSettings()
-                    {
-                        ContentSerializer = new NewtonsoftJsonContentSerializer(new JsonSerializerSettings()
-                        {
+                    _API = RestService.For<IRealtorAPI>(client, new RefitSettings() {
+                        ContentSerializer = new JsonContentSerializer(new JsonSerializerSettings() {
                             NullValueHandling = NullValueHandling.Include,
-                            MissingMemberHandling = MissingMemberHandling.Ignore,
-                            Converters = { new StringEnumConverter() }
+                            MissingMemberHandling = MissingMemberHandling.Ignore
                         }),
                     });
 

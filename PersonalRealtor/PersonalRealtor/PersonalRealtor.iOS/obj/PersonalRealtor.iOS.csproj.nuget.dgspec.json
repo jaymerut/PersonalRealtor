@@ -42,7 +42,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.8.0.1451, )"
+              "version": "[5.0.0.2012, )"
             }
           }
         }
@@ -101,15 +101,11 @@
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[13.0.1, )"
+              "version": "[12.0.3, )"
             },
             "Refit": {
               "target": "Package",
-              "version": "[6.0.38, )"
-            },
-            "Refit.Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[6.0.38, )"
+              "version": "[5.2.1, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -117,7 +113,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.8.0.1451, )"
+              "version": "[5.0.0.2012, )"
             }
           },
           "imports": [

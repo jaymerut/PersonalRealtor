@@ -5,6 +5,8 @@ using PersonalRealtor.Views.Pages.RealtorListings.UI;
 using PersonalRealtor.Network.RealtorAPI.API;
 using PersonalRealtor.Models;
 using PersonalRealtor.Network.RealtorAPI.Models;
+using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace PersonalRealtor.Views.Pages.RealtorListings.Composer
 {
@@ -12,10 +14,16 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.Composer
     {
         public static RealtorListingsPage MakeRealtorListingsUI()
         {
-            RealtorListingsRequest request = new RealtorListingsRequest();
-            RealtorAPIAdapter adapter = new RealtorAPIAdapter(request);
-            var listings = adapter.RetrieveRealtorListingsData();
-            return new RealtorListingsPage(listings);
+            RealtorListingsRequest request = new RealtorListingsRequest()
+            {
+                FulfillmentIds = RealtorSingleton.Instance.FulfillmentIds,
+                Agents = RealtorSingleton.Instance.Agents,
+                Page = 1,
+                Type = "forSold"
+            };
+            //RealtorAPIAdapter adapter = new RealtorAPIAdapter(request);
+            //var data = adapter.RetrieveRealtorListingsDataAsync().Result;
+            return new RealtorListingsPage(request);
         }
 
     }
@@ -31,10 +39,9 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.Composer
             this.Request = request;
         }
 
-        public List<RealtorListingsData> RetrieveRealtorListingsData()
+        public async Task<RealtorListingsResponse> RetrieveRealtorListingsDataAsync()
         {
-            var response = this.API.RealtorListings(this.Request).Result;
-            return response.Data;
+            return await this.API.RealtorListings(this.Request);
         }
 
     }

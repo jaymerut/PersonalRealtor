@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:PersonalRealtor.Controls"
+             x:Class="PersonalRealtor.Views.Pages.Menu.UI.MenuPage"
+             Title="Master"
+             BackgroundColor="#444444"
+             >
+    <ContentView>
+        <StackLayout>
+            <ListView x:Name="ListView"
+                      ItemsSource="{Binding Options}"
+                      SeparatorVisibility="None"
+                      BackgroundColor="#444444"
+                      RowHeight="50"
+                      ItemTapped="ListView_ItemTapped"
+                      >
+                <ListView.Header>
+                    <StackLayout Padding="30, 30, 30, 30">
+                        <Image Source="menu_logo.png" HeightRequest="90" />
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <controls:SelectableViewCell SelectedBackgroundColor="#00000000">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="20, 0, 20, 0">
+                                <Image Source="{Binding Image.Source}" HeightRequest="24" WidthRequest="24" />
+                                <Label Text="{Binding Title}"
+                                       TextColor="#BBBBBB"
+                                       VerticalOptions="Center"
+                                       Margin="10, 0, 0, 0"
+                                       FontSize="16"
+                                       FontAttributes="Bold"/>
+                            </StackLayout>
+                        </controls:SelectableViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        
+        </StackLayout>
+        <!--
+        <ContentView.Effects>
+            <effects:SafeAreaPaddingTopEffect />
+            <effects:SafeAreaPaddingBottomEffect />
+        </ContentView.Effects>
+        -->
+    </ContentView>
+</ContentPage>
