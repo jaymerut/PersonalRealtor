@@ -10,16 +10,16 @@ namespace PersonalRealtor.Models
         [JsonProperty("type")]
         public string Type { get; set; }
         [JsonProperty("sold_date")]
-        public DateTime SoldDate { get; set; }
+        public DateTime? SoldDate { get; set; }
         [JsonProperty("sold_price")]
-        public long SoldPrice { get; set; }
+        public long? SoldPrice { get; set; }
         [JsonProperty("baths")]
-        public int Baths { get; set; }
+        public int? Baths { get; set; }
         [JsonProperty("beds")]
-        public int Beds { get; set; }
+        public int? Beds { get; set; }
         [JsonProperty("sqft")]
-        public int Sqft { get; set; }
+        public int? Sqft { get; set; }
         [JsonProperty("lot_sqft")]
-        public long LotSqft { get; set; }
+        public long? LotSqft { get; set; }
     }
 }

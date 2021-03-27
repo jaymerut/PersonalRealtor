@@ -8,8 +8,8 @@ namespace PersonalRealtor.Models
     public class Coordinates
     {
         [JsonProperty("lat")]
-        public float Latitude { get; set; }
+        public float? Latitude { get; set; }
         [JsonProperty("lon")]
-        public float Longitude { get; set; }
+        public float? Longitude { get; set; }
     }
 }

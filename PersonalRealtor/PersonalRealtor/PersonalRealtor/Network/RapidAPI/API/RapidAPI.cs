@@ -31,7 +31,7 @@ namespace PersonalRealtor.Network.RapidAPI.API
 
                     _API = RestService.For<IRapidAPI>(client, new RefitSettings()
                     {
-                        ContentSerializer = new NewtonsoftJsonContentSerializer(new JsonSerializerSettings()
+                        ContentSerializer = new JsonContentSerializer(new JsonSerializerSettings()
                         {
                             NullValueHandling = NullValueHandling.Include,
                             MissingMemberHandling = MissingMemberHandling.Ignore,

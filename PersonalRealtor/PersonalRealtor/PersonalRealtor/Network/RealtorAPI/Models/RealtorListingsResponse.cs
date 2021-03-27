@@ -9,6 +9,6 @@ namespace PersonalRealtor.Network.RealtorAPI.Models
     public class RealtorListingsResponse
     {
         [JsonProperty("data")]
-        public List<RealtorListingsData> Data { get; set; }
+        public RealtorListingsData Data { get; set; }
     }
 }

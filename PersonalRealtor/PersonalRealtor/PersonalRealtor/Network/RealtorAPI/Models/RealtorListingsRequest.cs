@@ -9,7 +9,7 @@ namespace PersonalRealtor.Network.RealtorAPI.Models
     public class RealtorListingsRequest
     {
         [JsonProperty("fulfillment_ids")]
-        public List<int> FulfillmentIds { get; set; }
+        public List<long> FulfillmentIds { get; set; }
         [JsonProperty("agents")]
         public List<Agent> Agents { get; set; }
         [JsonProperty("page")]

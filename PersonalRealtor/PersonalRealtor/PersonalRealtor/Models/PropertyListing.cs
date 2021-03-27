@@ -16,9 +16,9 @@ namespace PersonalRealtor.Models
         [JsonProperty("status")]
         public string Status { get; set; }
         [JsonProperty("list_price")]
-        public long ListPrice { get; set; }
+        public long? ListPrice { get; set; }
         [JsonProperty("list_date")]
-        public DateTime ListDate { get; set; }
+        public DateTime? ListDate { get; set; }
         [JsonProperty("primary_photo")]
         public Photo PrimaryPhoto { get; set; }
         [JsonProperty("description")]
