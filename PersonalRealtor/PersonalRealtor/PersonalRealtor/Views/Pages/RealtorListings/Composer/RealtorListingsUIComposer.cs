@@ -7,6 +7,7 @@ using PersonalRealtor.Models;
 using PersonalRealtor.Network.RealtorAPI.Models;
 using System.Threading.Tasks;
 using System.Net.Http;
+using PersonalRealtor.Components.DataTemplateSelectors;
 
 namespace PersonalRealtor.Views.Pages.RealtorListings.Composer
 {
@@ -21,9 +22,10 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.Composer
                 Page = 1,
                 Type = "forSold"
             };
+            var dataTemplateSelector = new PropertyListingDataTemplateSelector();
             //RealtorAPIAdapter adapter = new RealtorAPIAdapter(request);
             //var data = adapter.RetrieveRealtorListingsDataAsync().Result;
-            return new RealtorListingsPage(request);
+            return new RealtorListingsPage(request, dataTemplateSelector);
         }
 
     }

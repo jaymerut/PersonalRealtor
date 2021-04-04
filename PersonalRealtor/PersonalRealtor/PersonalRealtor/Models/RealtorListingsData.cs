@@ -15,5 +15,15 @@ namespace PersonalRealtor.Models
         public ListingTypeModel OpenHouses { get; set; }
         [JsonProperty("forSold")]
         public ListingTypeModel ForSold { get; set; }
+
+    }
+
+    public enum ListingType
+    {
+        All,
+        ForSale,
+        ForRent,
+        ForSold,
+        OpenHouse
     }
 }

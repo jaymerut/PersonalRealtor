@@ -26,4 +26,5 @@ namespace PersonalRealtor.Models
         [JsonProperty("location")]
         public PropertyLocation Location { get; set; }
     }
+
 }
