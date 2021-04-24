@@ -1,0 +1,15 @@
+﻿{
+  "fulfillment_ids": [
+    3626579
+  ],
+  "agents": [
+    {
+      "id": "PHAZ",
+      "agent_id": "SB839"
+    },
+    {
+      "id": "PSAZ",
+      "agent_id": "32256"
+    }
+  ]
+}

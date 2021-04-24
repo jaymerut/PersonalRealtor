@@ -25,8 +25,34 @@ namespace PersonalRealtor.Views.ViewCells
         // Display Logic
         private void UpdateListing(PropertyListing listing)
         {
-            LabelPrice.Text = listing.Status.ToLower().Equals("sold") ? listing.Desc.SoldPrice.ToString() : listing.ListPrice.ToString();
             ImagePhoto.Source = listing.PrimaryPhoto.Href.Replace(".jpg", "-w1020_h770_q90.jpg");
+            if (listing.IsForSale())
+            {
+                LabelBadge.Text = "FOR SALE";
+                FrameBadge.BackgroundColor = Color.FromHex("#3D850A");
+            }
+            else if (listing.IsForRent())
+            {
+                LabelBadge.Text = "FOR RENT";
+                FrameBadge.BackgroundColor = Color.FromHex("#1C5B99");
+            }
+            else if (listing.IsSold())
+            {
+                LabelBadge.Text = "SOLD";
+                FrameBadge.BackgroundColor = Color.Black;
+            }
+
+            LabelStreetAddress.Text = listing.Location.PermaLink.Line;
+            LabelPrice.Text = listing.IsSold() ? listing.Desc.GetSoldPriceString() : listing.GetListPriceString();
+            LabelCityState.Text = listing.Location.PermaLink.GetCityState();
+
+            LabelBed.Text = $"{listing.Desc.Beds} beds";
+            LabelBath.Text = $"{listing.Desc.Baths} baths";
+            LabelSqft.Text = $"{(listing.Desc.Sqft ?? 0).ToString("N0")} sqft";
+
+            LabelBed.IsVisible = listing.Desc.Beds > 0;
+            LabelBath.IsVisible = listing.Desc.Baths > 0;
+            LabelSqft.IsVisible = listing.Desc.Sqft > 0;
         }
 
         // UIRespondersß

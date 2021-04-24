@@ -20,7 +20,7 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.Composer
                 FulfillmentIds = RealtorSingleton.Instance.FulfillmentIds,
                 Agents = RealtorSingleton.Instance.Agents,
                 Page = 1,
-                Type = "forSold"
+                Type = "all"
             };
             var dataTemplateSelector = new PropertyListingDataTemplateSelector();
             //RealtorAPIAdapter adapter = new RealtorAPIAdapter(request);

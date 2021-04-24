@@ -66,6 +66,8 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
             {
                 this.Objects.Add(listing);
             }
+
+            this.ActivityIndicatorListView.IsVisible = false;
         }
 
         private List<PropertyListing> RetrieveListingsByListingType(ListingType listingType)
@@ -74,9 +76,10 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
             switch (listingType)
             {
                 case ListingType.All:
-                    propertyListings.AddRange(propertyListings = this.Response.Data.ForSale.Results);
-                    propertyListings.AddRange(propertyListings = this.Response.Data.ForRent.Results);
-                    propertyListings.AddRange(propertyListings = this.Response.Data.ForSold.Results);
+
+                    propertyListings.AddRange(this.Response.Data.ForSale.Results);
+                    propertyListings.AddRange(this.Response.Data.ForRent.Results);
+                    propertyListings.AddRange(this.Response.Data.ForSold.Results);
                     break;
                 case ListingType.ForSale:
                     propertyListings = this.Response.Data.ForSale.Results;

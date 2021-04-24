@@ -3,13 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PersonalRealtor.Views.ViewCells.PropertyListingViewCell">
   <ViewCell.View>
-    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <Label x:Name="LabelPrice" HeightRequest="20" />
-        <Image x:Name="ImagePhoto" HorizontalOptions="FillAndExpand"/>
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="14,20,14,10">
+            <Frame BackgroundColor="Transparent" HasShadow="False" CornerRadius="10" IsClippedToBounds="True" Margin="0" Padding="0" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="ImagePhoto" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="250" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"/>
+                    <Frame x:Name="FrameBadge" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="End" Margin="10" Padding="5">
+                        <Label x:Name="LabelBadge" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="12" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    </Frame>
+                </Grid>
+            </Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
 
-        <BoxView BackgroundColor="Transparent" HeightRequest="3" HorizontalOptions="FillAndExpand"/>
-        <BoxView BackgroundColor="#F6F6F6" HeightRequest="6" HorizontalOptions="FillAndExpand"/>
-        <BoxView BackgroundColor="Transparent" HeightRequest="3" HorizontalOptions="FillAndExpand"/>
+                <Label x:Name="LabelStreetAddress" Grid.Row="0" Grid.Column="0" LineBreakMode="WordWrap" FontSize="22"/>
+                <Label x:Name="LabelPrice" Grid.Row="0" Grid.Column="1" FontSize="24" Padding="0, 0, 0, 0" LineBreakMode="NoWrap" FontAttributes="Bold" HorizontalOptions="End" />
+            </Grid>
+            <Label x:Name="LabelCityState" FontSize="16" HorizontalOptions="Start" Margin="0, -5, 0, 0"/>
+            <StackLayout Spacing="10" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0, 5, 0, 0">
+                <Label x:Name="LabelBed" FontSize="18" HorizontalOptions="Start" />
+                <Label x:Name="LabelBath" FontSize="18" HorizontalOptions="CenterAndExpand" />
+                <Label x:Name="LabelSqft" FontSize="18" HorizontalOptions="End" />
+            </StackLayout>
+        </StackLayout>
+
+        <BoxView BackgroundColor="#D9D9D9" HeightRequest="2" HorizontalOptions="FillAndExpand"/>
+
     </StackLayout>
   </ViewCell.View>
 </ViewCell>
