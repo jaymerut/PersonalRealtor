@@ -18,13 +18,13 @@
           "/Users/jaymerutkoski/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "monoandroid90"
+          "monoandroid11.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "monoandroid90": {
+          "monoandroid11.0": {
             "projectReferences": {
               "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj": {
                 "projectPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj"
@@ -34,8 +34,20 @@
         }
       },
       "frameworks": {
-        "monoandroid90": {
+        "monoandroid11.0": {
           "dependencies": {
+            "Plugin.SegmentedControl.Netstandard": {
+              "target": "Package",
+              "version": "[5.4.5, )"
+            },
+            "Xamarin.AndroidX.MediaRouter": {
+              "target": "Package",
+              "version": "[1.2.2.1, )"
+            },
+            "Xamarin.AndroidX.Palette": {
+              "target": "Package",
+              "version": "[1.0.0.7, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.5.3.2, )"
@@ -92,6 +104,10 @@
               "target": "Package",
               "version": "[12.0.3, )"
             },
+            "Plugin.SegmentedControl.Netstandard": {
+              "target": "Package",
+              "version": "[5.4.5, )"
+            },
             "Refit": {
               "target": "Package",
               "version": "[5.2.1, )"
@@ -115,7 +131,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
         }
       }
     }

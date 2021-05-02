@@ -23,6 +23,20 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Plugin.SegmentedControl.Netstandard/5.4.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "4.8.0.1269"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Plugin.Segmented.Control.iOS.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Segmented.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Plugin.Segmented.Control.iOS.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Segmented.dll": {}
+        }
+      },
       "Refit/5.2.1": {
         "type": "package",
         "dependencies": {
@@ -231,6 +245,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
+          "Plugin.SegmentedControl.Netstandard": "5.4.5",
           "Refit": "5.2.1",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "5.0.0.2012"
@@ -265,6 +280,20 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Plugin.SegmentedControl.Netstandard/5.4.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "4.8.0.1269"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Plugin.Segmented.Control.iOS.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Segmented.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Plugin.Segmented.Control.iOS.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Segmented.dll": {}
+        }
+      },
       "Refit/5.2.1": {
         "type": "package",
         "dependencies": {
@@ -473,6 +502,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
+          "Plugin.SegmentedControl.Netstandard": "5.4.5",
           "Refit": "5.2.1",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "5.0.0.2012"
@@ -507,6 +537,20 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Plugin.SegmentedControl.Netstandard/5.4.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "4.8.0.1269"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Plugin.Segmented.Control.iOS.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Segmented.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Plugin.Segmented.Control.iOS.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Segmented.dll": {}
+        }
+      },
       "Refit/5.2.1": {
         "type": "package",
         "dependencies": {
@@ -715,6 +759,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
+          "Plugin.SegmentedControl.Netstandard": "5.4.5",
           "Refit": "5.2.1",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "5.0.0.2012"
@@ -749,6 +794,20 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
+      "Plugin.SegmentedControl.Netstandard/5.4.5": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "4.8.0.1269"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Plugin.Segmented.Control.iOS.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Segmented.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Plugin.Segmented.Control.iOS.dll": {},
+          "lib/Xamarin.iOS10/Plugin.Segmented.dll": {}
+        }
+      },
       "Refit/5.2.1": {
         "type": "package",
         "dependencies": {
@@ -957,6 +1016,7 @@
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
+          "Plugin.SegmentedControl.Netstandard": "5.4.5",
           "Refit": "5.2.1",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "5.0.0.2012"
@@ -1024,6 +1084,38 @@
         "newtonsoft.json.12.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
+      ]
+    },
+    "Plugin.SegmentedControl.Netstandard/5.4.5": {
+      "sha512": "68P/FNSKWa/jnQngija+9gr8zX4yuxwWw+5YOediZkBmv7cRcXcemmF74B0BKjSzbuLu1Eb/C2GfKB4NksXI2w==",
+      "type": "package",
+      "path": "plugin.segmentedcontrol.netstandard/5.4.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "images/1iveowl-logo.png",
+        "lib/MonoAndroid10/Plugin.Segmented.Control.Droid.dll",
+        "lib/MonoAndroid10/Plugin.Segmented.Control.Droid.pdb",
+        "lib/MonoAndroid10/Plugin.Segmented.dll",
+        "lib/MonoAndroid10/Plugin.Segmented.pdb",
+        "lib/Xamarin.Mac20/Plugin.Segmented.dll",
+        "lib/Xamarin.Mac20/Plugin.Segmented.pdb",
+        "lib/Xamarin.iOS10/Plugin.Segmented.Control.iOS.dll",
+        "lib/Xamarin.iOS10/Plugin.Segmented.Control.iOS.dll.mdb",
+        "lib/Xamarin.iOS10/Plugin.Segmented.Control.iOS.pdb",
+        "lib/Xamarin.iOS10/Plugin.Segmented.dll",
+        "lib/Xamarin.iOS10/Plugin.Segmented.pdb",
+        "lib/netstandard2.0/Plugin.Segmented.deps.json",
+        "lib/netstandard2.0/Plugin.Segmented.dll",
+        "lib/netstandard2.0/Plugin.Segmented.pdb",
+        "lib/uap10.0/Plugin.Segmented.Control.UWP.dll",
+        "lib/uap10.0/Plugin.Segmented.Control.UWP.pdb",
+        "lib/uap10.0/Plugin.Segmented.Control.UWP.pri",
+        "lib/uap10.0/Plugin.Segmented.Control.UWP/Plugin.Segmented.Control.UWP.xr.xml",
+        "lib/uap10.0/Plugin.Segmented.dll",
+        "lib/uap10.0/Plugin.Segmented.pdb",
+        "plugin.segmentedcontrol.netstandard.5.4.5.nupkg.sha512",
+        "plugin.segmentedcontrol.netstandard.nuspec"
       ]
     },
     "Refit/5.2.1": {
@@ -1643,6 +1735,7 @@
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
       "PersonalRealtor >= 1.0.0",
+      "Plugin.SegmentedControl.Netstandard >= 5.4.5",
       "Xamarin.Essentials >= 1.5.3.2",
       "Xamarin.Forms >= 5.0.0.2012"
     ]
@@ -1682,6 +1775,10 @@
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
+          "Plugin.SegmentedControl.Netstandard": {
+            "target": "Package",
+            "version": "[5.4.5, )"
+          },
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.5.3.2, )"

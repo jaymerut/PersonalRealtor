@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MWtStWbEOuBX6RHibWb4CIIp76LsmS/vhVhkEYVomTow1JYjYioq965IutoFRejsx4f7dUQcW4OnFNHsvZ1Nfg==",
+  "dgSpecHash": "j0jOl6nKwl6tTEY1AlmOo3r8dr8ihufVlHz1CKcjQQ43gDv6C3yhj7LJU4RStP+HcLwNB5/E/OpITftpFX2t/Q==",
   "success": true,
   "projectFilePath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "/Users/jaymerutkoski/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/Users/jaymerutkoski/.nuget/packages/plugin.segmentedcontrol.netstandard/5.4.5/plugin.segmentedcontrol.netstandard.5.4.5.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/refit/5.2.1/refit.5.2.1.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",

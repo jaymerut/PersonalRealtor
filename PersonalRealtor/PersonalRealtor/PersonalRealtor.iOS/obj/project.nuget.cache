@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "dez8g2xechZ+kWiPTQysJQRE1R8R3IBrNUpbTPua/XZwkY73LbaYZZxrNY4Dkqj8paN6+t8hFCMV0TFHB+4wbA==",
+  "dgSpecHash": "gBBinxbWwogMWYmYAG+XnszRjVCr4T+auJYOOo2y55Z5yI65uW9Cc+4jZkzvF8l7imjxFjWY5YqyJOThij4tDw==",
   "success": true,
   "projectFilePath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.iOS/PersonalRealtor.iOS.csproj",
   "expectedPackageFiles": [
     "/Users/jaymerutkoski/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.0/microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/Users/jaymerutkoski/.nuget/packages/plugin.segmentedcontrol.netstandard/5.4.5/plugin.segmentedcontrol.netstandard.5.4.5.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/refit/5.2.1/refit.5.2.1.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/system.runtime.compilerservices.unsafe/4.7.1/system.runtime.compilerservices.unsafe.4.7.1.nupkg.sha512",
