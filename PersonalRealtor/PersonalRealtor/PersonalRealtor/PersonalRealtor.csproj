@@ -47,6 +47,9 @@
     <Folder Include="Controls\" />
     <Folder Include="Components\DataTemplateSelectors\" />
     <Folder Include="Views\ViewCells\" />
+    <Folder Include="Views\Pages\Details\" />
+    <Folder Include="Views\Pages\Details\Composer\" />
+    <Folder Include="Views\Pages\Details\UI\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />
