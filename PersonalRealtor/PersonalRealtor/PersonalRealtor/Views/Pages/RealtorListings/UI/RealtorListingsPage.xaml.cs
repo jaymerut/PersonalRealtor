@@ -11,6 +11,7 @@ using PersonalRealtor.Models;
 using PersonalRealtor.Network.RealtorAPI.Models;
 using PersonalRealtor.Network.RealtorAPI.API;
 using System.Collections.ObjectModel;
+using Plugin.Segmented;
 
 namespace PersonalRealtor.Views.Pages.RealtorListings.UI
 {
@@ -22,11 +23,13 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
         private RealtorListingsResponse Response;
         private DataTemplateSelector DataTemplateSelector;
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
-
+        public int SelectedSegment;
+            
         public RealtorListingsPage(RealtorListingsRequest request, DataTemplateSelector dataTemplateSelector)
         {
             this.Request = request;
             this.DataTemplateSelector = dataTemplateSelector;
+            this.BindingContext = this;
             InitializeComponent();
 
             SetUpRealtorListingsPage();
@@ -39,7 +42,7 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
 
             // Data
             await RetrieveRealtorListingsAsync();
-
+            RetrieveListingsByListingType(ListingType.All);
         }
         #endregion
 
@@ -53,6 +56,8 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
             RealtorListingsListView.ItemTemplate = this.DataTemplateSelector;
             RealtorListingsListView.HasUnevenRows = true;
             //RealtorListingsListView.ItemAppearing += CarrierLeadListView_ItemAppearingAsync;
+
+            SelectedSegment = 0;
         }
 
         // Data Logic
@@ -60,41 +65,62 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
         {
             var response = await RealtorAPI.RealtorListings(this.Request);
             this.Response = response;
-            var listings = RetrieveListingsByListingType(ListingType.All);
-
-            foreach(var listing in listings)
-            {
-                this.Objects.Add(listing);
-            }
-
-            this.ActivityIndicatorListView.IsVisible = false;
         }
 
-        private List<PropertyListing> RetrieveListingsByListingType(ListingType listingType)
+        private void RetrieveListingsByListingType(ListingType listingType)
         {
+            this.Objects.Clear();
             List<PropertyListing> propertyListings = new List<PropertyListing>();
-            switch (listingType)
+            if (this.Response != null)
             {
-                case ListingType.All:
+                switch (listingType)
+                {
+                    case ListingType.All:
 
-                    propertyListings.AddRange(this.Response.Data.ForSale.Results);
-                    propertyListings.AddRange(this.Response.Data.ForRent.Results);
-                    propertyListings.AddRange(this.Response.Data.ForSold.Results);
+                        propertyListings.AddRange(this.Response.Data.ForSale.Results);
+                        propertyListings.AddRange(this.Response.Data.ForRent.Results);
+                        propertyListings.AddRange(this.Response.Data.ForSold.Results);
+                        break;
+                    case ListingType.ForSale:
+                        propertyListings = this.Response.Data.ForSale.Results;
+                        break;
+                    case ListingType.ForRent:
+                        propertyListings = this.Response.Data.ForRent.Results;
+                        break;
+                    case ListingType.ForSold:
+                        propertyListings = this.Response.Data.ForSold.Results;
+                        break;
+                    default:
+                        break;
+                }
+
+                foreach (var listing in propertyListings)
+                {
+                    this.Objects.Add(listing);
+                }
+
+                this.ActivityIndicatorListView.IsVisible = false;
+            }
+        }
+
+        private void SegmentedControl_OnSegmentSelected(System.Object sender, Plugin.Segmented.Event.SegmentSelectEventArgs e)
+        {
+            this.ActivityIndicatorListView.IsVisible = true;
+            var selectedOption = this.SegmentedControl.Children.ToList()[e.NewValue];
+            switch(selectedOption.Text)
+            {
+                case "All":
+                    RetrieveListingsByListingType(ListingType.All);
                     break;
-                case ListingType.ForSale:
-                    propertyListings = this.Response.Data.ForSale.Results;
+                case "For Sale":
+                    RetrieveListingsByListingType(ListingType.ForSale);
                     break;
-                case ListingType.ForRent:
-                    propertyListings = this.Response.Data.ForRent.Results;
-                    break;
-                case ListingType.ForSold:
-                    propertyListings = this.Response.Data.ForSold.Results;
+                case "Sold":
+                    RetrieveListingsByListingType(ListingType.ForSold);
                     break;
                 default:
                     break;
             }
-
-            return propertyListings;
         }
     }
 }

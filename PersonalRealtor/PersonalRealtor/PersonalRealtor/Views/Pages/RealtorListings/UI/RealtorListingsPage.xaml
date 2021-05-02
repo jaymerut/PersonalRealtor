@@ -1,12 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:Plugin.Segmented.Control;assembly=Plugin.Segmented"
              x:Class="PersonalRealtor.Views.Pages.RealtorListings.UI.RealtorListingsPage"
              x:Name="RealtorListings">
     <ContentPage.Content>
         <AbsoluteLayout>
             <ActivityIndicator x:Name="ActivityIndicatorListView" IsRunning="True" AbsoluteLayout.LayoutBounds="0.5, 0.5, 25, 25" AbsoluteLayout.LayoutFlags="All" />
             <StackLayout Spacing="0" BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <control:SegmentedControl x:Name="SegmentedControl" SelectedSegment="{Binding SegmentSelection}" OnSegmentSelected="SegmentedControl_OnSegmentSelected" TintColor="Black" TextColor="Black" SelectedTextColor="White" DisabledColor="Gray" Margin="8,8,8,8">  
+                    <control:SegmentedControl.Children>
+                        <control:SegmentedControlOption Text="All" />  
+                        <control:SegmentedControlOption Text="For Sale" />
+                        <control:SegmentedControlOption Text="Sold" />
+                    </control:SegmentedControl.Children>  
+                </control:SegmentedControl>
                 <ScrollView x:Name="ScrollViewList" BackgroundColor="Transparent" VerticalOptions="FillAndExpand">
                     <ListView x:Name="RealtorListingsListView" BackgroundColor="Transparent"/>
                 </ScrollView>

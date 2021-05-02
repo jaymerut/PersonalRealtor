@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Plugin.Segmented.Control.iOS;
 using UIKit;
 
 namespace PersonalRealtor.iOS
@@ -23,6 +24,7 @@ namespace PersonalRealtor.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            SegmentedControlRenderer.Initialize();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
