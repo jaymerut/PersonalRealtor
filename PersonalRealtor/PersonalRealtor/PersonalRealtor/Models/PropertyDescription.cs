@@ -21,5 +21,10 @@ namespace PersonalRealtor.Models
         public int? Sqft { get; set; }
         [JsonProperty("lot_sqft")]
         public long? LotSqft { get; set; }
+
+        public string GetSoldPriceString()
+        {
+            return $"${(SoldPrice ?? 0).ToString("N0")}";
+        }
     }
 }

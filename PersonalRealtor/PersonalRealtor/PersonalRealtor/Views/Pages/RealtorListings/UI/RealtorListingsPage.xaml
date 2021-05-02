@@ -1,12 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PersonalRealtor.Views.Pages.RealtorListings.UI.RealtorListingsPage">
+             x:Class="PersonalRealtor.Views.Pages.RealtorListings.UI.RealtorListingsPage"
+             x:Name="RealtorListings">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Realtor Listings!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <AbsoluteLayout>
+            <ActivityIndicator x:Name="ActivityIndicatorListView" IsRunning="True" AbsoluteLayout.LayoutBounds="0.5, 0.5, 25, 25" AbsoluteLayout.LayoutFlags="All" />
+            <StackLayout Spacing="0" BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <ScrollView x:Name="ScrollViewList" BackgroundColor="Transparent" VerticalOptions="FillAndExpand">
+                    <ListView x:Name="RealtorListingsListView" BackgroundColor="Transparent"/>
+                </ScrollView>
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

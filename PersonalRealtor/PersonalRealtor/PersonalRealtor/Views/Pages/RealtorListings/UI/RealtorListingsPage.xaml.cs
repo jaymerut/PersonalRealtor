@@ -10,6 +10,7 @@ using PersonalRealtor.Network.RealtorAPI;
 using PersonalRealtor.Models;
 using PersonalRealtor.Network.RealtorAPI.Models;
 using PersonalRealtor.Network.RealtorAPI.API;
+using System.Collections.ObjectModel;
 
 namespace PersonalRealtor.Views.Pages.RealtorListings.UI
 {
@@ -19,11 +20,16 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
         private RealtorListingsRequest Request;
         private RealtorAPI RealtorAPI = new RealtorAPI();
         private RealtorListingsResponse Response;
+        private DataTemplateSelector DataTemplateSelector;
+        private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
 
-        public RealtorListingsPage(RealtorListingsRequest request)
+        public RealtorListingsPage(RealtorListingsRequest request, DataTemplateSelector dataTemplateSelector)
         {
             this.Request = request;
+            this.DataTemplateSelector = dataTemplateSelector;
             InitializeComponent();
+
+            SetUpRealtorListingsPage();
         }
 
         #region - ContentPage Lifecycle Methods
@@ -32,18 +38,63 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
             base.OnAppearing();
 
             // Data
-            await RetrieveLoadDetailsAsync();
+            await RetrieveRealtorListingsAsync();
 
-            var test = this.Response.Data;
         }
         #endregion
 
-        // Data Logic
-        private async Task RetrieveLoadDetailsAsync()
+        private void SetUpRealtorListingsPage()
         {
+            RealtorListingsListView.VerticalOptions = LayoutOptions.FillAndExpand;
+            RealtorListingsListView.HorizontalOptions = LayoutOptions.FillAndExpand;
+            RealtorListingsListView.SeparatorVisibility = SeparatorVisibility.None;
+            //RealtorListingsListView.ItemSelected += OnListViewItemSelected;
+            RealtorListingsListView.ItemsSource = Objects;
+            RealtorListingsListView.ItemTemplate = this.DataTemplateSelector;
+            RealtorListingsListView.HasUnevenRows = true;
+            //RealtorListingsListView.ItemAppearing += CarrierLeadListView_ItemAppearingAsync;
+        }
 
+        // Data Logic
+        private async Task RetrieveRealtorListingsAsync()
+        {
             var response = await RealtorAPI.RealtorListings(this.Request);
             this.Response = response;
+            var listings = RetrieveListingsByListingType(ListingType.All);
+
+            foreach(var listing in listings)
+            {
+                this.Objects.Add(listing);
+            }
+
+            this.ActivityIndicatorListView.IsVisible = false;
+        }
+
+        private List<PropertyListing> RetrieveListingsByListingType(ListingType listingType)
+        {
+            List<PropertyListing> propertyListings = new List<PropertyListing>();
+            switch (listingType)
+            {
+                case ListingType.All:
+
+                    propertyListings.AddRange(this.Response.Data.ForSale.Results);
+                    propertyListings.AddRange(this.Response.Data.ForRent.Results);
+                    propertyListings.AddRange(this.Response.Data.ForSold.Results);
+                    break;
+                case ListingType.ForSale:
+                    propertyListings = this.Response.Data.ForSale.Results;
+                    break;
+                case ListingType.ForRent:
+                    propertyListings = this.Response.Data.ForRent.Results;
+                    break;
+                case ListingType.ForSold:
+                    propertyListings = this.Response.Data.ForSold.Results;
+                    break;
+                default:
+                    break;
+            }
+
+            return propertyListings;
         }
     }
 }

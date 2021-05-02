@@ -7,6 +7,7 @@ using PersonalRealtor.Models;
 using PersonalRealtor.Network.RealtorAPI.Models;
 using System.Threading.Tasks;
 using System.Net.Http;
+using PersonalRealtor.Components.DataTemplateSelectors;
 
 namespace PersonalRealtor.Views.Pages.RealtorListings.Composer
 {
@@ -19,11 +20,12 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.Composer
                 FulfillmentIds = RealtorSingleton.Instance.FulfillmentIds,
                 Agents = RealtorSingleton.Instance.Agents,
                 Page = 1,
-                Type = "forSold"
+                Type = "all"
             };
+            var dataTemplateSelector = new PropertyListingDataTemplateSelector();
             //RealtorAPIAdapter adapter = new RealtorAPIAdapter(request);
             //var data = adapter.RetrieveRealtorListingsDataAsync().Result;
-            return new RealtorListingsPage(request);
+            return new RealtorListingsPage(request, dataTemplateSelector);
         }
 
     }

@@ -21,5 +21,10 @@ namespace PersonalRealtor.Models
         public string Country { get; set; }
         [JsonProperty("coordinate")]
         public Coordinates Coordinate { get; set; }
+
+        public string GetCityState()
+        {
+            return $"{City}, {StateCode} {PostalCode}";
+        }
     }
 }

@@ -25,5 +25,24 @@ namespace PersonalRealtor.Models
         public PropertyDescription Desc { get; set; }
         [JsonProperty("location")]
         public PropertyLocation Location { get; set; }
+
+        public string GetListPriceString()
+        {
+            return $"${(ListPrice ?? 0).ToString("N0")}";
+        }
+
+        public bool IsForSale()
+        {
+            return Status.ToLower().Equals("for_sale");
+        }
+        public bool IsForRent()
+        {
+            return Status.ToLower().Equals("for_rent");
+        }
+        public bool IsSold()
+        {
+            return Status.ToLower().Equals("sold");
+        }
     }
+
 }

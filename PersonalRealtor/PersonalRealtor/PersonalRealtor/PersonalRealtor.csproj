@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Realtors\CoreyMarshall.json" />
+    <EmbeddedResource Include="Realtors\ScottBryant.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Views\Pages\BrowseListings\UI\BrowseListingsPage.xaml">
@@ -43,8 +44,11 @@
     <Folder Include="Views\Pages\Menu\Composer\" />
     <Folder Include="Views\Pages\Menu\UI\" />
     <Folder Include="Controls\" />
+    <Folder Include="Components\DataTemplateSelectors\" />
+    <Folder Include="Views\ViewCells\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />
+    <None Remove="Realtors\ScottBryant.json" />
   </ItemGroup>
 </Project>

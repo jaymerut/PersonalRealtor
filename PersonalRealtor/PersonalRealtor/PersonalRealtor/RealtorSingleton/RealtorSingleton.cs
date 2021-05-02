@@ -30,7 +30,7 @@ namespace PersonalRealtor
                     {
 
                         var assembly = typeof(RealtorListingsPage).GetTypeInfo().Assembly;
-                        Stream stream = assembly.GetManifestResourceStream("PersonalRealtor.Realtors.CoreyMarshall.json");
+                        Stream stream = assembly.GetManifestResourceStream("PersonalRealtor.Realtors.ScottBryant.json");
                         using (var reader = new System.IO.StreamReader(stream))
                         {
                             var jsonString = reader.ReadToEnd();
