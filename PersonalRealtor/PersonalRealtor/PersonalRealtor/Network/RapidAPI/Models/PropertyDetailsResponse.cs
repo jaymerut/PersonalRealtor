@@ -8,7 +8,7 @@ namespace PersonalRealtor.Network.RapidAPI.Models
 {
     public class PropertyDetailsResponse
     {
-        [JsonProperty("meta")]
-        public PropertyDetailsData Data { get; set; }
+        [JsonProperty("properties")]
+        public List<PropertyDetailsProp> Properties { get; set; }
     }
 }

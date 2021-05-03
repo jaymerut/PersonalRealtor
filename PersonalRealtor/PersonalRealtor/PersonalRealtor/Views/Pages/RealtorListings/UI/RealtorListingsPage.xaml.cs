@@ -125,7 +125,7 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
 
         private void RealtorListingsListView_ItemSelected(Object sender, SelectedItemChangedEventArgs e)
         {
-            var listing = (PropertyListing)sender;
+            var listing = (PropertyListing)e.SelectedItem;
             _ = Navigation.PushAsync(DetailsUIComposer.MakeDetailsUI(listing.PropertyId));
         }
         #endregion

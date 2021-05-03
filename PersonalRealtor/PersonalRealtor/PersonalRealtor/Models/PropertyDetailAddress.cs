@@ -29,5 +29,10 @@ namespace PersonalRealtor.Models
         public float Latitude { get; set; }
         [JsonProperty("lon")]
         public float Longitude { get; set; }
+
+        public string GetCityState()
+        {
+            return $"{City}, {StateCode} {PostalCode}";
+        }
     }
 }

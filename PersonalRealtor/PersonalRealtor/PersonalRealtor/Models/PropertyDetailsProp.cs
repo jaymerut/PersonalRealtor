@@ -13,6 +13,8 @@ namespace PersonalRealtor.Models
         public string PropStatus { get; set; }
         [JsonProperty("listing_id")]
         public string ListingId { get; set; }
+        [JsonProperty("price")]
+        public long? Price { get; set; }
         [JsonProperty("prop_type")]
         public string PropType { get; set; }
         [JsonProperty("list_date")]
@@ -49,5 +51,22 @@ namespace PersonalRealtor.Models
         public List<PropertyDetailFeature> Features { get; set; }
         [JsonProperty("photos")]
         public List<Photo> Photos { get; set; }
+
+        public string GetListPriceString()
+        {
+            return $"${(Price ?? 0).ToString("N0")}";
+        }
+        public bool IsForSale()
+        {
+            return ListingStatus.ToLower().Equals("for_sale");
+        }
+        public bool IsForRent()
+        {
+            return ListingStatus.ToLower().Equals("for_rent");
+        }
+        public bool IsSold()
+        {
+            return ListingStatus.ToLower().Equals("sold");
+        }
     }
 }
