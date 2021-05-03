@@ -12,19 +12,23 @@ using PersonalRealtor.Network.RealtorAPI.Models;
 using PersonalRealtor.Network.RealtorAPI.API;
 using System.Collections.ObjectModel;
 using Plugin.Segmented;
+using PersonalRealtor.Views.Pages.Details.Composer;
 
 namespace PersonalRealtor.Views.Pages.RealtorListings.UI
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RealtorListingsPage : ContentPage
     {
+        #region - Variables
         private RealtorListingsRequest Request;
         private RealtorAPI RealtorAPI = new RealtorAPI();
         private RealtorListingsResponse Response;
         private DataTemplateSelector DataTemplateSelector;
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
         public int SelectedSegment;
-            
+        #endregion
+
+        #region - Constructors
         public RealtorListingsPage(RealtorListingsRequest request, DataTemplateSelector dataTemplateSelector)
         {
             this.Request = request;
@@ -34,6 +38,7 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
 
             SetUpRealtorListingsPage();
         }
+        #endregion
 
         #region - ContentPage Lifecycle Methods
         protected override async void OnAppearing()
@@ -46,16 +51,11 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
         }
         #endregion
 
+        #region - Private Methods
         private void SetUpRealtorListingsPage()
         {
-            RealtorListingsListView.VerticalOptions = LayoutOptions.FillAndExpand;
-            RealtorListingsListView.HorizontalOptions = LayoutOptions.FillAndExpand;
-            RealtorListingsListView.SeparatorVisibility = SeparatorVisibility.None;
-            //RealtorListingsListView.ItemSelected += OnListViewItemSelected;
             RealtorListingsListView.ItemsSource = Objects;
             RealtorListingsListView.ItemTemplate = this.DataTemplateSelector;
-            RealtorListingsListView.HasUnevenRows = true;
-            //RealtorListingsListView.ItemAppearing += CarrierLeadListView_ItemAppearingAsync;
 
             SelectedSegment = 0;
         }
@@ -122,5 +122,15 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
                     break;
             }
         }
+
+        private void RealtorListingsListView_ItemSelected(Object sender, SelectedItemChangedEventArgs e)
+        {
+            var listing = (PropertyListing)sender;
+            _ = Navigation.PushAsync(DetailsUIComposer.MakeDetailsUI(listing.PropertyId));
+        }
+        #endregion
+
+        #region - Public API
+        #endregion
     }
 }
