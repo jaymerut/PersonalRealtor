@@ -50,6 +50,7 @@
     <Folder Include="Views\Pages\Details\" />
     <Folder Include="Views\Pages\Details\Composer\" />
     <Folder Include="Views\Pages\Details\UI\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />
