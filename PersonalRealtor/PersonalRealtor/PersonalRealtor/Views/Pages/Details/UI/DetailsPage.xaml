@@ -16,7 +16,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Image x:Name="ImagePhoto" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="250" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"/>
-                        <Frame x:Name="FrameBadge" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="End" Margin="10" Padding="5">
+                        <Frame x:Name="FrameBadge" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="End" Margin="10" Padding="5" IsVisible="false">
                             <Label x:Name="LabelBadge" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="12" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                         </Frame>
                     </Grid>
@@ -37,7 +37,7 @@
                 <StackLayout Spacing="10" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0, 5, 0, 0">
                     <Label x:Name="LabelBed" FontSize="18" HorizontalOptions="Start" />
                     <Label x:Name="LabelBath" FontSize="18" HorizontalOptions="CenterAndExpand" />
-                    <Label x:Name="LabelSqft" FontSize="18" HorizontalOptions="End" />
+                    <Label x:Name="LabelSqft" FontSize="18" HorizontalOptions="End" IsVisible="false" />
                 </StackLayout>
             </StackLayout>
         </AbsoluteLayout>

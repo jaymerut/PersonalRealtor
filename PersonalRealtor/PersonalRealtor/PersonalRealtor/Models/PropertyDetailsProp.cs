@@ -20,21 +20,21 @@ namespace PersonalRealtor.Models
         [JsonProperty("list_date")]
         public DateTime ListDate { get; set; }
         [JsonProperty("hoa_fee")]
-        public int HOAFee { get; set; }
+        public int? HOAFee { get; set; }
         [JsonProperty("list_update")]
         public DateTime ListUpdate { get; set; }
         [JsonProperty("year_built")]
-        public int YearBuilt { get; set; }
+        public int? YearBuilt { get; set; }
         [JsonProperty("listing_status")]
         public string ListingStatus { get; set; }
         [JsonProperty("beds")]
-        public int Beds { get; set; }
+        public int? Beds { get; set; }
         [JsonProperty("description")]
         public string Description { get; set; }
         [JsonProperty("baths_full")]
-        public int BathsFull { get; set; }
+        public int? BathsFull { get; set; }
         [JsonProperty("stories")]
-        public int Stories { get; set; }
+        public int? Stories { get; set; }
         /*
         [JsonProperty("schools")]
         public List<School> Schools { get; set; 
@@ -51,6 +51,8 @@ namespace PersonalRealtor.Models
         public List<PropertyDetailFeature> Features { get; set; }
         [JsonProperty("photos")]
         public List<Photo> Photos { get; set; }
+        [JsonProperty("building_size")]
+        public PropertyDetailsSize BuildingSize { get; set; }
 
         public string GetListPriceString()
         {
@@ -58,15 +60,15 @@ namespace PersonalRealtor.Models
         }
         public bool IsForSale()
         {
-            return ListingStatus.ToLower().Equals("for_sale");
+            return PropStatus.ToLower().Equals("for_sale");
         }
         public bool IsForRent()
         {
-            return ListingStatus.ToLower().Equals("for_rent");
+            return PropStatus.ToLower().Equals("for_rent");
         }
         public bool IsSold()
         {
-            return ListingStatus.ToLower().Equals("sold");
+            return PropStatus.ToLower().Equals("not_for_sale") || PropStatus.ToLower().Equals("recently_sold");
         }
     }
 }

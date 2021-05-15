@@ -26,9 +26,9 @@ namespace PersonalRealtor.Models
         [JsonProperty("time_zone")]
         public string TimeZone { get; set; }
         [JsonProperty("lat")]
-        public float Latitude { get; set; }
+        public float? Latitude { get; set; }
         [JsonProperty("lon")]
-        public float Longitude { get; set; }
+        public float? Longitude { get; set; }
 
         public string GetCityState()
         {

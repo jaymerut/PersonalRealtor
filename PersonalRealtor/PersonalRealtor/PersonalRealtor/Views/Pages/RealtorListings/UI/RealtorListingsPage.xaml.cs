@@ -45,15 +45,15 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
         {
             base.OnAppearing();
 
-            // Data
-            await RetrieveRealtorListingsAsync();
-            RetrieveListingsByListingType(ListingType.All);
         }
         #endregion
 
         #region - Private Methods
         private void SetUpRealtorListingsPage()
         {
+            // Data
+            _ = RetrieveRealtorListingsAsync();
+
             RealtorListingsListView.ItemsSource = Objects;
             RealtorListingsListView.ItemTemplate = this.DataTemplateSelector;
 
@@ -65,6 +65,8 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
         {
             var response = await RealtorAPI.RealtorListings(this.Request);
             this.Response = response;
+
+            RetrieveListingsByListingType(ListingType.All);
         }
 
         private void RetrieveListingsByListingType(ListingType listingType)
@@ -125,8 +127,17 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
 
         private void RealtorListingsListView_ItemSelected(Object sender, SelectedItemChangedEventArgs e)
         {
-            var listing = (PropertyListing)e.SelectedItem;
+            if (e.SelectedItem != null)
+            {
+                NavigateToDetails(e.SelectedItem as PropertyListing);
+            }
+        }
+
+        private void NavigateToDetails(PropertyListing listing)
+        {
             _ = Navigation.PushAsync(DetailsUIComposer.MakeDetailsUI(listing.PropertyId));
+
+            RealtorListingsListView.SelectedItem = null;
         }
         #endregion
 

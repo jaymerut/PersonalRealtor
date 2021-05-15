@@ -48,16 +48,19 @@ namespace PersonalRealtor.Views.Pages.Details.UI
             {
                 LabelBadge.Text = "FOR SALE";
                 FrameBadge.BackgroundColor = Color.FromHex("#3D850A");
+                this.FrameBadge.IsVisible = true;
             }
             else if (Details.IsForRent())
             {
                 LabelBadge.Text = "FOR RENT";
                 FrameBadge.BackgroundColor = Color.FromHex("#1C5B99");
+                this.FrameBadge.IsVisible = true;
             }
             else if (Details.IsSold())
             {
                 LabelBadge.Text = "SOLD";
                 FrameBadge.BackgroundColor = Color.Black;
+                this.FrameBadge.IsVisible = true;
             }
 
             LabelStreetAddress.Text = Details.Address.Line;
@@ -66,11 +69,16 @@ namespace PersonalRealtor.Views.Pages.Details.UI
 
             LabelBed.Text = $"{Details.Beds} beds";
             LabelBath.Text = $"{Details.BathsFull} baths";
-            LabelSqft.Text = $"{(0).ToString("N0")} sqft";
+            if (Details.BuildingSize != null)
+            {
+                LabelSqft.Text = $"{(Details.BuildingSize.Size).ToString("N0")} {Details.BuildingSize.Units}";
+                LabelSqft.IsVisible = Details.BuildingSize.Size > 0;
+            }
+            
 
             LabelBed.IsVisible = Details.Beds > 0;
             LabelBath.IsVisible = Details.BathsFull > 0;
-            LabelSqft.IsVisible = false;
+            
         }
         // Data Logic
         private async Task RetrievePropertyListingAsync(string propertyId)
