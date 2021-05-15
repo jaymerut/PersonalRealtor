@@ -1,4 +1,5 @@
 ﻿using System;
+using PersonalRealtor.Views.ViewCells;
 using Xamarin.Forms;
 
 namespace PersonalRealtor.Components.DataTemplateSelectors
@@ -9,7 +10,7 @@ namespace PersonalRealtor.Components.DataTemplateSelectors
 
         public PhotoDataTemplateSelector()
         {
-
+            DataTemplatePhoto = new DataTemplate(typeof(PhotoViewCell));
         }
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
