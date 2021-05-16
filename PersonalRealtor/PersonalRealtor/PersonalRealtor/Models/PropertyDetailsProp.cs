@@ -53,22 +53,5 @@ namespace PersonalRealtor.Models
         public List<Photo> Photos { get; set; }
         [JsonProperty("building_size")]
         public PropertyDetailsSize BuildingSize { get; set; }
-
-        public string GetListPriceString()
-        {
-            return $"${(Price ?? 0).ToString("N0")}";
-        }
-        public bool IsForSale()
-        {
-            return PropStatus.ToLower().Equals("for_sale");
-        }
-        public bool IsForRent()
-        {
-            return PropStatus.ToLower().Equals("for_rent");
-        }
-        public bool IsSold()
-        {
-            return PropStatus.ToLower().Equals("not_for_sale") || PropStatus.ToLower().Equals("recently_sold");
-        }
     }
 }
