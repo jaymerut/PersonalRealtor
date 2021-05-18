@@ -7,6 +7,7 @@ using PersonalRealtor.Models;
 using PersonalRealtor.Network.RapidAPI.API;
 using PersonalRealtor.Network.RapidAPI.Models;
 using PersonalRealtor.ViewModels;
+using PersonalRealtor.Components.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -43,11 +44,15 @@ namespace PersonalRealtor.Views.Pages.Details.UI
             await RetrievePropertyListingAsync(this.PropertyId);
             var photoViewModel = ConvertPropertyDetailsToPhotoViewModel(this.Details);
             var propertyInfoViewModel = ConvertPropertyDetailsToPropertyInfoViewModel(this.Details);
-            //var propertyAdditionalInfoViewModel = ConvertPropertyDetailsToPropertyAdditionalInfoViewModel(lead);
+            var propertyAdditionalInfoViewModelList = ConvertPropertyDetailsToPropertyAdditionalInfoViewModelList(this.Details);
             //var dropDownViewModel = ConvertPropertyDetailsToDropDownViewModel(lead);
 
             this.Objects.Add(photoViewModel);
             this.Objects.Add(propertyInfoViewModel);
+            foreach(var propertyAdditionalInfoViewModel in propertyAdditionalInfoViewModelList)
+            {
+                this.Objects.Add(propertyAdditionalInfoViewModel);
+            }
 
             SetUpDetailsPage();
         }
@@ -82,6 +87,59 @@ namespace PersonalRealtor.Views.Pages.Details.UI
                 BuildingSize = details.BuildingSize,
                 Price = details.Price
             };
+        }
+
+        private static List<PropertyAdditionalInfoViewModel> ConvertPropertyDetailsToPropertyAdditionalInfoViewModelList(PropertyDetailsProp details)
+        {
+            var result = new List<PropertyAdditionalInfoViewModel>();
+
+            if (!string.IsNullOrEmpty(details.PropType))
+            {
+                result.Add(new PropertyAdditionalInfoViewModel
+                {
+                    Name = "Property Type",
+                    Value = details.PropType.Replace("_", " ").ToCapitalize()
+                });
+            }
+
+            if (details.YearBuilt > 0)
+            {
+                result.Add(new PropertyAdditionalInfoViewModel
+                {
+                    Name = "Year Built",
+                    Value = details.YearBuilt.ToString()
+                });
+            }
+
+           if (details.Stories > 0)
+            {
+                result.Add(new PropertyAdditionalInfoViewModel
+                {
+                    Name = "Stories",
+                    Value = details.Stories.ToString()
+                });
+            }
+
+            if (!string.IsNullOrEmpty(details.Cooling))
+            {
+                result.Add(new PropertyAdditionalInfoViewModel
+                {
+                    Name = "Cooling",
+                    Value = details.Cooling
+                });
+            }
+
+            if (!string.IsNullOrEmpty(details.Heating))
+            {
+                result.Add(new PropertyAdditionalInfoViewModel
+                {
+                    Name = "Heating",
+                    Value = details.Heating
+                });
+
+            }
+            
+            return result;
         }
 
         // Data Logic
