@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonalRealtor.Views.ViewCells.PropertyFeatureViewCell">
+  <ViewCell.View>
+      <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="28,0,0,0" Margin="0,5,0,5">
+          <Label x:Name="LabelName" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold" />
+          <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#666666" HeightRequest="1" Margin="0,5,0,5"/> 
+          <Grid x:Name="GridFeature" RowSpacing="10" ColumnSpacing="15" Padding="0,0,28,0" VerticalOptions="StartAndExpand">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+              </Grid.RowDefinitions>
+          </Grid>
+      </StackLayout>
+  </ViewCell.View>
+</ViewCell>

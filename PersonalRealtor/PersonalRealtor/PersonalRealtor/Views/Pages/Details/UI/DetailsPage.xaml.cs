@@ -14,7 +14,7 @@ using Xamarin.Forms.Xaml;
 namespace PersonalRealtor.Views.Pages.Details.UI
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DetailsPage : ContentPage
+    public partial class DetailsPage : ContentPage, IDropDownDelegate
     {
         #region - Variables
         private RapidAPI RapidAPI = new RapidAPI();
@@ -42,17 +42,8 @@ namespace PersonalRealtor.Views.Pages.Details.UI
 
             // Data
             await RetrievePropertyListingAsync(this.PropertyId);
-            var photoViewModel = ConvertPropertyDetailsToPhotoViewModel(this.Details);
-            var propertyInfoViewModel = ConvertPropertyDetailsToPropertyInfoViewModel(this.Details);
-            var propertyAdditionalInfoViewModelList = ConvertPropertyDetailsToPropertyAdditionalInfoViewModelList(this.Details);
-            //var dropDownViewModel = ConvertPropertyDetailsToDropDownViewModel(lead);
 
-            this.Objects.Add(photoViewModel);
-            this.Objects.Add(propertyInfoViewModel);
-            foreach(var propertyAdditionalInfoViewModel in propertyAdditionalInfoViewModelList)
-            {
-                this.Objects.Add(propertyAdditionalInfoViewModel);
-            }
+            PopulateObjects();
 
             SetUpDetailsPage();
         }
@@ -68,7 +59,67 @@ namespace PersonalRealtor.Views.Pages.Details.UI
             this.ActivityIndicatorDetails.IsRunning = false;
         }
 
-        private static PhotoViewModel ConvertPropertyDetailsToPhotoViewModel(PropertyDetailsProp details)
+        private void PopulateObjects()
+        {
+            var photoViewModel = ConvertPropertyDetailsToPhotoViewModel(this.Details);
+            var propertyInfoViewModel = ConvertPropertyDetailsToPropertyInfoViewModel(this.Details);
+            var propertyAdditionalInfoViewModelList = ConvertPropertyDetailsToPropertyAdditionalInfoViewModelList(this.Details);
+            var dropDownViewModelList = ConvertPropertyDetailsToDropDownViewModelList();
+
+            this.Objects.Add(photoViewModel);
+            this.Objects.Add(propertyInfoViewModel);
+            foreach (var propertyAdditionalInfoViewModel in propertyAdditionalInfoViewModelList)
+            {
+                this.Objects.Add(propertyAdditionalInfoViewModel);
+            }
+            foreach (var dropDownViewModel in dropDownViewModelList)
+            {
+                this.Objects.Add(dropDownViewModel);
+            }
+        }
+
+        private void RefreshPage()
+        {
+            ObservableCollection<Object> UpdatedObjects = new ObservableCollection<Object>();
+
+            foreach (var obj in this.Objects)
+            {
+                UpdatedObjects.Add(obj);
+                if (obj is DropDownViewModel)
+                {
+                    if (((DropDownViewModel)obj).IsExpanded)
+                    {
+                        switch (((DropDownViewModel)obj).DropDownType) {
+                            case DropDownType.PROPERTY_FEATURES:
+                                foreach (var feature in this.Details.Features)
+                                {
+                                    UpdatedObjects.Add(new PropertyFeatureViewModel
+                                    {
+                                        Name = feature.Category,
+                                        Text = feature.Text
+                                    });
+                                }
+                                break;
+                            case DropDownType.PROPERTY_HISTORY:
+                                // TODO
+                                break;
+                            case DropDownType.PROPERTY_TAX:
+                                // TODO
+                                break;
+                            case DropDownType.SCHOOLS:
+                                // TODO
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+
+            DetailsListView.ItemsSource = UpdatedObjects;
+        }
+
+        private PhotoViewModel ConvertPropertyDetailsToPhotoViewModel(PropertyDetailsProp details)
         {
             return new PhotoViewModel
             {
@@ -77,7 +128,7 @@ namespace PersonalRealtor.Views.Pages.Details.UI
             };
         }
 
-        private static PropertyInfoViewModel ConvertPropertyDetailsToPropertyInfoViewModel(PropertyDetailsProp details)
+        private PropertyInfoViewModel ConvertPropertyDetailsToPropertyInfoViewModel(PropertyDetailsProp details)
         {
             return new PropertyInfoViewModel
             {
@@ -89,7 +140,7 @@ namespace PersonalRealtor.Views.Pages.Details.UI
             };
         }
 
-        private static List<PropertyAdditionalInfoViewModel> ConvertPropertyDetailsToPropertyAdditionalInfoViewModelList(PropertyDetailsProp details)
+        private List<PropertyAdditionalInfoViewModel> ConvertPropertyDetailsToPropertyAdditionalInfoViewModelList(PropertyDetailsProp details)
         {
             var result = new List<PropertyAdditionalInfoViewModel>();
 
@@ -142,17 +193,68 @@ namespace PersonalRealtor.Views.Pages.Details.UI
             return result;
         }
 
+        private List<DropDownViewModel> ConvertPropertyDetailsToDropDownViewModelList()
+        {
+            var result = new List<DropDownViewModel>();
+
+            result.Add(new DropDownViewModel
+            {
+                Name = "Property Features",
+                DropDownType = DropDownType.PROPERTY_FEATURES,
+                Delegate = this
+            });
+
+            result.Add(new DropDownViewModel
+            {
+                Name = "Property History",
+                DropDownType = DropDownType.PROPERTY_HISTORY,
+                Delegate = this
+            });
+
+            result.Add(new DropDownViewModel
+            {
+                Name = "Property Tax",
+                DropDownType = DropDownType.PROPERTY_TAX,
+                Delegate = this
+            });
+
+            result.Add(new DropDownViewModel
+            {
+                Name = "Schools",
+                DropDownType = DropDownType.SCHOOLS,
+                Delegate = this
+            });
+
+            return result;
+        }
+
         // Data Logic
         private async Task RetrievePropertyListingAsync(string propertyId)
         {
             var response = await RapidAPI.GetPropertyDetails(propertyId);
             this.Details = response.Properties.FirstOrDefault();
-
-            
         }
+
         #endregion
 
         #region - Public Methods
+
+        // DropDownDelegate
+        public void DropDownToggled(bool isExpanded, DropDownType dropDownType)
+        {
+            foreach (var obj in this.Objects)
+            {
+                if (obj is DropDownViewModel)
+                {
+                    if (((DropDownViewModel)obj).DropDownType == dropDownType)
+                    {
+                        ((DropDownViewModel)obj).IsExpanded = isExpanded;
+                    }
+                }
+            }
+
+            RefreshPage();
+        }
         #endregion
 
 
