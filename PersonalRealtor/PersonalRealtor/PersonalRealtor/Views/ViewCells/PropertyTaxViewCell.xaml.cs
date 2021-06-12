@@ -43,7 +43,11 @@ namespace PersonalRealtor.Views.ViewCells
 
         private void UpdatePropertyTax()
         {
-            // TODO: Update UI Here
+            this.LabelYear.Text = this.ViewModel.Year;
+            this.LabelTaxes.Text = this.ViewModel.GetTaxesString();
+            this.LabelLand.Text = this.ViewModel.GetLandString();
+            this.LabelAdditions.Text = this.ViewModel.GetAdditionsString();
+            this.LabelTotal.Text = this.ViewModel.GetTotalString();
         }
     }
 }

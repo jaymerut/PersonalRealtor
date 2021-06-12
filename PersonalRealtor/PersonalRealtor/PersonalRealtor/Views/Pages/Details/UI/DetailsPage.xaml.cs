@@ -117,7 +117,17 @@ namespace PersonalRealtor.Views.Pages.Details.UI
                                 }
                                 break;
                             case DropDownType.PROPERTY_TAX:
-                                // TODO
+                                foreach (var tax in this.Details.Taxes)
+                                {
+                                    UpdatedObjects.Add(new PropertyTaxViewModel
+                                    {
+                                        Year = tax.Year,
+                                        Taxes = tax.Tax,
+                                        Land = tax.Assessment?.Land,
+                                        Additions = tax.Assessment?.Building,
+                                        Total = tax.Assessment?.Total
+                                    });
+                                }
                                 break;
                             case DropDownType.SCHOOLS:
                                 // TODO
