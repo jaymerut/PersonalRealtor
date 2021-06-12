@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PersonalRealtor.Controls;
 using PersonalRealtor.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace PersonalRealtor.Views.ViewCells
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PropertyInfoViewCell : ViewCell
+    public partial class PropertyInfoViewCell : SelectableViewCell
     {
         private PropertyInfoViewModel ViewModel;
 

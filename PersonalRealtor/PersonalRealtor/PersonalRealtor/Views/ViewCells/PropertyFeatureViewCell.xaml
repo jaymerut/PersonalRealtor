@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+<controls:SelectableViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PersonalRealtor.Views.ViewCells.PropertyFeatureViewCell">
+             xmlns:controls="clr-namespace:PersonalRealtor.Controls"
+             x:Class="PersonalRealtor.Views.ViewCells.PropertyFeatureViewCell"
+             SelectedBackgroundColor="Transparent">
   <ViewCell.View>
       <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="28,0,0,0" Margin="0,5,0,5">
           <Label x:Name="LabelName" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="Medium" FontAttributes="Bold" />
@@ -13,4 +15,4 @@
           </Grid>
       </StackLayout>
   </ViewCell.View>
-</ViewCell>
+</controls:SelectableViewCell>
