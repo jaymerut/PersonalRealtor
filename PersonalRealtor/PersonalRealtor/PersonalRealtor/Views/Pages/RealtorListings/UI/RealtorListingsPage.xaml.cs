@@ -13,6 +13,9 @@ using PersonalRealtor.Network.RealtorAPI.API;
 using System.Collections.ObjectModel;
 using Plugin.Segmented;
 using PersonalRealtor.Views.Pages.Details.Composer;
+using PersonalRealtor.Network.RapidAPI.Models;
+using PersonalRealtor.Network.RapidAPI.API;
+using MoreLinq;
 
 namespace PersonalRealtor.Views.Pages.RealtorListings.UI
 {
@@ -20,18 +23,18 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
     public partial class RealtorListingsPage : ContentPage
     {
         #region - Variables
-        private RealtorListingsRequest Request;
-        private RealtorAPI RealtorAPI = new RealtorAPI();
-        private RealtorListingsResponse Response;
+        private List<AgentListingsRequest> RequestList;
+        private RapidAPI RapidAPI = new RapidAPI();
+        private AgentListingsResponse Response;
         private DataTemplateSelector DataTemplateSelector;
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
         public int SelectedSegment;
         #endregion
 
         #region - Constructors
-        public RealtorListingsPage(RealtorListingsRequest request, DataTemplateSelector dataTemplateSelector)
+        public RealtorListingsPage(List<AgentListingsRequest> requestList, DataTemplateSelector dataTemplateSelector)
         {
-            this.Request = request;
+            this.RequestList = requestList;
             this.DataTemplateSelector = dataTemplateSelector;
             this.BindingContext = this;
             InitializeComponent();
@@ -63,10 +66,71 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
         // Data Logic
         private async Task RetrieveRealtorListingsAsync()
         {
-            var response = await RealtorAPI.RealtorListings(this.Request);
-            this.Response = response;
+            List<AgentListingsResponse> responseList = new List<AgentListingsResponse>();
+
+            foreach (AgentListingsRequest request in this.RequestList)
+            {
+                var result = await RapidAPI.GetAgentListings(request);
+                responseList.Add(result);
+            }
+
+            this.Response = FilterDistinctListingsResponse(responseList);
 
             RetrieveListingsByListingType(ListingType.All);
+        }
+
+        private AgentListingsResponse FilterDistinctListingsResponse(List<AgentListingsResponse> responseList)
+        {
+            AgentListingsResponse response = new AgentListingsResponse()
+            {
+                Data = new RealtorListingsData()
+                {
+                    ForSale = new ListingTypeModel()
+                    {
+                        Results = new List<PropertyListing>()
+                    },
+                    ForRent = new ListingTypeModel()
+                    {
+                        Results = new List<PropertyListing>()
+                    },
+                    ForSold = new ListingTypeModel()
+                    {
+                        Results = new List<PropertyListing>()
+                    }
+                }
+            };
+
+            List<PropertyListing> ForSaleListings = new List<PropertyListing>();
+            List<PropertyListing> ForRentListings = new List<PropertyListing>();
+            List<PropertyListing> ForSoldListings = new List<PropertyListing>();
+
+            foreach (AgentListingsResponse agentResponse in responseList)
+            {
+                ForSaleListings.AddRange(agentResponse.Data.ForSale.Results);
+                ForRentListings.AddRange(agentResponse.Data.ForRent.Results);
+                ForSoldListings.AddRange(agentResponse.Data.ForSold.Results);
+
+                ForSaleListings = ForSaleListings.DistinctBy(x => x.ListingId).ToList();
+                ForRentListings = ForRentListings.DistinctBy(x => x.ListingId).ToList();
+                ForSoldListings = ForSoldListings.DistinctBy(x => x.ListingId).ToList();
+            }
+
+            // ForSale
+            response.Data.ForSale.Results.AddRange(ForSaleListings);
+            response.Data.ForSale.Total = ForSaleListings.Count;
+            response.Data.ForSale.Count = ForSaleListings.Count;
+
+            // ForRent
+            response.Data.ForRent.Results.AddRange(ForRentListings);
+            response.Data.ForRent.Total = ForRentListings.Count;
+            response.Data.ForRent.Count = ForRentListings.Count;
+
+            // ForSold
+            response.Data.ForSold.Results.AddRange(ForSoldListings);
+            response.Data.ForSold.Total = ForSoldListings.Count;
+            response.Data.ForSold.Count = ForSoldListings.Count;
+
+            return response;
         }
 
         private void RetrieveListingsByListingType(ListingType listingType)
@@ -78,7 +142,7 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
                 switch (listingType)
                 {
                     case ListingType.All:
-
+                        
                         propertyListings.AddRange(this.Response.Data.ForSale.Results);
                         propertyListings.AddRange(this.Response.Data.ForRent.Results);
                         propertyListings.AddRange(this.Response.Data.ForSold.Results);

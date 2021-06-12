@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ksaRo8ByfU+mb011LdTGjMogvJZvSwj8pDEXcCviY08R2yZxWmpZgbEYjjvD1eOuexaSKX9seQ1PHNqrO0JBDw==",
+  "dgSpecHash": "g9B3x2z++aqjawZ9Xl+IgJ4KLWBgMH9OaY6Hy6MNawy9nSK8kohncBILKMFmPHGNO/v2x6FplkSFmee7Q929Mg==",
   "success": true,
   "projectFilePath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.Android/PersonalRealtor.Android.csproj",
   "expectedPackageFiles": [
     "/Users/jaymerutkoski/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.0/microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
+    "/Users/jaymerutkoski/.nuget/packages/morelinq/3.3.2/morelinq.3.3.2.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/plugin.segmentedcontrol.netstandard/5.4.5/plugin.segmentedcontrol.netstandard.5.4.5.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/refit/5.2.1/refit.5.2.1.nupkg.sha512",
