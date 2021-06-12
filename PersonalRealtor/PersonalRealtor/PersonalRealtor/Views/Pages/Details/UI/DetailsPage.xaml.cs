@@ -241,12 +241,15 @@ namespace PersonalRealtor.Views.Pages.Details.UI
                 Delegate = this
             });
 
+            // TODO: Add Schools In Future Task
+            /*
             result.Add(new DropDownViewModel
             {
                 Name = "Schools",
                 DropDownType = DropDownType.SCHOOLS,
                 Delegate = this
             });
+            */
 
             return result;
         }
@@ -254,12 +257,11 @@ namespace PersonalRealtor.Views.Pages.Details.UI
         // Data Logic
         private async Task RetrievePropertyListingAsync(string propertyId)
         {
-
+            // TODO: Uncomment this when updating Details Model
+            /*
             var response = await RapidAPI.GetPropertyDetails(propertyId);
             this.Details = response.Properties.FirstOrDefault();
-
-            // TODO: Uncomment Once Details is complete
-            /*
+            */
             if (!Barrel.Current.IsExpired(key: BarrelKey))
             {
                 this.Details = Barrel.Current.Get<PropertyDetailsProp>(key: BarrelKey);
@@ -270,7 +272,7 @@ namespace PersonalRealtor.Views.Pages.Details.UI
                 this.Details = response.Properties.FirstOrDefault();
                 Barrel.Current.Add(key: BarrelKey, data: this.Details, expireIn: TimeSpan.FromDays(1));
             }
-            */
+
         }
 
         #endregion
