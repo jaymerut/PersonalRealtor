@@ -12,6 +12,7 @@ namespace PersonalRealtor.Components.DataTemplateSelectors
         public DataTemplate DataTemplatePropertyAdditionalInfo { get; set; }
         public DataTemplate DataTemplateDropDown { get; set; }
         public DataTemplate DataTemplatePropertyFeature { get; set; }
+        public DataTemplate DataTemplatePropertyHistory { get; set; }
 
         public DetailsDataTemplateSelector()
         {
@@ -20,6 +21,7 @@ namespace PersonalRealtor.Components.DataTemplateSelectors
             DataTemplatePropertyAdditionalInfo = new DataTemplate(typeof(PropertyAdditionalInfoViewCell));
             DataTemplateDropDown = new DataTemplate(typeof(DropDownViewCell));
             DataTemplatePropertyFeature = new DataTemplate(typeof(PropertyFeatureViewCell));
+            DataTemplatePropertyHistory = new DataTemplate(typeof(PropertyHistoryViewCell));
         }
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
@@ -42,6 +44,10 @@ namespace PersonalRealtor.Components.DataTemplateSelectors
             else if (item is PropertyFeatureViewModel)
             {
                 return DataTemplatePropertyFeature;
+            }
+            else if (item is PropertyHistoryViewModel)
+            {
+                return DataTemplatePropertyHistory;
             }
             return new DataTemplate(typeof(ViewCell));
         }
