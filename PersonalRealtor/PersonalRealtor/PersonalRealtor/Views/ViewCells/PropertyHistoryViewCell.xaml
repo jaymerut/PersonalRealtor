@@ -5,8 +5,24 @@
              x:Class="PersonalRealtor.Views.ViewCells.PropertyHistoryViewCell"
              SelectedBackgroundColor="Transparent">
   <ViewCell.View>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
+      <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="14,15,14,0" Margin="0,5,0,5">
+
+          <Grid x:Name="GridHistory" RowSpacing="15" ColumnSpacing="15" Padding="0, 0, 0, 20" VerticalOptions="StartAndExpand">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+              </Grid.RowDefinitions>
+
+              <Label Text="Date" FontSize="Small" FontAttributes="Bold" VerticalOptions="Start" />
+              <Label Grid.Column="1" Text="Event" FontSize="Small" FontAttributes="Bold" VerticalOptions="Start"  />
+              <Label Grid.Column="2" Text="Price" FontSize="Small" FontAttributes="Bold" VerticalOptions="Start" />
+              <Label Grid.Column="3" Text="Price/Sqft" FontSize="Small" FontAttributes="Bold" VerticalOptions="Start" />
+
+              <Label Grid.Row="1" x:Name="LabelDate" FontSize="Small" VerticalOptions="Start" />
+              <Label Grid.Row="1" Grid.Column="1" x:Name="LabelEvent" FontSize="Small" VerticalOptions="Start"  />
+              <Label Grid.Row="1" Grid.Column="2" x:Name="LabelPrice" FontSize="Small" VerticalOptions="Start" />
+              <Label Grid.Row="1" Grid.Column="3" x:Name="LabelPricePerSqft" FontSize="Small" VerticalOptions="Start"  />
+          </Grid>
+
       </StackLayout>
   </ViewCell.View>
 </controls:SelectableViewCell>

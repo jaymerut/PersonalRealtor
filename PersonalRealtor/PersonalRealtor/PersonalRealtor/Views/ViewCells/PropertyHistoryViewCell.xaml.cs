@@ -43,7 +43,10 @@ namespace PersonalRealtor.Views.ViewCells
 
         private void UpdatePropertyHistory()
         {
-            // TODO: Setup Here
+            this.LabelDate.Text = this.ViewModel.Date?.ToString("MM/dd/yyyy");
+            this.LabelEvent.Text = this.ViewModel.EventName;
+            this.LabelPrice.Text = this.ViewModel.GetPriceString();
+            this.LabelPricePerSqft.Text = this.ViewModel.GetPricePerSqftString();
         }
     }
 }

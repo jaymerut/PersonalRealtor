@@ -20,7 +20,8 @@ namespace PersonalRealtor.ViewModels
 
         public string GetPricePerSqftString()
         {
-            return $"${(Price/Sqft ?? 0).ToString("N0")}";
+
+            return Sqft > 0 ? $"${(Price/Sqft ?? 0).ToString("N0")}" : " - ";
         }
     }
 }
