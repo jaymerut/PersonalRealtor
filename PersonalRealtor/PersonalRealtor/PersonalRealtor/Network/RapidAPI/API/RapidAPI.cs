@@ -44,11 +44,15 @@ namespace PersonalRealtor.Network.RapidAPI.API
             }
         }
 
-        public async Task<AgentsListResponse> AgentsList(String postalCode, String name)
+        public async Task<AgentsListResponse> AgentsList(string postalCode, string name)
         {
             return await this.API.AgentsList(postalCode, name);
         }
-        public async Task<PropertyDetailsResponse> GetPropertyDetails(String propertyId)
+        public async Task<AgentListingsResponse> GetAgentListings(AgentListingsRequest request)
+        {
+            return await this.API.GetAgentListings(request);
+        }
+        public async Task<PropertyDetailsResponse> GetPropertyDetails(string propertyId)
         {
             return await this.API.GetPropertyDetails(propertyId);
         }

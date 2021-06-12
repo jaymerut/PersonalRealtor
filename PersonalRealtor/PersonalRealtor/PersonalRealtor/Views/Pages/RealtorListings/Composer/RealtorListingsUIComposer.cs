@@ -8,6 +8,8 @@ using PersonalRealtor.Network.RealtorAPI.Models;
 using System.Threading.Tasks;
 using System.Net.Http;
 using PersonalRealtor.Components.DataTemplateSelectors;
+using PersonalRealtor.Network.RapidAPI.API;
+using PersonalRealtor.Network.RapidAPI.Models;
 
 namespace PersonalRealtor.Views.Pages.RealtorListings.Composer
 {
@@ -15,35 +17,22 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.Composer
     {
         public static RealtorListingsPage MakeRealtorListingsUI()
         {
-            RealtorListingsRequest request = new RealtorListingsRequest()
+            List<AgentListingsRequest> requestList = new List<AgentListingsRequest>();
+
+            foreach(Agent agent in RealtorSingleton.Instance.Agents)
             {
-                FulfillmentIds = RealtorSingleton.Instance.FulfillmentIds,
-                Agents = RealtorSingleton.Instance.Agents,
-                Page = 1,
-                Type = "all"
-            };
+                requestList.Add(new AgentListingsRequest()
+                {
+                    FulfillmentId = RealtorSingleton.Instance.FulfillmentIds[0],
+                    AgentId = agent.AgentId,
+                    Id = agent.Id,
+                    Type = "all"
+                });
+            }
+
             var dataTemplateSelector = new PropertyListingDataTemplateSelector();
-            //RealtorAPIAdapter adapter = new RealtorAPIAdapter(request);
-            //var data = adapter.RetrieveRealtorListingsDataAsync().Result;
-            return new RealtorListingsPage(request, dataTemplateSelector);
-        }
 
-    }
-
-    public class RealtorAPIAdapter
-    {
-        private RealtorAPI API;
-        private RealtorListingsRequest Request;
-
-        public RealtorAPIAdapter(RealtorListingsRequest request)
-        {
-            this.API = new RealtorAPI();
-            this.Request = request;
-        }
-
-        public async Task<RealtorListingsResponse> RetrieveRealtorListingsDataAsync()
-        {
-            return await this.API.RealtorListings(this.Request);
+            return new RealtorListingsPage(requestList, dataTemplateSelector);
         }
 
     }

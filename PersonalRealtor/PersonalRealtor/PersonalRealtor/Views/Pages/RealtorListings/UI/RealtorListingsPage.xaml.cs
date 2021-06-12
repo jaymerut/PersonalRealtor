@@ -12,50 +12,58 @@ using PersonalRealtor.Network.RealtorAPI.Models;
 using PersonalRealtor.Network.RealtorAPI.API;
 using System.Collections.ObjectModel;
 using Plugin.Segmented;
+using PersonalRealtor.Views.Pages.Details.Composer;
+using PersonalRealtor.Network.RapidAPI.Models;
+using PersonalRealtor.Network.RapidAPI.API;
+using MoreLinq;
+using MonkeyCache.FileStore;
+using Xamarin.Essentials;
 
 namespace PersonalRealtor.Views.Pages.RealtorListings.UI
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RealtorListingsPage : ContentPage
     {
-        private RealtorListingsRequest Request;
-        private RealtorAPI RealtorAPI = new RealtorAPI();
-        private RealtorListingsResponse Response;
+        #region - Variables
+        private List<AgentListingsRequest> RequestList;
+        private RapidAPI RapidAPI = new RapidAPI();
+        private AgentListingsResponse Response;
         private DataTemplateSelector DataTemplateSelector;
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
+        private string BarrelKey = $"RealtorListings-{RealtorSingleton.Instance.FulfillmentIds[0]}";
         public int SelectedSegment;
-            
-        public RealtorListingsPage(RealtorListingsRequest request, DataTemplateSelector dataTemplateSelector)
+        #endregion
+
+        #region - Constructors
+        public RealtorListingsPage(List<AgentListingsRequest> requestList, DataTemplateSelector dataTemplateSelector)
         {
-            this.Request = request;
+            this.RequestList = requestList;
             this.DataTemplateSelector = dataTemplateSelector;
             this.BindingContext = this;
+            Barrel.ApplicationId = "RealtorListings";
+
             InitializeComponent();
 
             SetUpRealtorListingsPage();
         }
+        #endregion
 
         #region - ContentPage Lifecycle Methods
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            // Data
-            await RetrieveRealtorListingsAsync();
-            RetrieveListingsByListingType(ListingType.All);
         }
         #endregion
 
+        #region - Private Methods
         private void SetUpRealtorListingsPage()
         {
-            RealtorListingsListView.VerticalOptions = LayoutOptions.FillAndExpand;
-            RealtorListingsListView.HorizontalOptions = LayoutOptions.FillAndExpand;
-            RealtorListingsListView.SeparatorVisibility = SeparatorVisibility.None;
-            //RealtorListingsListView.ItemSelected += OnListViewItemSelected;
+            // Data
+            _ = RetrieveRealtorListingsAsync();
+
             RealtorListingsListView.ItemsSource = Objects;
             RealtorListingsListView.ItemTemplate = this.DataTemplateSelector;
-            RealtorListingsListView.HasUnevenRows = true;
-            //RealtorListingsListView.ItemAppearing += CarrierLeadListView_ItemAppearingAsync;
 
             SelectedSegment = 0;
         }
@@ -63,8 +71,81 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
         // Data Logic
         private async Task RetrieveRealtorListingsAsync()
         {
-            var response = await RealtorAPI.RealtorListings(this.Request);
-            this.Response = response;
+           
+            if (!Barrel.Current.IsExpired(key: BarrelKey))
+            {
+                this.Response = Barrel.Current.Get<AgentListingsResponse>(key: BarrelKey);
+            }
+            else
+            {
+                List<AgentListingsResponse> responseList = new List<AgentListingsResponse>();
+
+                foreach (AgentListingsRequest request in this.RequestList)
+                {
+                    var result = await RapidAPI.GetAgentListings(request);
+                    responseList.Add(result);
+                }
+
+                this.Response = FilterDistinctListingsResponse(responseList);
+                Barrel.Current.Add(key: BarrelKey, data: this.Response, expireIn: TimeSpan.FromDays(1));
+            }
+            
+
+            RetrieveListingsByListingType(ListingType.All);
+        }
+
+        private AgentListingsResponse FilterDistinctListingsResponse(List<AgentListingsResponse> responseList)
+        {
+            AgentListingsResponse response = new AgentListingsResponse()
+            {
+                Data = new RealtorListingsData()
+                {
+                    ForSale = new ListingTypeModel()
+                    {
+                        Results = new List<PropertyListing>()
+                    },
+                    ForRent = new ListingTypeModel()
+                    {
+                        Results = new List<PropertyListing>()
+                    },
+                    ForSold = new ListingTypeModel()
+                    {
+                        Results = new List<PropertyListing>()
+                    }
+                }
+            };
+
+            List<PropertyListing> ForSaleListings = new List<PropertyListing>();
+            List<PropertyListing> ForRentListings = new List<PropertyListing>();
+            List<PropertyListing> ForSoldListings = new List<PropertyListing>();
+
+            foreach (AgentListingsResponse agentResponse in responseList)
+            {
+                ForSaleListings.AddRange(agentResponse.Data.ForSale.Results);
+                ForRentListings.AddRange(agentResponse.Data.ForRent.Results);
+                ForSoldListings.AddRange(agentResponse.Data.ForSold.Results);
+
+                ForSaleListings = ForSaleListings.DistinctBy(x => x.ListingId).ToList();
+                ForRentListings = ForRentListings.DistinctBy(x => x.ListingId).ToList();
+                ForSoldListings = ForSoldListings.DistinctBy(x => x.ListingId).ToList();
+            }
+
+            // ForSale
+            response.Data.ForSale.Results.AddRange(ForSaleListings);
+            response.Data.ForSale.Total = ForSaleListings.Count;
+            response.Data.ForSale.Count = ForSaleListings.Count;
+
+            // ForRent
+            response.Data.ForRent.Results.AddRange(ForRentListings);
+            response.Data.ForRent.Total = ForRentListings.Count;
+            response.Data.ForRent.Count = ForRentListings.Count;
+
+            // ForSold
+            response.Data.ForSold.Results.AddRange(ForSoldListings);
+            response.Data.ForSold.Total = ForSoldListings.Count;
+            response.Data.ForSold.Count = ForSoldListings.Count;
+
+            return response;
         }
 
         private void RetrieveListingsByListingType(ListingType listingType)
@@ -76,7 +157,7 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
                 switch (listingType)
                 {
                     case ListingType.All:
-
+                        
                         propertyListings.AddRange(this.Response.Data.ForSale.Results);
                         propertyListings.AddRange(this.Response.Data.ForRent.Results);
                         propertyListings.AddRange(this.Response.Data.ForSold.Results);
@@ -122,5 +203,24 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
                     break;
             }
         }
+
+        private void RealtorListingsListView_ItemSelected(Object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                NavigateToDetails(e.SelectedItem as PropertyListing);
+            }
+        }
+
+        private void NavigateToDetails(PropertyListing listing)
+        {
+            _ = Navigation.PushAsync(DetailsUIComposer.MakeDetailsUI(listing.PropertyId));
+
+            RealtorListingsListView.SelectedItem = null;
+        }
+        #endregion
+
+        #region - Public API
+        #endregion
     }
 }

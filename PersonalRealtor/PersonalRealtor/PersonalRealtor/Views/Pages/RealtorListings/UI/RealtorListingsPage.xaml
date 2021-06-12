@@ -16,7 +16,7 @@
                     </control:SegmentedControl.Children>  
                 </control:SegmentedControl>
                 <ScrollView x:Name="ScrollViewList" BackgroundColor="Transparent" VerticalOptions="FillAndExpand">
-                    <ListView x:Name="RealtorListingsListView" BackgroundColor="Transparent"/>
+                    <ListView x:Name="RealtorListingsListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" SeparatorVisibility="None" HasUnevenRows="True" ItemSelected="RealtorListingsListView_ItemSelected"/>
                 </ScrollView>
             </StackLayout>
         </AbsoluteLayout>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<controls:SelectableViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:PersonalRealtor.Controls"
+             x:Class="PersonalRealtor.Views.ViewCells.PropertyInfoViewCell"
+             SelectedBackgroundColor="Transparent">
+  <ViewCell.View>
+      <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="LabelStreetAddress" Grid.Row="0" Grid.Column="0" LineBreakMode="WordWrap" FontSize="22"/>
+                <Label x:Name="LabelPrice" Grid.Row="0" Grid.Column="1" FontSize="24" Padding="0, 0, 0, 0" LineBreakMode="NoWrap" FontAttributes="Bold" HorizontalOptions="End" />
+            </Grid>
+            <Label x:Name="LabelCityState" FontSize="16" HorizontalOptions="Start" Margin="0, -5, 0, 0"/>
+            <StackLayout Spacing="10" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="0, 5, 0, 0">
+                <Label x:Name="LabelBed" FontSize="18" HorizontalOptions="Start" />
+                <Label x:Name="LabelBath" FontSize="18" HorizontalOptions="CenterAndExpand" />
+                <Label x:Name="LabelSqft" FontSize="18" HorizontalOptions="End" IsVisible="false" />
+            </StackLayout>
+      </StackLayout>
+  </ViewCell.View>
+</controls:SelectableViewCell>

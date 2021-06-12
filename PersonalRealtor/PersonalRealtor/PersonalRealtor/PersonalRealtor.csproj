@@ -11,6 +11,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Refit" Version="5.2.1" />
     <PackageReference Include="Plugin.SegmentedControl.Netstandard" Version="5.4.5" />
+    <PackageReference Include="morelinq" Version="3.3.2" />
+    <PackageReference Include="MonkeyCache" Version="1.5.2" />
+    <PackageReference Include="MonkeyCache.FileStore" Version="1.5.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,6 +50,10 @@
     <Folder Include="Controls\" />
     <Folder Include="Components\DataTemplateSelectors\" />
     <Folder Include="Views\ViewCells\" />
+    <Folder Include="Views\Pages\Details\" />
+    <Folder Include="Views\Pages\Details\Composer\" />
+    <Folder Include="Views\Pages\Details\UI\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />
