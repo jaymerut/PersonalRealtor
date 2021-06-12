@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "3jlboVW6ZDS4QdHvhCRNVot0mfUcJ+cnFIWbswvSkxJ5hy2QaUjlOSP1rcNKm/uOqNXfKwSQPginzUpM6prl9Q==",
+  "dgSpecHash": "MmQEEZRJWfuci88bPhwGY1NUN2YVcIVsbVBNYv1flnK1wg1lYFDn1RnvUDSLr6LAV5NVlNCQf2wBE8UA494L+g==",
   "success": true,
   "projectFilePath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj",
   "expectedPackageFiles": [
     "/Users/jaymerutkoski/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.0/microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/Users/jaymerutkoski/.nuget/packages/monkeycache/1.5.2/monkeycache.1.5.2.nupkg.sha512",
+    "/Users/jaymerutkoski/.nuget/packages/monkeycache.filestore/1.5.2/monkeycache.filestore.1.5.2.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/morelinq/3.3.2/morelinq.3.3.2.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",

@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "DnRiMW/P7SbcYq5h5OxsRsyKsF7Lo8ThwMl1O4pSd84AGT6hSnAIBTVOQUvX6bUzukdEzBznLy9lPZgtMZ3bDQ==",
+  "dgSpecHash": "oHcpsfjJdyglnYScdktB97yKRWDm2bmzECC7FUnXZgG+zHPmiWOnZXciEQR+8G0QjBPK0W0T0NE1D7ORD1itZQ==",
   "success": true,
   "projectFilePath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.iOS/PersonalRealtor.iOS.csproj",
   "expectedPackageFiles": [
     "/Users/jaymerutkoski/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.0/microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
+    "/Users/jaymerutkoski/.nuget/packages/monkeycache/1.5.2/monkeycache.1.5.2.nupkg.sha512",
+    "/Users/jaymerutkoski/.nuget/packages/monkeycache.filestore/1.5.2/monkeycache.filestore.1.5.2.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/morelinq/3.3.2/morelinq.3.3.2.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/plugin.segmentedcontrol.netstandard/5.4.5/plugin.segmentedcontrol.netstandard.5.4.5.nupkg.sha512",

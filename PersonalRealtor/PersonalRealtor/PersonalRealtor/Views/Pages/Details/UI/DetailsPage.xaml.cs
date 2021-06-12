@@ -10,6 +10,7 @@ using PersonalRealtor.ViewModels;
 using PersonalRealtor.Components.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MonkeyCache.FileStore;
 
 namespace PersonalRealtor.Views.Pages.Details.UI
 {
@@ -22,6 +23,7 @@ namespace PersonalRealtor.Views.Pages.Details.UI
         private DataTemplateSelector DataTemplateSelector;
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
         private readonly string PropertyId;
+        private string BarrelKey;
         #endregion
 
         #region - Constructors
@@ -29,7 +31,8 @@ namespace PersonalRealtor.Views.Pages.Details.UI
         {
             this.PropertyId = propertyId;
             this.DataTemplateSelector = dataTemplateSelector;
-
+            this.BarrelKey = $"Details-{propertyId}";
+            Barrel.ApplicationId = "Details";
             InitializeComponent();
 
         }
@@ -231,8 +234,17 @@ namespace PersonalRealtor.Views.Pages.Details.UI
         // Data Logic
         private async Task RetrievePropertyListingAsync(string propertyId)
         {
-            var response = await RapidAPI.GetPropertyDetails(propertyId);
-            this.Details = response.Properties.FirstOrDefault();
+            if (!Barrel.Current.IsExpired(key: BarrelKey))
+            {
+                this.Details = Barrel.Current.Get<PropertyDetailsProp>(key: BarrelKey);
+            }
+            else
+            {
+                var response = await RapidAPI.GetPropertyDetails(propertyId);
+                this.Details = response.Properties.FirstOrDefault();
+                Barrel.Current.Add(key: BarrelKey, data: this.Details, expireIn: TimeSpan.FromDays(1));
+            }
+            
         }
 
         #endregion

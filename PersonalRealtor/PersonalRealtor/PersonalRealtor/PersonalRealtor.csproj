@@ -12,6 +12,8 @@
     <PackageReference Include="Refit" Version="5.2.1" />
     <PackageReference Include="Plugin.SegmentedControl.Netstandard" Version="5.4.5" />
     <PackageReference Include="morelinq" Version="3.3.2" />
+    <PackageReference Include="MonkeyCache" Version="1.5.2" />
+    <PackageReference Include="MonkeyCache.FileStore" Version="1.5.2" />
   </ItemGroup>
 
   <ItemGroup>

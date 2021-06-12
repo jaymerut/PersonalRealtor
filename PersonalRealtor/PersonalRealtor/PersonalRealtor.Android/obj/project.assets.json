@@ -14,6 +14,37 @@
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
         }
       },
+      "MonkeyCache/1.5.2": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid90/MonkeyCache.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid90/MonkeyCache.dll": {}
+        }
+      },
+      "MonkeyCache.FileStore/1.5.2": {
+        "type": "package",
+        "dependencies": {
+          "MonkeyCache": "1.5.2",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "frameworkAssemblies": [
+          "Java.Interop"
+        ],
+        "compile": {
+          "lib/monoandroid90/MonkeyCache.FileStore.dll": {}
+        },
+        "runtime": {
+          "lib/monoandroid90/MonkeyCache.FileStore.dll": {}
+        }
+      },
       "morelinq/3.3.2": {
         "type": "package",
         "compile": {
@@ -1136,6 +1167,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "MonkeyCache": "1.5.2",
+          "MonkeyCache.FileStore": "1.5.2",
           "Newtonsoft.Json": "12.0.3",
           "Plugin.SegmentedControl.Netstandard": "5.4.5",
           "Refit": "5.2.1",
@@ -1175,6 +1208,90 @@
         "ref/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "MonkeyCache/1.5.2": {
+      "sha512": "RdR4LyW7MemYfnQ1nNMfL7xZZFFKHUdF2TG7rd/sYDBQNcJ4sFSPK3YdaJleEKXGpova01cqdttFbXN+fE+FQg==",
+      "type": "package",
+      "path": "monkeycache/1.5.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/MonkeyCache.dll",
+        "lib/monoandroid71/MonkeyCache.pdb",
+        "lib/monoandroid71/MonkeyCache.xml",
+        "lib/monoandroid80/MonkeyCache.dll",
+        "lib/monoandroid80/MonkeyCache.pdb",
+        "lib/monoandroid80/MonkeyCache.xml",
+        "lib/monoandroid81/MonkeyCache.dll",
+        "lib/monoandroid81/MonkeyCache.pdb",
+        "lib/monoandroid81/MonkeyCache.xml",
+        "lib/monoandroid90/MonkeyCache.dll",
+        "lib/monoandroid90/MonkeyCache.pdb",
+        "lib/monoandroid90/MonkeyCache.xml",
+        "lib/netstandard2.0/MonkeyCache.dll",
+        "lib/netstandard2.0/MonkeyCache.pdb",
+        "lib/netstandard2.0/MonkeyCache.xml",
+        "lib/uap10.0.16299/MonkeyCache.dll",
+        "lib/uap10.0.16299/MonkeyCache.pdb",
+        "lib/uap10.0.16299/MonkeyCache.pri",
+        "lib/uap10.0.16299/MonkeyCache.xml",
+        "lib/xamarinios10/MonkeyCache.dll",
+        "lib/xamarinios10/MonkeyCache.pdb",
+        "lib/xamarinios10/MonkeyCache.xml",
+        "lib/xamarinmac20/MonkeyCache.dll",
+        "lib/xamarinmac20/MonkeyCache.pdb",
+        "lib/xamarinmac20/MonkeyCache.xml",
+        "lib/xamarintvos10/MonkeyCache.dll",
+        "lib/xamarintvos10/MonkeyCache.pdb",
+        "lib/xamarintvos10/MonkeyCache.xml",
+        "lib/xamarinwatchos10/MonkeyCache.dll",
+        "lib/xamarinwatchos10/MonkeyCache.pdb",
+        "lib/xamarinwatchos10/MonkeyCache.xml",
+        "monkeycache.1.5.2.nupkg.sha512",
+        "monkeycache.nuspec"
+      ]
+    },
+    "MonkeyCache.FileStore/1.5.2": {
+      "sha512": "a/tpYXD+4T9IbDGHx9tCH+VHxocL1Sx/mrOWKbIRyjfeoAMLjP70qGqg+p1GGb/Mf4wNM/Fgcn65FaKl7Ir/NQ==",
+      "type": "package",
+      "path": "monkeycache.filestore/1.5.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/MonkeyCache.FileStore.dll",
+        "lib/monoandroid71/MonkeyCache.FileStore.pdb",
+        "lib/monoandroid71/MonkeyCache.FileStore.xml",
+        "lib/monoandroid80/MonkeyCache.FileStore.dll",
+        "lib/monoandroid80/MonkeyCache.FileStore.pdb",
+        "lib/monoandroid80/MonkeyCache.FileStore.xml",
+        "lib/monoandroid81/MonkeyCache.FileStore.dll",
+        "lib/monoandroid81/MonkeyCache.FileStore.pdb",
+        "lib/monoandroid81/MonkeyCache.FileStore.xml",
+        "lib/monoandroid90/MonkeyCache.FileStore.dll",
+        "lib/monoandroid90/MonkeyCache.FileStore.pdb",
+        "lib/monoandroid90/MonkeyCache.FileStore.xml",
+        "lib/netstandard2.0/MonkeyCache.FileStore.dll",
+        "lib/netstandard2.0/MonkeyCache.FileStore.pdb",
+        "lib/netstandard2.0/MonkeyCache.FileStore.xml",
+        "lib/uap10.0.16299/MonkeyCache.FileStore.dll",
+        "lib/uap10.0.16299/MonkeyCache.FileStore.pdb",
+        "lib/uap10.0.16299/MonkeyCache.FileStore.pri",
+        "lib/uap10.0.16299/MonkeyCache.FileStore.xml",
+        "lib/xamarinios10/MonkeyCache.FileStore.dll",
+        "lib/xamarinios10/MonkeyCache.FileStore.pdb",
+        "lib/xamarinios10/MonkeyCache.FileStore.xml",
+        "lib/xamarinmac20/MonkeyCache.FileStore.dll",
+        "lib/xamarinmac20/MonkeyCache.FileStore.pdb",
+        "lib/xamarinmac20/MonkeyCache.FileStore.xml",
+        "lib/xamarintvos10/MonkeyCache.FileStore.dll",
+        "lib/xamarintvos10/MonkeyCache.FileStore.pdb",
+        "lib/xamarintvos10/MonkeyCache.FileStore.xml",
+        "lib/xamarinwatchos10/MonkeyCache.FileStore.dll",
+        "lib/xamarinwatchos10/MonkeyCache.FileStore.pdb",
+        "lib/xamarinwatchos10/MonkeyCache.FileStore.xml",
+        "monkeycache.filestore.1.5.2.nupkg.sha512",
+        "monkeycache.filestore.nuspec"
       ]
     },
     "morelinq/3.3.2": {

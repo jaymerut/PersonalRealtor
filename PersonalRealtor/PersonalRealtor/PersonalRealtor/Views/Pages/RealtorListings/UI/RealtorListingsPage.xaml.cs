@@ -16,6 +16,8 @@ using PersonalRealtor.Views.Pages.Details.Composer;
 using PersonalRealtor.Network.RapidAPI.Models;
 using PersonalRealtor.Network.RapidAPI.API;
 using MoreLinq;
+using MonkeyCache.FileStore;
+using Xamarin.Essentials;
 
 namespace PersonalRealtor.Views.Pages.RealtorListings.UI
 {
@@ -28,6 +30,7 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
         private AgentListingsResponse Response;
         private DataTemplateSelector DataTemplateSelector;
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
+        private string BarrelKey = $"RealtorListings-{RealtorSingleton.Instance.FulfillmentIds[0]}";
         public int SelectedSegment;
         #endregion
 
@@ -37,6 +40,8 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
             this.RequestList = requestList;
             this.DataTemplateSelector = dataTemplateSelector;
             this.BindingContext = this;
+            Barrel.ApplicationId = "RealtorListings";
+
             InitializeComponent();
 
             SetUpRealtorListingsPage();
@@ -66,15 +71,25 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
         // Data Logic
         private async Task RetrieveRealtorListingsAsync()
         {
-            List<AgentListingsResponse> responseList = new List<AgentListingsResponse>();
-
-            foreach (AgentListingsRequest request in this.RequestList)
+           
+            if (!Barrel.Current.IsExpired(key: BarrelKey))
             {
-                var result = await RapidAPI.GetAgentListings(request);
-                responseList.Add(result);
+                this.Response = Barrel.Current.Get<AgentListingsResponse>(key: BarrelKey);
             }
+            else
+            {
+                List<AgentListingsResponse> responseList = new List<AgentListingsResponse>();
 
-            this.Response = FilterDistinctListingsResponse(responseList);
+                foreach (AgentListingsRequest request in this.RequestList)
+                {
+                    var result = await RapidAPI.GetAgentListings(request);
+                    responseList.Add(result);
+                }
+
+                this.Response = FilterDistinctListingsResponse(responseList);
+                Barrel.Current.Add(key: BarrelKey, data: this.Response, expireIn: TimeSpan.FromDays(1));
+            }
+            
 
             RetrieveListingsByListingType(ListingType.All);
         }
