@@ -14,6 +14,8 @@ namespace PersonalRealtor
         public List<long> FulfillmentIds { get; set; }
         [JsonProperty("agents")]
         public List<Agent> Agents { get; set; }
+        [JsonProperty("full_name")]
+        public string FullName { get; set; }
 
         RealtorSingleton()
         {

@@ -47,7 +47,7 @@ namespace PersonalRealtor
         {
             return new MenuOption<Image>[] {
                 new MenuOption<Image>() {
-                    Title = "View Corey Marshall's Listings",
+                    Title = $"View {RealtorSingleton.Instance.FullName}'s Listings",
                     Image = new Image() { Source = "icon_about.png" },
                     Action = () => {
                         main.Detail = new PRNavigationPage(RealtorListingsUIComposer.MakeRealtorListingsUI());

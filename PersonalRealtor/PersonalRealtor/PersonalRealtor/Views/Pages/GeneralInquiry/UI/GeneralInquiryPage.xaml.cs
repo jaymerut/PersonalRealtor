@@ -15,6 +15,13 @@ namespace PersonalRealtor.Views.Pages.GeneralInquiry.UI
         public GeneralInquiryPage()
         {
             InitializeComponent();
+
+            SetUpGeneralInquiryPage();
+        }
+
+        private void SetUpGeneralInquiryPage()
+        {
+            this.LabelTitle.Text = $"Email {RealtorSingleton.Instance.FullName}: ";
         }
     }
 }
