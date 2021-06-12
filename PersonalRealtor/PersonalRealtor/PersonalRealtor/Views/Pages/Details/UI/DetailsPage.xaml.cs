@@ -31,8 +31,8 @@ namespace PersonalRealtor.Views.Pages.Details.UI
         {
             this.PropertyId = propertyId;
             this.DataTemplateSelector = dataTemplateSelector;
-            this.BarrelKey = $"Details-{propertyId}";
-            Barrel.ApplicationId = "Details";
+            this.BarrelKey = $"Details1-{propertyId}";
+            Barrel.ApplicationId = "DetailsPage";
             InitializeComponent();
 
         }

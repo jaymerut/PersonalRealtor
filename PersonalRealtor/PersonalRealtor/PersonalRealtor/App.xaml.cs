@@ -1,7 +1,7 @@
 ﻿using PersonalRealtor.Views;
 using PersonalRealtor.Views.Pages.Base;
 using PersonalRealtor.Views.Pages.BrowseListings.UI;
-using PersonalRealtor.Views.Pages.GeneralInquiry.UI;
+using PersonalRealtor.Views.Pages.GeneralInquiry.Composer;
 using PersonalRealtor.Views.Pages.Main.Composer;
 using PersonalRealtor.Views.Pages.Main.UI;
 using PersonalRealtor.Views.Pages.Menu;
@@ -66,7 +66,7 @@ namespace PersonalRealtor
                     Title = "General Inquiry",
                     Image = new Image() { Source = "icon_about.png" },
                     Action = () => {
-                        main.Detail = new PRNavigationPage(new GeneralInquiryPage());
+                        main.Detail = new PRNavigationPage(GeneralInquiryUIComposer.MakeGeneralInquiryUI());
                         main.IsPresented = false;
                     }
                 },
