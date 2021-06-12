@@ -49,6 +49,8 @@ namespace PersonalRealtor.Models
         public PropertyDetailAddress Address { get; set; }
         [JsonProperty("features")]
         public List<PropertyDetailFeature> Features { get; set; }
+        [JsonProperty("property_history")]
+        public List<PropertyDetailHistory> Histories { get; set; }
         [JsonProperty("photos")]
         public List<Photo> Photos { get; set; }
         [JsonProperty("building_size")]
