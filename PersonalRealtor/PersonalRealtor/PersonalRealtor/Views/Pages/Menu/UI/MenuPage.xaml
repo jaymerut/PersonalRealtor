@@ -3,9 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:PersonalRealtor.Controls"
              x:Class="PersonalRealtor.Views.Pages.Menu.UI.MenuPage"
-             Title="Master"
+             IconImageSource="side_menu.png"
+             Title="title"
              BackgroundColor="#444444"
              >
+
     <ContentView>
         <StackLayout>
             <ListView x:Name="ListView"

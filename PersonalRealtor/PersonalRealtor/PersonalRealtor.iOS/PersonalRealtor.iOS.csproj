@@ -125,6 +125,7 @@
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <BundleResource Include="Resources\down_arrow.png" />
     <BundleResource Include="Resources\bullet_point.png" />
+    <BundleResource Include="Resources\side_menu.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

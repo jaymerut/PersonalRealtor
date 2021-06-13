@@ -15675,16 +15675,19 @@ namespace PersonalRealtor.Droid
 			public const int segmented_control_last_background = 2131165540;
 			
 			// aapt resource value: 0x7F070165
-			public const int test_custom_background = 2131165541;
+			public const int side_menu = 2131165541;
 			
 			// aapt resource value: 0x7F070166
-			public const int tooltip_frame_dark = 2131165542;
+			public const int test_custom_background = 2131165542;
 			
 			// aapt resource value: 0x7F070167
-			public const int tooltip_frame_light = 2131165543;
+			public const int tooltip_frame_dark = 2131165543;
 			
 			// aapt resource value: 0x7F070168
-			public const int xamarin_logo = 2131165544;
+			public const int tooltip_frame_light = 2131165544;
+			
+			// aapt resource value: 0x7F070169
+			public const int xamarin_logo = 2131165545;
 			
 			static Drawable()
 			{
