@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PersonalRealtor.Views.Pages.GeneralInquiry.UI.GeneralInquiryPage">
+             x:Class="PersonalRealtor.Views.Pages.GeneralInquiry.UI.GeneralInquiryPage"
+             xmlns:control="clr-namespace:PersonalRealtor.Controls">
     <ContentPage.Content>
         <Frame BorderColor="#444444" CornerRadius="20" HasShadow="True" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="20, 0, 20, 0">
             <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
                 <Label x:Name="LabelTitle" FontSize="Large" FontAttributes="Bold" VerticalOptions="Start" HorizontalOptions="StartAndExpand" />
-                <Entry x:Name="EntryName" Placeholder="Enter Name" PlaceholderColor="#6B6B6B" HeightRequest="40" HorizontalOptions="FillAndExpand" />
-                <Entry x:Name="EntryEmail" Placeholder="Enter Email" PlaceholderColor="#6B6B6B" HeightRequest="40" HorizontalOptions="FillAndExpand" />
-                <Editor x:Name="EditorMessage" Placeholder="Tell us about yourself" PlaceholderColor="#6B6B6B" HeightRequest="300" HorizontalOptions="FillAndExpand" />
+                <control:CustomEntry x:Name="EntryName" Placeholder="Enter Name" PlaceholderColor="#6B6B6B" HeightRequest="40" HorizontalOptions="FillAndExpand" />
+                <control:CustomEntry x:Name="EntryEmail" Placeholder="Enter Email" PlaceholderColor="#6B6B6B" HeightRequest="40" HorizontalOptions="FillAndExpand" />
+                <control:CustomEditor x:Name="EditorMessage" Placeholder="Tell us about yourself" PlaceholderColor="#6B6B6B" HeightRequest="300" HorizontalOptions="FillAndExpand" />
                 <Button x:Name="ButtonSend" Text="Send Message" BackgroundColor="#444444" TextColor="White" FontSize="Medium" FontAttributes="Bold" CornerRadius="20" HorizontalOptions="FillAndExpand" Padding="0, 10, 0, 10" HeightRequest="60" />
             </StackLayout>
         </Frame>

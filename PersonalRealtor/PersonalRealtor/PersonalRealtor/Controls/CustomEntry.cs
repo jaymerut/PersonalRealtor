@@ -1,7 +1,9 @@
 ﻿using System;
+using Xamarin.Forms;
+
 namespace PersonalRealtor.Controls
 {
-    public class CustomEntry
+    public class CustomEntry : Entry
     {
         public CustomEntry()
         {

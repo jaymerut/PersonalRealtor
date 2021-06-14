@@ -1,5 +1,6 @@
 ﻿using System;
 using Android.Content;
+using Android.Graphics.Drawables;
 using PersonalRealtor.Controls;
 using PersonalRealtor.Droid.Controls;
 using Xamarin.Forms;
@@ -20,7 +21,11 @@ namespace PersonalRealtor.Droid.Controls
 
             if (Control != null)
             {
-                
+                GradientDrawable gd = new GradientDrawable();
+                gd.SetColor(Android.Resource.Color.HoloRedDark);
+                gd.SetCornerRadius(6);
+                gd.SetStroke(2, Color.FromHex("9B9B9B").ToAndroid());
+                Control.SetBackground(gd);
             }
         }
     }

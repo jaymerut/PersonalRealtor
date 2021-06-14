@@ -17,10 +17,11 @@ namespace PersonalRealtor.iOS.Controls
 
 			if (Control != null)
 			{
-				// do whatever you want to the UITextField here!
-				//Control.BackgroundColor = UIColor.FromRGB(204, 153, 255);
-				//Control.BorderStyle = UITextBorderStyle.Line;
+				Control.Layer.BorderColor = Color.FromHex("#9B9B9B").ToCGColor();
+				Control.Layer.BorderWidth = 1;
+				Control.Layer.CornerRadius = 6;
 			}
 		}
 	}
 }
+
