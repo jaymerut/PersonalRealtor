@@ -1,7 +1,7 @@
 ﻿using PersonalRealtor.Views;
 using PersonalRealtor.Views.Pages.Base;
 using PersonalRealtor.Views.Pages.BrowseListings.UI;
-using PersonalRealtor.Views.Pages.GeneralInquiry.UI;
+using PersonalRealtor.Views.Pages.GeneralInquiry.Composer;
 using PersonalRealtor.Views.Pages.Main.Composer;
 using PersonalRealtor.Views.Pages.Main.UI;
 using PersonalRealtor.Views.Pages.Menu;
@@ -41,16 +41,20 @@ namespace PersonalRealtor
             var main = MainUIComposer.MainUI();
             main.Flyout = MenuUIComposer.MenuUI(MakeMenuOptions(main));
             main.Detail = new PRNavigationPage(new BrowseListingsPage());
+            ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex("#444444");
+            ((PRNavigationPage)main.Detail).BarTextColor = Color.White;
             return main;
         }
         private MenuOption<Image>[] MakeMenuOptions(MainPage main)
         {
             return new MenuOption<Image>[] {
                 new MenuOption<Image>() {
-                    Title = "View Corey Marshall's Listings",
+                    Title = $"View {RealtorSingleton.Instance.FullName}'s Listings",
                     Image = new Image() { Source = "icon_about.png" },
                     Action = () => {
                         main.Detail = new PRNavigationPage(RealtorListingsUIComposer.MakeRealtorListingsUI());
+                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex("#444444");
+                        ((PRNavigationPage)main.Detail).BarTextColor = Color.White;
                         main.IsPresented = false;
                     }
                 },
@@ -59,6 +63,8 @@ namespace PersonalRealtor
                     Image = new Image() { Source = "icon_about.png" },
                     Action = () => {
                         main.Detail = new PRNavigationPage(new BrowseListingsPage());
+                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex("#444444");
+                        ((PRNavigationPage)main.Detail).BarTextColor = Color.White;
                         main.IsPresented = false;
                     }
                 },
@@ -66,7 +72,9 @@ namespace PersonalRealtor
                     Title = "General Inquiry",
                     Image = new Image() { Source = "icon_about.png" },
                     Action = () => {
-                        main.Detail = new PRNavigationPage(new GeneralInquiryPage());
+                        main.Detail = new PRNavigationPage(GeneralInquiryUIComposer.MakeGeneralInquiryUI());
+                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex("#444444");
+                        ((PRNavigationPage)main.Detail).BarTextColor = Color.White;
                         main.IsPresented = false;
                     }
                 },
@@ -75,6 +83,8 @@ namespace PersonalRealtor
                     Image = new Image() { Source = "icon_about.png" },
                     Action = () => {
                         main.Detail = new PRNavigationPage(new RealtorChatPage());
+                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex("#444444");
+                        ((PRNavigationPage)main.Detail).BarTextColor = Color.White;
                         main.IsPresented = false;
                     }
                 }

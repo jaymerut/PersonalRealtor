@@ -37,7 +37,7 @@ namespace PersonalRealtor.Views.Pages.Base
         #region - Private API
         private void SetupPRNavigationPage()
         {
-            this.BackgroundColor = Color.Black;
+            this.BackgroundColor = Color.White;
 
             // This
 

@@ -31,8 +31,8 @@ namespace PersonalRealtor.Views.Pages.Details.UI
         {
             this.PropertyId = propertyId;
             this.DataTemplateSelector = dataTemplateSelector;
-            this.BarrelKey = $"Details-{propertyId}";
-            Barrel.ApplicationId = "Details";
+            this.BarrelKey = $"Details1-{propertyId}";
+            Barrel.ApplicationId = "DetailsPage";
             InitializeComponent();
 
         }
@@ -220,35 +220,47 @@ namespace PersonalRealtor.Views.Pages.Details.UI
         {
             var result = new List<DropDownViewModel>();
 
-            result.Add(new DropDownViewModel
+            if (this.Details.Features != null && this.Details.Features.Count > 0)
             {
-                Name = "Property Features",
-                DropDownType = DropDownType.PROPERTY_FEATURES,
-                Delegate = this
-            });
+                result.Add(new DropDownViewModel
+                {
+                    Name = "Property Features",
+                    DropDownType = DropDownType.PROPERTY_FEATURES,
+                    Delegate = this
+                });
+            }
+            
+            if (this.Details.Histories != null && this.Details.Histories.Count > 0)
+            {
+                result.Add(new DropDownViewModel
+                {
+                    Name = "Property History",
+                    DropDownType = DropDownType.PROPERTY_HISTORY,
+                    Delegate = this
+                });
+            }
 
-            result.Add(new DropDownViewModel
+            if (this.Details.Taxes != null && this.Details.Taxes.Count > 0)
             {
-                Name = "Property History",
-                DropDownType = DropDownType.PROPERTY_HISTORY,
-                Delegate = this
-            });
+                result.Add(new DropDownViewModel
+                {
+                    Name = "Property Tax",
+                    DropDownType = DropDownType.PROPERTY_TAX,
+                    Delegate = this
+                });
+            }
 
-            result.Add(new DropDownViewModel
-            {
-                Name = "Property Tax",
-                DropDownType = DropDownType.PROPERTY_TAX,
-                Delegate = this
-            });
 
             // TODO: Add Schools In Future Task
             /*
-            result.Add(new DropDownViewModel
-            {
-                Name = "Schools",
-                DropDownType = DropDownType.SCHOOLS,
-                Delegate = this
-            });
+            if (this.Details.Schools != null && this.Details.Schools.Count > 0) {
+                result.Add(new DropDownViewModel
+                {
+                    Name = "Schools",
+                    DropDownType = DropDownType.SCHOOLS,
+                    Delegate = this
+                });
+            }
             */
 
             return result;
