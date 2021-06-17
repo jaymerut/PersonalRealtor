@@ -16,6 +16,8 @@ namespace PersonalRealtor
         public List<Agent> Agents { get; set; }
         [JsonProperty("full_name")]
         public string FullName { get; set; }
+        [JsonProperty("website_url")]
+        public string WebsiteURL { get; set; }
 
         RealtorSingleton()
         {
