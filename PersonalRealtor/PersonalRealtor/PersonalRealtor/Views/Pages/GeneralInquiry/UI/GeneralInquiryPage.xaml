@@ -10,7 +10,7 @@
                 <control:CustomEntry x:Name="EntryName" Placeholder="Enter Name" PlaceholderColor="#6B6B6B" HeightRequest="40" HorizontalOptions="FillAndExpand" />
                 <control:CustomEntry x:Name="EntryEmail" Placeholder="Enter Email" PlaceholderColor="#6B6B6B" HeightRequest="40" HorizontalOptions="FillAndExpand" />
                 <control:CustomEditor x:Name="EditorMessage" Placeholder="Tell us about yourself" PlaceholderColor="#6B6B6B" HeightRequest="300" HorizontalOptions="FillAndExpand" />
-                <Button x:Name="ButtonSend" Text="Send Message" BackgroundColor="#444444" TextColor="White" FontSize="Medium" FontAttributes="Bold" CornerRadius="20" HorizontalOptions="FillAndExpand" Padding="0, 10, 0, 10" HeightRequest="60" />
+                <Button x:Name="ButtonSend" Text="Send Message" Clicked="ButtonSend_Clicked" BackgroundColor="#444444" TextColor="White" FontSize="Medium" FontAttributes="Bold" CornerRadius="20" HorizontalOptions="FillAndExpand" Padding="0, 10, 0, 10" HeightRequest="60" />
             </StackLayout>
         </Frame>
     </ContentPage.Content>
