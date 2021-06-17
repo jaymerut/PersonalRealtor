@@ -24,7 +24,7 @@
                     <DataTemplate>
                         <controls:SelectableViewCell SelectedBackgroundColor="#00000000">
                             <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="20, 0, 20, 0">
-                                <Image Source="{Binding Image.Source}" HeightRequest="24" WidthRequest="24" />
+                                <Image Source="{Binding Image.Source}" HeightRequest="20" WidthRequest="20" />
                                 <Label x:Name="LabelItem"
                                        TextColor="#FFFFFF"
                                        Text="{Binding Title}"
