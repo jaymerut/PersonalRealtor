@@ -31,9 +31,9 @@ namespace PersonalRealtor.Views.Pages.GeneralInquiry.UI
             {
                 var message = new EmailMessage
                 {
-                    Subject = "Subject",
-                    Body = "Body",
-                    To = new List<string>() { "Receipent@test.com" },
+                    Subject = $"{EntryName.Text} General Inquiry",
+                    Body = EditorMessage.Text,
+                    To = new List<string>() { EntryEmail.Text },
                 };
                 await Email.ComposeAsync(message);
             }
