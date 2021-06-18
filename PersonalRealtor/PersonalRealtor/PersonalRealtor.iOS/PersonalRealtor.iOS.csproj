@@ -128,6 +128,10 @@
     <BundleResource Include="Resources\down_arrow.png" />
     <BundleResource Include="Resources\bullet_point.png" />
     <BundleResource Include="Resources\side_menu.png" />
+    <BundleResource Include="Resources\menu_realtor_listings.png" />
+    <BundleResource Include="Resources\menu_browse_listings.png" />
+    <BundleResource Include="Resources\menu_general_inquiry.png" />
+    <BundleResource Include="Resources\menu_chat.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

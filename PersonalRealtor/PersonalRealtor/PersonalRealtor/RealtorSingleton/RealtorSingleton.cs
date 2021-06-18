@@ -18,6 +18,10 @@ namespace PersonalRealtor
         public string FullName { get; set; }
         [JsonProperty("website_url")]
         public string WebsiteURL { get; set; }
+        [JsonProperty("primary_color")]
+        public string PrimaryColor { get; set; }
+        [JsonProperty("secondary_color")]
+        public string SecondaryColor { get; set; }
 
         RealtorSingleton()
         {

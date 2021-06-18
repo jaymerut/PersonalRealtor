@@ -19,6 +19,9 @@ namespace PersonalRealtor.Views.Pages.Menu.UI
             Options = options;
 
             BindingContext = this;
+
+            this.ListView.BackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
+            this.BackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
         }
 
         void ListView_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)

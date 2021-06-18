@@ -41,8 +41,8 @@ namespace PersonalRealtor
             var main = MainUIComposer.MainUI();
             main.Flyout = MenuUIComposer.MenuUI(MakeMenuOptions(main));
             main.Detail = new PRNavigationPage(new BrowseListingsPage());
-            ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex("#444444");
-            ((PRNavigationPage)main.Detail).BarTextColor = Color.White;
+            ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
+            ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
             return main;
         }
         private MenuOption<Image>[] MakeMenuOptions(MainPage main)
@@ -50,41 +50,41 @@ namespace PersonalRealtor
             return new MenuOption<Image>[] {
                 new MenuOption<Image>() {
                     Title = $"View {RealtorSingleton.Instance.FullName}'s Listings",
-                    Image = new Image() { Source = "icon_about.png" },
+                    Image = new Image() { Source = "menu_realtor_listings.png" },
                     Action = () => {
                         main.Detail = new PRNavigationPage(RealtorListingsUIComposer.MakeRealtorListingsUI());
-                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex("#444444");
-                        ((PRNavigationPage)main.Detail).BarTextColor = Color.White;
+                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
+                        ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
                         main.IsPresented = false;
                     }
                 },
                 new MenuOption<Image>() {
                     Title = "Browse Homes",
-                    Image = new Image() { Source = "icon_about.png" },
+                    Image = new Image() { Source = "menu_browse_listings.png" },
                     Action = () => {
                         main.Detail = new PRNavigationPage(new BrowseListingsPage());
-                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex("#444444");
-                        ((PRNavigationPage)main.Detail).BarTextColor = Color.White;
+                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
+                        ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
                         main.IsPresented = false;
                     }
                 },
                 new MenuOption<Image>() {
                     Title = "General Inquiry",
-                    Image = new Image() { Source = "icon_about.png" },
+                    Image = new Image() { Source = "menu_general_inquiry.png" },
                     Action = () => {
                         main.Detail = new PRNavigationPage(GeneralInquiryUIComposer.MakeGeneralInquiryUI());
-                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex("#444444");
-                        ((PRNavigationPage)main.Detail).BarTextColor = Color.White;
+                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
+                        ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
                         main.IsPresented = false;
                     }
                 },
                 new MenuOption<Image>() {
                     Title = "Chat With Your Realtor!",
-                    Image = new Image() { Source = "icon_about.png" },
+                    Image = new Image() { Source = "menu_chat.png" },
                     Action = () => {
                         main.Detail = new PRNavigationPage(new RealtorChatPage());
-                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex("#444444");
-                        ((PRNavigationPage)main.Detail).BarTextColor = Color.White;
+                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
+                        ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
                         main.IsPresented = false;
                     }
                 }

@@ -23,6 +23,14 @@ namespace PersonalRealtor.Views.Pages.GeneralInquiry.UI
         private void SetUpGeneralInquiryPage()
         {
             this.LabelTitle.Text = $"Email {RealtorSingleton.Instance.FullName}: ";
+
+            this.ButtonSite.BackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
+            this.ButtonSite.TextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
+
+            this.FrameGeneralInquiry.BorderColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
+
+            this.ButtonSend.BackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
+            this.ButtonSend.TextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
         }
 
         public async void ButtonSend_Clicked(System.Object sender, System.EventArgs e)

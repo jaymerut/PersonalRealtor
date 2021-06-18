@@ -5,7 +5,6 @@
              x:Class="PersonalRealtor.Views.Pages.Menu.UI.MenuPage"
              IconImageSource="side_menu.png"
              Title="title"
-             BackgroundColor="#444444"
              >
 
     <ContentView>
@@ -13,7 +12,6 @@
             <ListView x:Name="ListView"
                       ItemsSource="{Binding Options}"
                       SeparatorVisibility="None"
-                      BackgroundColor="#444444"
                       RowHeight="50"
                       ItemTapped="ListView_ItemTapped"
                       >
@@ -26,9 +24,10 @@
                     <DataTemplate>
                         <controls:SelectableViewCell SelectedBackgroundColor="#00000000">
                             <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="20, 0, 20, 0">
-                                <Image Source="{Binding Image.Source}" HeightRequest="24" WidthRequest="24" />
-                                <Label Text="{Binding Title}"
-                                       TextColor="#BBBBBB"
+                                <Image Source="{Binding Image.Source}" HeightRequest="20" WidthRequest="20" />
+                                <Label x:Name="LabelItem"
+                                       TextColor="#FFFFFF"
+                                       Text="{Binding Title}"
                                        VerticalOptions="Center"
                                        Margin="10, 0, 0, 0"
                                        FontSize="16"
