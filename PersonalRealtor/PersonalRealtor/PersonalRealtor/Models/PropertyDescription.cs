@@ -24,7 +24,7 @@ namespace PersonalRealtor.Models
 
         public string GetSoldPriceString()
         {
-            return $"${(SoldPrice ?? 0).ToString("N0")}";
+            return SoldPrice > 0 ? $"${(SoldPrice ?? 0).ToString("N0")}" : "";
         }
     }
 }

@@ -28,7 +28,7 @@ namespace PersonalRealtor.Models
 
         public string GetListPriceString()
         {
-            return $"${(ListPrice ?? 0).ToString("N0")}";
+            return ListPrice > 0 ? $"${(ListPrice ?? 0).ToString("N0")}" : "";
         }
 
         public bool IsForSale()
