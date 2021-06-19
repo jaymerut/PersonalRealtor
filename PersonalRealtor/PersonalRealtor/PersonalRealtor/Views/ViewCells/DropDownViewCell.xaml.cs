@@ -45,6 +45,7 @@ namespace PersonalRealtor.Views.ViewCells
         {
             LabelName.Text = this.ViewModel.Name;
             SeparatorView.IsVisible = !this.ViewModel.IsExpanded;
+            this.ImageArrow.Source = this.ViewModel.IsExpanded ? "up_arrow.png" : "down_arrow.png";
         }
 
         private void DropDown_Tapped(System.Object sender, System.EventArgs e)
