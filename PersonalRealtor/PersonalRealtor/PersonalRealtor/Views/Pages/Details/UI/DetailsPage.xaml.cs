@@ -167,6 +167,12 @@ namespace PersonalRealtor.Views.Pages.Details.UI
         {
             var result = new List<PropertyAdditionalInfoViewModel>();
 
+            // TODO: Fix this to be a better format
+            result.Add(new PropertyAdditionalInfoViewModel {
+                Name = "",
+                Value = ""
+            });
+
             if (!string.IsNullOrEmpty(details.PropType))
             {
                 result.Add(new PropertyAdditionalInfoViewModel
@@ -212,7 +218,13 @@ namespace PersonalRealtor.Views.Pages.Details.UI
                 });
 
             }
-            
+
+            // TODO: Fix this to be a better format
+            result.Add(new PropertyAdditionalInfoViewModel {
+                Name = "",
+                Value = ""
+            });
+
             return result;
         }
 
