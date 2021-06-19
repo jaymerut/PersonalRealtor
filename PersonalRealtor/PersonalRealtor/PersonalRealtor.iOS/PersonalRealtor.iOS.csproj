@@ -125,13 +125,14 @@
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <BundleResource Include="Resources\down_arrow.png" />
     <BundleResource Include="Resources\bullet_point.png" />
     <BundleResource Include="Resources\side_menu.png" />
     <BundleResource Include="Resources\menu_realtor_listings.png" />
     <BundleResource Include="Resources\menu_browse_listings.png" />
     <BundleResource Include="Resources\menu_general_inquiry.png" />
     <BundleResource Include="Resources\menu_chat.png" />
+    <BundleResource Include="Resources\up_arrow.png" />
+    <BundleResource Include="Resources\down_arrow.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

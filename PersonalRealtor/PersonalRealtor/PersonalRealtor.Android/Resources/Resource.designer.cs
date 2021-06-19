@@ -15699,7 +15699,10 @@ namespace PersonalRealtor.Droid
 			public const int tooltip_frame_light = 2131165548;
 			
 			// aapt resource value: 0x7F07016D
-			public const int xamarin_logo = 2131165549;
+			public const int up_arrow = 2131165549;
+			
+			// aapt resource value: 0x7F07016E
+			public const int xamarin_logo = 2131165550;
 			
 			static Drawable()
 			{

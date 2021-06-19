@@ -17,7 +17,7 @@ namespace PersonalRealtor.ViewModels
 
         public string GetListPriceString()
         {
-            return $"${(Price ?? 0).ToString("N0")}";
+            return Price > 0 ? $"${(Price ?? 0).ToString("N0")}" : "";
         }
     }
 }

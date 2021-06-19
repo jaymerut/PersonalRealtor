@@ -11,7 +11,7 @@
                   <TapGestureRecognizer Tapped="DropDown_Tapped"/>
               </StackLayout.GestureRecognizers>
               <Label x:Name="LabelName" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="Large" FontAttributes="Bold" />
-              <Image x:Name="ImageArrow" HorizontalOptions="End" VerticalOptions="Center" Source="down_arrow.png" HeightRequest="30" Aspect="AspectFit" />
+              <Image x:Name="ImageArrow" HorizontalOptions="End" VerticalOptions="Center" HeightRequest="30" Aspect="AspectFit" />
           </StackLayout>
           <BoxView x:Name="SeparatorView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#666666" HeightRequest="1" Margin="0,5,0,5"/> 
       </StackLayout>
