@@ -6,7 +6,7 @@ namespace PersonalRealtor.Views.Pages.SavedHomes.Composer {
     public class SavedHomesUIComposer {
         public static SavedHomesPage MakeSavedHomesUI() {
 
-            var dataTemplateSelector = new PropertyListingDataTemplateSelector();
+            var dataTemplateSelector = new SavedHomesDataTemplateSelector();
 
             return new SavedHomesPage(dataTemplateSelector);
         }
