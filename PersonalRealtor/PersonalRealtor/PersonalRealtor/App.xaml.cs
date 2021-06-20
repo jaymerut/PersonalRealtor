@@ -1,4 +1,5 @@
-﻿using PersonalRealtor.Views;
+﻿using MonkeyCache.FileStore;
+using PersonalRealtor.Views;
 using PersonalRealtor.Views.Pages.Base;
 using PersonalRealtor.Views.Pages.BrowseListings.UI;
 using PersonalRealtor.Views.Pages.GeneralInquiry.Composer;
@@ -8,6 +9,7 @@ using PersonalRealtor.Views.Pages.Menu;
 using PersonalRealtor.Views.Pages.Menu.Composer;
 using PersonalRealtor.Views.Pages.RealtorChat.UI;
 using PersonalRealtor.Views.Pages.RealtorListings.Composer;
+using PersonalRealtor.Views.Pages.SavedHomes.Composer;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,6 +22,8 @@ namespace PersonalRealtor
         public App()
         {
             InitializeComponent();
+
+            Barrel.ApplicationId = "RealtorListings";
 
             MainPage = MakeMainUI();
         }
@@ -63,6 +67,16 @@ namespace PersonalRealtor
                     Image = new Image() { Source = "menu_browse_listings.png" },
                     Action = () => {
                         main.Detail = new PRNavigationPage(new BrowseListingsPage());
+                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
+                        ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
+                        main.IsPresented = false;
+                    }
+                },
+                new MenuOption<Image>() {
+                    Title = "My Saved Homes",
+                    Image = new Image() { Source = "menu_my_saved_homes.png" },
+                    Action = () => {
+                        main.Detail = new PRNavigationPage(SavedHomesUIComposer.MakeSavedHomesUI());
                         ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
                         ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
                         main.IsPresented = false;

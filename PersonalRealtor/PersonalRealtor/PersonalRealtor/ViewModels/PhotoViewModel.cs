@@ -6,6 +6,7 @@ namespace PersonalRealtor.ViewModels
 {
     public class PhotoViewModel
     {
+        public SavedHome SavedHome { get; set; }
         public List<Photo> Photos { get; set; }
         public string PropStatus { get; set; }
 
