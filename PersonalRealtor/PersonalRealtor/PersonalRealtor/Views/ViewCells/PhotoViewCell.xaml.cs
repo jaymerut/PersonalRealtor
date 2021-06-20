@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PersonalRealtor.Components.Helpers;
 using PersonalRealtor.Controls;
 using PersonalRealtor.ViewModels;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,10 +15,12 @@ namespace PersonalRealtor.Views.ViewCells
     public partial class PhotoViewCell : SelectableViewCell
     {
         private PhotoViewModel ViewModel;
-        private string BookmarkCacheKey;
+        private BookmarkHelper BookmarkHelper;
 
         public PhotoViewCell()
         {
+            this.BookmarkHelper = new BookmarkHelper();
+
             InitializeComponent();
 
             BindingContext = this;
@@ -45,9 +47,7 @@ namespace PersonalRealtor.Views.ViewCells
 
         private void UpdatePhoto()
         {
-            this.BookmarkCacheKey = $"Bookmark-{this.ViewModel.PropertyId}";
-            var test = Preferences.Get(this.BookmarkCacheKey, "");
-            ImageButtonBookmark.Source = !string.IsNullOrEmpty(Preferences.Get(this.BookmarkCacheKey, "")) ? "bookmark_selected.png" : "bookmark_unselected.png";
+            ImageButtonBookmark.Source = BookmarkHelper.IsBookmarked(this.ViewModel.PropertyId) ? "bookmark_selected.png" : "bookmark_unselected.png";
             ImagePhoto.Source = this.ViewModel.Photos.FirstOrDefault().Href.Replace(".jpg", "-w1020_h770_q90.jpg");
             if (this.ViewModel.IsForSale())
             {
@@ -70,13 +70,12 @@ namespace PersonalRealtor.Views.ViewCells
         }
 
         private void ImageButtonBookmark_Clicked(System.Object sender, System.EventArgs e) {
-            var propertyId = Preferences.Get(this.BookmarkCacheKey, "");
 
-            if (string.IsNullOrEmpty(propertyId)) {
-                Preferences.Set(this.BookmarkCacheKey, this.ViewModel.PropertyId);
+            if (!BookmarkHelper.IsBookmarked(this.ViewModel.PropertyId)) {
+                BookmarkHelper.AddToSavedHomes(this.ViewModel.PropertyId);
                 this.ImageButtonBookmark.Source = "bookmark_selected.png";
             } else {
-                Preferences.Remove(this.BookmarkCacheKey);
+                BookmarkHelper.RemoveFromSavedHomes(this.ViewModel.PropertyId);
                 this.ImageButtonBookmark.Source = "bookmark_unselected.png";
             }
         }

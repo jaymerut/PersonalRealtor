@@ -1,4 +1,5 @@
-﻿using PersonalRealtor.Views;
+﻿using MonkeyCache.FileStore;
+using PersonalRealtor.Views;
 using PersonalRealtor.Views.Pages.Base;
 using PersonalRealtor.Views.Pages.BrowseListings.UI;
 using PersonalRealtor.Views.Pages.GeneralInquiry.Composer;
@@ -21,6 +22,8 @@ namespace PersonalRealtor
         public App()
         {
             InitializeComponent();
+
+            Barrel.ApplicationId = "RealtorListings";
 
             MainPage = MakeMainUI();
         }

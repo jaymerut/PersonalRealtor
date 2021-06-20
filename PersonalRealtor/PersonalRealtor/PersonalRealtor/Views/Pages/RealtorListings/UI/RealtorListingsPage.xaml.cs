@@ -40,7 +40,6 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
             this.RequestList = requestList;
             this.DataTemplateSelector = dataTemplateSelector;
             this.BindingContext = this;
-            Barrel.ApplicationId = "RealtorListings";
 
             InitializeComponent();
 
