@@ -20,7 +20,7 @@
                     <Frame x:Name="FrameBadge" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="End" Margin="12, 12, 0, 12" Padding="5">
                         <Label x:Name="LabelBadge" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="12" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                     </Frame>
-                    <ImageButton x:Name="ImageButtonBookmark" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="End" Margin="5" Padding="5" HeightRequest="40" WidthRequest="40" Source="bookmark_unselected.png" Clicked="ImageButtonBookmark_Clicked"/>
+                    <ImageButton x:Name="ImageButtonBookmark" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="End" VerticalOptions="End" Margin="5" Padding="5" HeightRequest="40" WidthRequest="40" Clicked="ImageButtonBookmark_Clicked"/>
                 </Grid>
             </Frame>
             <Grid>

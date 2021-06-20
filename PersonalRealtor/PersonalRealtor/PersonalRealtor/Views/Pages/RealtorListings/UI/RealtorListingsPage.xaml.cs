@@ -49,8 +49,7 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
         #endregion
 
         #region - ContentPage Lifecycle Methods
-        protected override async void OnAppearing()
-        {
+        protected override void OnAppearing() {
             base.OnAppearing();
 
         }
@@ -71,7 +70,6 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
         // Data Logic
         private async Task RetrieveRealtorListingsAsync()
         {
-           
             if (!Barrel.Current.IsExpired(key: BarrelKey))
             {
                 this.Response = Barrel.Current.Get<AgentListingsResponse>(key: BarrelKey);
@@ -125,9 +123,9 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
                 ForRentListings.AddRange(agentResponse.Data.ForRent.Results);
                 ForSoldListings.AddRange(agentResponse.Data.ForSold.Results);
 
-                ForSaleListings = ForSaleListings.DistinctBy(x => x.ListingId).ToList();
-                ForRentListings = ForRentListings.DistinctBy(x => x.ListingId).ToList();
-                ForSoldListings = ForSoldListings.DistinctBy(x => x.ListingId).ToList();
+                ForSaleListings = ForSaleListings.DistinctBy(x => x.ListingId).DistinctBy(x => x.PropertyId).ToList();
+                ForRentListings = ForRentListings.DistinctBy(x => x.ListingId).DistinctBy(x => x.PropertyId).ToList();
+                ForSoldListings = ForSoldListings.DistinctBy(x => x.ListingId).DistinctBy(x => x.PropertyId).ToList();
             }
 
             // ForSale
@@ -192,12 +190,15 @@ namespace PersonalRealtor.Views.Pages.RealtorListings.UI
             {
                 case "All":
                     RetrieveListingsByListingType(ListingType.All);
+                    SelectedSegment = 0;
                     break;
                 case "For Sale":
                     RetrieveListingsByListingType(ListingType.ForSale);
+                    SelectedSegment = 1;
                     break;
                 case "Sold":
                     RetrieveListingsByListingType(ListingType.ForSold);
+                    SelectedSegment = 2;
                     break;
                 default:
                     break;

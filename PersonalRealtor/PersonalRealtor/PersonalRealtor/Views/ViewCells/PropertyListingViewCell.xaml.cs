@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PersonalRealtor.Controls;
 using PersonalRealtor.Models;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,6 +14,10 @@ namespace PersonalRealtor.Views.ViewCells
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PropertyListingViewCell : SelectableViewCell
     {
+        private PropertyListing PropertyListing;
+        private string BookmarkCacheKey;
+
+
         public PropertyListingViewCell()
         {
             InitializeComponent();
@@ -23,9 +28,19 @@ namespace PersonalRealtor.Views.ViewCells
             };
         }
 
+        protected override void OnAppearing() {
+            base.OnAppearing();
+
+            Console.WriteLine($"{this.PropertyListing.PropertyId}: Appeared!");
+        }
+
         // Display Logic
         private void UpdateListing(PropertyListing listing)
         {
+            this.PropertyListing = listing;
+            this.BookmarkCacheKey = $"Bookmark-{this.PropertyListing.PropertyId}";
+
+            ImageButtonBookmark.Source = !string.IsNullOrEmpty(Preferences.Get(this.BookmarkCacheKey, "")) ? "bookmark_selected.png" : "bookmark_unselected.png";
             ImagePhoto.Source = listing.PrimaryPhoto.Href.Replace(".jpg", "-w1020_h770_q90.jpg");
             if (listing.IsForSale())
             {
@@ -54,6 +69,7 @@ namespace PersonalRealtor.Views.ViewCells
             LabelBed.IsVisible = listing.Desc.Beds > 0;
             LabelBath.IsVisible = listing.Desc.Baths > 0;
             LabelSqft.IsVisible = listing.Desc.Sqft > 0;
+
         }
 
         // UIResponders
@@ -65,6 +81,15 @@ namespace PersonalRealtor.Views.ViewCells
         }
 
         private void ImageButtonBookmark_Clicked(System.Object sender, System.EventArgs e) {
+            var propertyId = Preferences.Get(this.BookmarkCacheKey, "");
+
+            if (string.IsNullOrEmpty(propertyId)) {
+                Preferences.Set(this.BookmarkCacheKey, this.PropertyListing.PropertyId);
+                this.ImageButtonBookmark.Source = "bookmark_selected.png";
+            } else {
+                Preferences.Remove(this.BookmarkCacheKey);
+                this.ImageButtonBookmark.Source = "bookmark_unselected.png";
+            }
 
         }
     }

@@ -146,6 +146,7 @@ namespace PersonalRealtor.Views.Pages.Details.UI
         {
             return new PhotoViewModel
             {
+                PropertyId = details.PropertyId.Replace("M", ""),
                 Photos = details.Photos,
                 PropStatus = details.PropStatus
             };
