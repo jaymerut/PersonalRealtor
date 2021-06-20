@@ -4,6 +4,22 @@
     "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.iOS/PersonalRealtor.iOS.csproj": {}
   },
   "projects": {
+    "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.csproj": {
+      "restore": {
+        "projectUniqueName": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.csproj",
+        "projectName": "OneSignalNotificationServiceExtension",
+        "projectPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.csproj",
+        "packagesPath": "/Users/jaymerutkoski/.nuget/packages/",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "/Users/jaymerutkoski/.config/NuGet/NuGet.Config"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "packagesConfigPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/packages.config"
+      }
+    },
     "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.iOS/PersonalRealtor.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -26,6 +42,9 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
+              "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.csproj": {
+                "projectPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.csproj"
+              },
               "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj": {
                 "projectPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj"
               }
@@ -97,6 +116,10 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "Com.OneSignal": {
+              "target": "Package",
+              "version": "[3.10.6, )"
+            },
             "MonkeyCache": {
               "target": "Package",
               "version": "[1.5.2, )"

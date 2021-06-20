@@ -2,6 +2,20 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "Com.OneSignal/3.10.6": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.0/Com.OneSignal.Abstractions.dll": {},
+          "lib/netstandard1.0/Com.OneSignal.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Com.OneSignal.Abstractions.dll": {},
+          "lib/netstandard1.0/Com.OneSignal.dll": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -224,6 +238,33 @@
     }
   },
   "libraries": {
+    "Com.OneSignal/3.10.6": {
+      "sha512": "Liv7lhMtBt1vDFSO68WJoSNYFaDB/V85pBzyVbMs1JAZG3wHwd5JVDc6fqjguT/c1cvo4mOWJSTWb2fc8GRblA==",
+      "type": "package",
+      "path": "com.onesignal/3.10.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "com.onesignal.3.10.6.nupkg.sha512",
+        "com.onesignal.nuspec",
+        "lib/MonoAndroid10/Com.OneSignal.Abstractions.dll",
+        "lib/MonoAndroid10/Com.OneSignal.Abstractions.pdb",
+        "lib/MonoAndroid10/Com.OneSignal.dll",
+        "lib/MonoAndroid10/Com.OneSignal.pdb",
+        "lib/MonoAndroid10/OneSignal.Android.Binding.dll",
+        "lib/MonoAndroid10/OneSignal.Android.Binding.pdb",
+        "lib/Xamarin.iOS10/Com.OneSignal.Abstractions.dll",
+        "lib/Xamarin.iOS10/Com.OneSignal.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Com.OneSignal.dll",
+        "lib/Xamarin.iOS10/Com.OneSignal.pdb",
+        "lib/Xamarin.iOS10/OneSignal.iOS.Binding.dll",
+        "lib/Xamarin.iOS10/OneSignal.iOS.Binding.pdb",
+        "lib/netstandard1.0/Com.OneSignal.Abstractions.dll",
+        "lib/netstandard1.0/Com.OneSignal.Abstractions.pdb",
+        "lib/netstandard1.0/Com.OneSignal.dll",
+        "lib/netstandard1.0/Com.OneSignal.pdb"
+      ]
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
       "sha512": "1Am6l4Vpn3/K32daEqZI+FFr96OlZkgwK2LcT3pZ2zWubR5zTPW3/FkO1Rat9kb7oQOa4rxgl9LJHc5tspCWfg==",
       "type": "package",
@@ -1243,6 +1284,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "Com.OneSignal >= 3.10.6",
       "MonkeyCache >= 1.5.2",
       "MonkeyCache.FileStore >= 1.5.2",
       "NETStandard.Library >= 2.0.3",
@@ -1291,6 +1333,10 @@
       "netstandard2.0": {
         "targetAlias": "netstandard2.0",
         "dependencies": {
+          "Com.OneSignal": {
+            "target": "Package",
+            "version": "[3.10.6, )"
+          },
           "MonkeyCache": {
             "target": "Package",
             "version": "[1.5.2, )"

@@ -94,6 +94,10 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "Com.OneSignal": {
+              "target": "Package",
+              "version": "[3.10.6, )"
+            },
             "MonkeyCache": {
               "target": "Package",
               "version": "[1.5.2, )"

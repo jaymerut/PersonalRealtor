@@ -27,6 +27,8 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchExtraArgs>--registrar:static</MtouchExtraArgs>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -61,6 +63,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -157,6 +160,11 @@
     <ProjectReference Include="..\PersonalRealtor\PersonalRealtor.csproj">
       <Project>{226F521F-199F-4A21-B803-589CF74776FD}</Project>
       <Name>PersonalRealtor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OneSignalNotificationServiceExtension\OneSignalNotificationServiceExtension.csproj">
+      <IsAppExtension>true</IsAppExtension>
+      <Project>{F2561169-C437-4C36-850E-22BB85AEAE51}</Project>
+      <Name>OneSignalNotificationServiceExtension</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

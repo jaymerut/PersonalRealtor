@@ -1,4 +1,7 @@
-﻿using MonkeyCache.FileStore;
+﻿using System.Collections.Generic;
+using Com.OneSignal;
+using Com.OneSignal.Abstractions;
+using MonkeyCache.FileStore;
 using PersonalRealtor.Views.Pages.Base;
 using PersonalRealtor.Views.Pages.BrowseListings.UI;
 using PersonalRealtor.Views.Pages.GeneralInquiry.Composer;
@@ -23,6 +26,19 @@ namespace PersonalRealtor
             Barrel.ApplicationId = "RealtorListings";
 
             MainPage = MakeMainUI();
+
+            //Remove this method to stop OneSignal Debugging  
+            OneSignal.Current.SetLogLevel(LOG_LEVEL.VERBOSE, LOG_LEVEL.NONE);
+
+            OneSignal.Current.StartInit("YOUR_ONESIGNAL_APP_ID")
+            .Settings(new Dictionary<string, bool>() {
+                { IOSSettings.kOSSettingsKeyAutoPrompt, false },
+                { IOSSettings.kOSSettingsKeyInAppLaunchURL, false } })
+            .InFocusDisplaying(OSInFocusDisplayOption.Notification)
+            .EndInit();
+
+            // The promptForPushNotificationsWithUserResponse function will show the iOS push notification prompt. We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 7)
+            OneSignal.Current.RegisterForPushNotifications();
         }
 
         protected override void OnStart()

@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "Com.OneSignal/3.10.6": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Com.OneSignal.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Com.OneSignal.dll": {},
+          "lib/Xamarin.iOS10/OneSignal.iOS.Binding.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Com.OneSignal.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Com.OneSignal.dll": {},
+          "lib/Xamarin.iOS10/OneSignal.iOS.Binding.dll": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -274,10 +290,20 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "OneSignalNotificationServiceExtension/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/OneSignalNotificationServiceExtension.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OneSignalNotificationServiceExtension.dll": {}
+        }
+      },
       "PersonalRealtor/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Com.OneSignal": "3.10.6",
           "MonkeyCache": "1.5.2",
           "MonkeyCache.FileStore": "1.5.2",
           "Newtonsoft.Json": "12.0.3",
@@ -296,6 +322,22 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "Com.OneSignal/3.10.6": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Com.OneSignal.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Com.OneSignal.dll": {},
+          "lib/Xamarin.iOS10/OneSignal.iOS.Binding.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Com.OneSignal.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Com.OneSignal.dll": {},
+          "lib/Xamarin.iOS10/OneSignal.iOS.Binding.dll": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -568,10 +610,20 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "OneSignalNotificationServiceExtension/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/OneSignalNotificationServiceExtension.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OneSignalNotificationServiceExtension.dll": {}
+        }
+      },
       "PersonalRealtor/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Com.OneSignal": "3.10.6",
           "MonkeyCache": "1.5.2",
           "MonkeyCache.FileStore": "1.5.2",
           "Newtonsoft.Json": "12.0.3",
@@ -590,6 +642,22 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "Com.OneSignal/3.10.6": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Com.OneSignal.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Com.OneSignal.dll": {},
+          "lib/Xamarin.iOS10/OneSignal.iOS.Binding.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Com.OneSignal.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Com.OneSignal.dll": {},
+          "lib/Xamarin.iOS10/OneSignal.iOS.Binding.dll": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -862,10 +930,20 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "OneSignalNotificationServiceExtension/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/OneSignalNotificationServiceExtension.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OneSignalNotificationServiceExtension.dll": {}
+        }
+      },
       "PersonalRealtor/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Com.OneSignal": "3.10.6",
           "MonkeyCache": "1.5.2",
           "MonkeyCache.FileStore": "1.5.2",
           "Newtonsoft.Json": "12.0.3",
@@ -884,6 +962,22 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "Com.OneSignal/3.10.6": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Com.OneSignal.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Com.OneSignal.dll": {},
+          "lib/Xamarin.iOS10/OneSignal.iOS.Binding.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Com.OneSignal.Abstractions.dll": {},
+          "lib/Xamarin.iOS10/Com.OneSignal.dll": {},
+          "lib/Xamarin.iOS10/OneSignal.iOS.Binding.dll": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -1156,10 +1250,20 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "OneSignalNotificationServiceExtension/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/OneSignalNotificationServiceExtension.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OneSignalNotificationServiceExtension.dll": {}
+        }
+      },
       "PersonalRealtor/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Com.OneSignal": "3.10.6",
           "MonkeyCache": "1.5.2",
           "MonkeyCache.FileStore": "1.5.2",
           "Newtonsoft.Json": "12.0.3",
@@ -1179,6 +1283,33 @@
     }
   },
   "libraries": {
+    "Com.OneSignal/3.10.6": {
+      "sha512": "Liv7lhMtBt1vDFSO68WJoSNYFaDB/V85pBzyVbMs1JAZG3wHwd5JVDc6fqjguT/c1cvo4mOWJSTWb2fc8GRblA==",
+      "type": "package",
+      "path": "com.onesignal/3.10.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "com.onesignal.3.10.6.nupkg.sha512",
+        "com.onesignal.nuspec",
+        "lib/MonoAndroid10/Com.OneSignal.Abstractions.dll",
+        "lib/MonoAndroid10/Com.OneSignal.Abstractions.pdb",
+        "lib/MonoAndroid10/Com.OneSignal.dll",
+        "lib/MonoAndroid10/Com.OneSignal.pdb",
+        "lib/MonoAndroid10/OneSignal.Android.Binding.dll",
+        "lib/MonoAndroid10/OneSignal.Android.Binding.pdb",
+        "lib/Xamarin.iOS10/Com.OneSignal.Abstractions.dll",
+        "lib/Xamarin.iOS10/Com.OneSignal.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Com.OneSignal.dll",
+        "lib/Xamarin.iOS10/Com.OneSignal.pdb",
+        "lib/Xamarin.iOS10/OneSignal.iOS.Binding.dll",
+        "lib/Xamarin.iOS10/OneSignal.iOS.Binding.pdb",
+        "lib/netstandard1.0/Com.OneSignal.Abstractions.dll",
+        "lib/netstandard1.0/Com.OneSignal.Abstractions.pdb",
+        "lib/netstandard1.0/Com.OneSignal.dll",
+        "lib/netstandard1.0/Com.OneSignal.pdb"
+      ]
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
       "sha512": "1Am6l4Vpn3/K32daEqZI+FFr96OlZkgwK2LcT3pZ2zWubR5zTPW3/FkO1Rat9kb7oQOa4rxgl9LJHc5tspCWfg==",
       "type": "package",
@@ -1979,6 +2110,11 @@
         "xamarin.forms.nuspec"
       ]
     },
+    "OneSignalNotificationServiceExtension/1.0.0": {
+      "type": "project",
+      "path": "../../OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.csproj",
+      "msbuildProject": "../../OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.csproj"
+    },
     "PersonalRealtor/1.0.0": {
       "type": "project",
       "path": "../PersonalRealtor/PersonalRealtor.csproj",
@@ -1987,6 +2123,7 @@
   },
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
+      "OneSignalNotificationServiceExtension >= 1.0.0",
       "PersonalRealtor >= 1.0.0",
       "Plugin.SegmentedControl.Netstandard >= 5.4.5",
       "Xamarin.Essentials >= 1.5.3.2",
@@ -2018,6 +2155,9 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
+            "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.csproj": {
+              "projectPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.csproj"
+            },
             "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj": {
               "projectPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj"
             }

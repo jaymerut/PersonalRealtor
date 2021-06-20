@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "MmQEEZRJWfuci88bPhwGY1NUN2YVcIVsbVBNYv1flnK1wg1lYFDn1RnvUDSLr6LAV5NVlNCQf2wBE8UA494L+g==",
+  "dgSpecHash": "Mr3u9iktyO2ppIOxznk7bTnhFmlXOg0mkc/fuvtDwKrR9paBAeLDHn8jiFv4dfmCSy/7UtHDhqjcqWjY5T4kcg==",
   "success": true,
   "projectFilePath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj",
   "expectedPackageFiles": [
+    "/Users/jaymerutkoski/.nuget/packages/com.onesignal/3.10.6/com.onesignal.3.10.6.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.0/microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/monkeycache/1.5.2/monkeycache.1.5.2.nupkg.sha512",
