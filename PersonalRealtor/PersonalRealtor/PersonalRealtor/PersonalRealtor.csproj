@@ -63,4 +63,9 @@
     <None Remove="Realtors\CoreyMarshall.json" />
     <None Remove="Realtors\ScottBryant.json" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\ViewCells\ChatMessageViewCell.xaml.cs">
+      <DependentUpon>ChatMessageViewCell.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>
