@@ -15,12 +15,10 @@ namespace PersonalRealtor.Views.ViewCells
     public partial class PhotoViewCell : SelectableViewCell
     {
         private PhotoViewModel ViewModel;
-        private BookmarkHelper BookmarkHelper;
+        private BookmarkHelper BookmarkHelper = new BookmarkHelper();
 
         public PhotoViewCell()
         {
-            this.BookmarkHelper = new BookmarkHelper();
-
             InitializeComponent();
 
             BindingContext = this;
@@ -47,7 +45,8 @@ namespace PersonalRealtor.Views.ViewCells
 
         private void UpdatePhoto()
         {
-            ImageButtonBookmark.Source = BookmarkHelper.IsBookmarked(this.ViewModel.PropertyId) ? "bookmark_selected.png" : "bookmark_unselected.png";
+            ImageButtonBookmark.Source = BookmarkHelper.IsBookmarked(this.ViewModel.SavedHome) ? "bookmark_selected.png" : "bookmark_unselected.png";
+            ImageButtonBookmark.IsVisible = !this.ViewModel.IsSold();
             ImagePhoto.Source = this.ViewModel.Photos.FirstOrDefault().Href.Replace(".jpg", "-w1020_h770_q90.jpg");
             if (this.ViewModel.IsForSale())
             {
@@ -71,11 +70,11 @@ namespace PersonalRealtor.Views.ViewCells
 
         private void ImageButtonBookmark_Clicked(System.Object sender, System.EventArgs e) {
 
-            if (!BookmarkHelper.IsBookmarked(this.ViewModel.PropertyId)) {
-                BookmarkHelper.AddToSavedHomes(this.ViewModel.PropertyId);
+            if (!BookmarkHelper.IsBookmarked(this.ViewModel.SavedHome)) {
+                BookmarkHelper.AddToSavedHomes(this.ViewModel.SavedHome);
                 this.ImageButtonBookmark.Source = "bookmark_selected.png";
             } else {
-                BookmarkHelper.RemoveFromSavedHomes(this.ViewModel.PropertyId);
+                BookmarkHelper.RemoveFromSavedHomes(this.ViewModel.SavedHome);
                 this.ImageButtonBookmark.Source = "bookmark_unselected.png";
             }
         }

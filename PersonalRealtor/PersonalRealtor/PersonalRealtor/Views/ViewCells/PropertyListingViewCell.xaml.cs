@@ -15,13 +15,10 @@ namespace PersonalRealtor.Views.ViewCells
     public partial class PropertyListingViewCell : SelectableViewCell
     {
         private PropertyListing PropertyListing;
-        private BookmarkHelper BookmarkHelper;
-
+        private BookmarkHelper BookmarkHelper = new BookmarkHelper();
 
         public PropertyListingViewCell()
         {
-            this.BookmarkHelper = new BookmarkHelper();
-
             InitializeComponent();
 
             // BindingContext
@@ -41,7 +38,8 @@ namespace PersonalRealtor.Views.ViewCells
         {
             this.PropertyListing = listing;
 
-            ImageButtonBookmark.Source = BookmarkHelper.IsBookmarked(this.PropertyListing.PropertyId) ? "bookmark_selected.png" : "bookmark_unselected.png";
+            ImageButtonBookmark.Source = BookmarkHelper.IsBookmarked(BookmarkHelper.ConvertPropertyListingToSavedHome(this.PropertyListing)) ? "bookmark_selected.png" : "bookmark_unselected.png";
+            ImageButtonBookmark.IsVisible = !listing.IsSold();
             ImagePhoto.Source = listing.PrimaryPhoto.Href.Replace(".jpg", "-w1020_h770_q90.jpg");
             if (listing.IsForSale())
             {
@@ -83,11 +81,11 @@ namespace PersonalRealtor.Views.ViewCells
 
         private void ImageButtonBookmark_Clicked(System.Object sender, System.EventArgs e) {
 
-            if (!BookmarkHelper.IsBookmarked(this.PropertyListing.PropertyId)) {
-                BookmarkHelper.AddToSavedHomes(this.PropertyListing.PropertyId);
+            if (!BookmarkHelper.IsBookmarked(BookmarkHelper.ConvertPropertyListingToSavedHome(this.PropertyListing))) {
+                BookmarkHelper.AddToSavedHomes(BookmarkHelper.ConvertPropertyListingToSavedHome(this.PropertyListing));
                 this.ImageButtonBookmark.Source = "bookmark_selected.png";
             } else {
-                BookmarkHelper.RemoveFromSavedHomes(this.PropertyListing.PropertyId);
+                BookmarkHelper.RemoveFromSavedHomes(BookmarkHelper.ConvertPropertyListingToSavedHome(this.PropertyListing));
                 this.ImageButtonBookmark.Source = "bookmark_unselected.png";
             }
 

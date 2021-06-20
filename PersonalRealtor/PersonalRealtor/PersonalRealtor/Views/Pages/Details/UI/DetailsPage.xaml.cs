@@ -11,6 +11,7 @@ using PersonalRealtor.Components.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MonkeyCache.FileStore;
+using PersonalRealtor.Components.Helpers;
 
 namespace PersonalRealtor.Views.Pages.Details.UI
 {
@@ -22,6 +23,7 @@ namespace PersonalRealtor.Views.Pages.Details.UI
         private PropertyDetailsProp Details;
         private DataTemplateSelector DataTemplateSelector;
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
+        private BookmarkHelper BookmarkHelper = new BookmarkHelper();
         private readonly string PropertyId;
         private string BarrelKey;
         #endregion
@@ -146,7 +148,7 @@ namespace PersonalRealtor.Views.Pages.Details.UI
         {
             return new PhotoViewModel
             {
-                PropertyId = details.PropertyId.Replace("M", ""),
+                SavedHome = BookmarkHelper.ConvertPropertyDetailsPropToSavedHome(details),
                 Photos = details.Photos,
                 PropStatus = details.PropStatus
             };

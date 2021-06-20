@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PersonalRealtor.Components.Helpers;
 using PersonalRealtor.Models;
 using PersonalRealtor.Views.Pages.Details.Composer;
 using Xamarin.Forms;
@@ -15,12 +16,14 @@ namespace PersonalRealtor.Views.Pages.SavedHomes.UI {
         #region - Variables
         private DataTemplateSelector DataTemplateSelector;
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
+        private BookmarkHelper BookmarkHelper;
         #endregion
 
         #region - Constructors
         public SavedHomesPage(DataTemplateSelector dataTemplateSelector) {
             this.DataTemplateSelector = dataTemplateSelector;
             this.BindingContext = this;
+            this.BookmarkHelper = new BookmarkHelper();
 
             InitializeComponent();
 
@@ -47,7 +50,7 @@ namespace PersonalRealtor.Views.Pages.SavedHomes.UI {
 
         // Data Logic
         private void RetrieveListings() {
-
+            //this.Objects = BookmarkHelper.RetrieveSavedHomes().SavedPropertyIds;
         }
 
         private void SavedHomesListView_ItemSelected(Object sender, SelectedItemChangedEventArgs e) {
