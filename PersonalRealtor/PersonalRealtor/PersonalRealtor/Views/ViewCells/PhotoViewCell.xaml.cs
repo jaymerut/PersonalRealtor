@@ -63,5 +63,9 @@ namespace PersonalRealtor.Views.ViewCells
                 this.FrameBadge.IsVisible = true;
             }
         }
+
+        private void ImageButtonBookmark_Clicked(System.Object sender, System.EventArgs e) {
+
+        }
     }
 }

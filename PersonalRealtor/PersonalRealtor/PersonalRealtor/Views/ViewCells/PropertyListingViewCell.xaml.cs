@@ -56,12 +56,16 @@ namespace PersonalRealtor.Views.ViewCells
             LabelSqft.IsVisible = listing.Desc.Sqft > 0;
         }
 
-        // UIRespondersß
+        // UIResponders
         private void BindingContext_Changed(object sender, EventArgs eventArgs)
         {
             var listing = (PropertyListing)GetValue(BindingContextProperty);
             if (listing != null)
                 UpdateListing(listing);
+        }
+
+        private void ImageButtonBookmark_Clicked(System.Object sender, System.EventArgs e) {
+
         }
     }
 }

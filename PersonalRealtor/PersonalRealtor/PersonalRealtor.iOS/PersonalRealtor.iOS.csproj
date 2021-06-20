@@ -134,7 +134,8 @@
     <BundleResource Include="Resources\up_arrow.png" />
     <BundleResource Include="Resources\down_arrow.png" />
     <BundleResource Include="Resources\menu_my_saved_homes.png" />
-    <BundleResource Include="Resources\bookmark.png" />
+    <BundleResource Include="Resources\bookmark_unselected.png" />
+    <BundleResource Include="Resources\bookmark_selected.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

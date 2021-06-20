@@ -136,7 +136,11 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable\bookmark.png">
+    <AndroidResource Include="Resources\drawable\bookmark_selected.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\bookmark_unselected.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
