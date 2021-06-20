@@ -1,5 +1,4 @@
 ﻿using MonkeyCache.FileStore;
-using PersonalRealtor.Views;
 using PersonalRealtor.Views.Pages.Base;
 using PersonalRealtor.Views.Pages.BrowseListings.UI;
 using PersonalRealtor.Views.Pages.GeneralInquiry.Composer;
@@ -7,12 +6,10 @@ using PersonalRealtor.Views.Pages.Main.Composer;
 using PersonalRealtor.Views.Pages.Main.UI;
 using PersonalRealtor.Views.Pages.Menu;
 using PersonalRealtor.Views.Pages.Menu.Composer;
-using PersonalRealtor.Views.Pages.RealtorChat.UI;
+using PersonalRealtor.Views.Pages.RealtorChat.Composer;
 using PersonalRealtor.Views.Pages.RealtorListings.Composer;
 using PersonalRealtor.Views.Pages.SavedHomes.Composer;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace PersonalRealtor
 {
@@ -96,7 +93,7 @@ namespace PersonalRealtor
                     Title = "Chat With Your Realtor!",
                     Image = new Image() { Source = "menu_chat.png" },
                     Action = () => {
-                        main.Detail = new PRNavigationPage(new RealtorChatPage());
+                        main.Detail = new PRNavigationPage(RealtorChatUIComposer.MakeRealtorChatUI());
                         ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
                         ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
                         main.IsPresented = false;
