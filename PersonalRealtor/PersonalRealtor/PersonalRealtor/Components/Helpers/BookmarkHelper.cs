@@ -36,9 +36,9 @@ namespace PersonalRealtor.Components.Helpers {
                 PropertyId = propertyListing.PropertyId.Replace("M", ""),
                 Address = $"{propertyListing.Location.PermaLink.Line}, {propertyListing.Location.PermaLink.GetCityState()}",
                 Price = propertyListing.GetListPriceString(),
-                Bath = $"{propertyListing.Desc.Baths}",
-                Bed = $"{propertyListing.Desc.Beds}",
-                Sqft = (propertyListing.Desc.Sqft ?? 0).ToString("N0")
+                Bath = propertyListing.Desc.Baths > 0 ? $"{propertyListing.Desc.Baths} baths" : "",
+                Bed = propertyListing.Desc.Beds > 0 ? $"{propertyListing.Desc.Beds} beds" : "",
+                Sqft = propertyListing.Desc.Sqft > 0 ? $"{(propertyListing.Desc.Sqft ?? 0).ToString("N0")} sqft" : ""
             };
         }
         public SavedHome ConvertPropertyDetailsPropToSavedHome(PropertyDetailsProp propertyDetailsProp) {
@@ -46,9 +46,9 @@ namespace PersonalRealtor.Components.Helpers {
                 PropertyId = propertyDetailsProp.PropertyId.Replace("M", ""),
                 Address = $"{propertyDetailsProp.Address.Line}, {propertyDetailsProp.Address.GetCityState()}",
                 Price = propertyDetailsProp.Price > 0 ? $"${(propertyDetailsProp.Price ?? 0).ToString("N0")}" : "",
-                Bath = $"{propertyDetailsProp.BathsFull}",
-                Bed = $"{propertyDetailsProp.Beds}",
-                Sqft = $"{propertyDetailsProp.BuildingSize}"
+                Bath = propertyDetailsProp.BathsFull > 0 ? $"{propertyDetailsProp.BathsFull} baths" : "",
+                Bed = propertyDetailsProp.Beds > 0 ? $"{propertyDetailsProp.Beds} beds" : "",
+                Sqft = propertyDetailsProp.BuildingSize.Size > 0 ? $"{propertyDetailsProp.BuildingSize.Size} {propertyDetailsProp.BuildingSize.Units}" : ""
             };
         }
     }

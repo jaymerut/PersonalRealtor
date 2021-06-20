@@ -51,19 +51,22 @@ namespace PersonalRealtor.Views.ViewCells
             if (this.ViewModel.IsForSale())
             {
                 LabelBadge.Text = "FOR SALE";
+                LabelBadge.TextColor = Color.White;
                 FrameBadge.BackgroundColor = Color.FromHex("#3D850A");
                 this.FrameBadge.IsVisible = true;
             }
             else if (this.ViewModel.IsForRent())
             {
                 LabelBadge.Text = "FOR RENT";
+                LabelBadge.TextColor = Color.White;
                 FrameBadge.BackgroundColor = Color.FromHex("#1C5B99");
                 this.FrameBadge.IsVisible = true;
             }
             else if (this.ViewModel.IsSold())
             {
                 LabelBadge.Text = "SOLD";
-                FrameBadge.BackgroundColor = Color.Black;
+                LabelBadge.TextColor = Color.Black;
+                FrameBadge.BackgroundColor = Color.FromHex("#EAEAEA");
                 this.FrameBadge.IsVisible = true;
             }
         }

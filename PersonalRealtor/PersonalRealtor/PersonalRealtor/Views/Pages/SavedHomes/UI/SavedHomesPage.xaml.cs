@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PersonalRealtor.Components.Helpers;
 using PersonalRealtor.Models;
+using PersonalRealtor.ViewModels;
 using PersonalRealtor.Views.Pages.Details.Composer;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -46,21 +47,24 @@ namespace PersonalRealtor.Views.Pages.SavedHomes.UI {
             SavedHomesListView.ItemsSource = Objects;
             SavedHomesListView.ItemTemplate = this.DataTemplateSelector;
 
+            this.ActivityIndicatorListView.IsVisible = false;
         }
 
         // Data Logic
         private void RetrieveListings() {
-            //this.Objects = BookmarkHelper.RetrieveSavedHomes().SavedPropertyIds;
+            foreach (var savedHome in BookmarkHelper.RetrieveSavedHomes().SavedPropertyHomes) {
+                this.Objects.Add(savedHome);
+            }
         }
 
         private void SavedHomesListView_ItemSelected(Object sender, SelectedItemChangedEventArgs e) {
             if (e.SelectedItem != null) {
-                NavigateToDetails(e.SelectedItem as PropertyListing);
+                NavigateToDetails(e.SelectedItem as SavedHome);
             }
         }
 
-        private void NavigateToDetails(PropertyListing listing) {
-            _ = Navigation.PushAsync(DetailsUIComposer.MakeDetailsUI(listing.PropertyId));
+        private void NavigateToDetails(SavedHome savedHome) {
+            _ = Navigation.PushAsync(DetailsUIComposer.MakeDetailsUI(savedHome.PropertyId));
 
             SavedHomesListView.SelectedItem = null;
         }

@@ -44,17 +44,20 @@ namespace PersonalRealtor.Views.ViewCells
             if (listing.IsForSale())
             {
                 LabelBadge.Text = "FOR SALE";
+                LabelBadge.TextColor = Color.White;
                 FrameBadge.BackgroundColor = Color.FromHex("#3D850A");
             }
             else if (listing.IsForRent())
             {
                 LabelBadge.Text = "FOR RENT";
+                LabelBadge.TextColor = Color.White;
                 FrameBadge.BackgroundColor = Color.FromHex("#1C5B99");
             }
             else if (listing.IsSold())
             {
                 LabelBadge.Text = "SOLD";
-                FrameBadge.BackgroundColor = Color.Black;
+                LabelBadge.TextColor = Color.Black;
+                FrameBadge.BackgroundColor = Color.FromHex("#EAEAEA");
             }
 
             LabelStreetAddress.Text = listing.Location.PermaLink.Line;

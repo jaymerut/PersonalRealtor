@@ -1,5 +1,5 @@
 ﻿using System;
-using PersonalRealtor.Models;
+using PersonalRealtor.ViewModels;
 using PersonalRealtor.Views.ViewCells;
 using Xamarin.Forms;
 
@@ -11,7 +11,7 @@ namespace PersonalRealtor.Components.DataTemplateSelectors {
             DataTemplateSavedHome = new DataTemplate(typeof(SavedHomeViewCell));
         }
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container) {
-            if (item is PropertyListing) {
+            if (item is SavedHome) {
                 return DataTemplateSavedHome;
             }
             return new DataTemplate(typeof(ViewCell));

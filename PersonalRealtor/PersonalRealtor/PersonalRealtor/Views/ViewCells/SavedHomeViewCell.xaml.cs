@@ -13,5 +13,7 @@ namespace PersonalRealtor.Views.ViewCells {
         public SavedHomeViewCell() {
             InitializeComponent();
         }
+
+        
     }
 }
