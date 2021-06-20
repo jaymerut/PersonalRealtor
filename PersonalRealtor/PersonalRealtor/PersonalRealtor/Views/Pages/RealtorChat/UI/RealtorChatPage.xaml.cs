@@ -45,6 +45,9 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
             RealtorChatListView.ItemTemplate = this.DataTemplateSelector;
 
             this.ActivityIndicatorListView.IsVisible = false;
+
+            this.ButtonSend.BackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
+            this.ButtonSend.TextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
         }
 
         // Data Logic
@@ -56,6 +59,11 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
             if (e.SelectedItem != null) {
                 // TODO: Anything to happen if a user selects a message?
             }
+        }
+
+        // UIResponders
+        public async void ButtonSend_Clicked(System.Object sender, System.EventArgs e) {
+            
         }
         #endregion
 

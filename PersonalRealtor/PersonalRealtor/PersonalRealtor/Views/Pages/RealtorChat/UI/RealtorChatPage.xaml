@@ -1,14 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PersonalRealtor.Views.Pages.RealtorChat.UI.RealtorChatPage">
+             x:Class="PersonalRealtor.Views.Pages.RealtorChat.UI.RealtorChatPage"
+             xmlns:control="clr-namespace:PersonalRealtor.Controls">
     <ContentPage.Content>
         <AbsoluteLayout>
             <ActivityIndicator x:Name="ActivityIndicatorListView" IsRunning="True" AbsoluteLayout.LayoutBounds="0.5, 0.5, 25, 25" AbsoluteLayout.LayoutFlags="All" />
-            <StackLayout Spacing="0" BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-                <ScrollView x:Name="ScrollViewList" BackgroundColor="Transparent" VerticalOptions="FillAndExpand">
+            <StackLayout Spacing="0" BackgroundColor="Black" Opacity="0.6" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <ScrollView x:Name="ScrollViewList" BackgroundColor="White" VerticalOptions="StartAndExpand">
                     <ListView x:Name="RealtorChatListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" SeparatorVisibility="None" HasUnevenRows="True" ItemSelected="SavedHomesListView_ItemSelected"/>
                 </ScrollView>
+                <StackLayout BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="300">
+                    <control:CustomEditor x:Name="EditorMessage" Placeholder="Enter your message here" PlaceholderColor="#6B6B6B" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20, 10, 20, 10" />
+                    <Button x:Name="ButtonSend" Text="Send Message" Clicked="ButtonSend_Clicked" FontSize="18" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="FillAndExpand" Margin="0, 10, 0, 10" HeightRequest="60" />
+                </StackLayout>
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>
