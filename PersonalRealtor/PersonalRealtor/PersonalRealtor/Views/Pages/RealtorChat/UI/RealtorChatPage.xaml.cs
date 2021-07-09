@@ -27,7 +27,7 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
 
             InitializeComponent();
 
-            SetUpSavedHomesPage();
+            SetUpRealtorChatPage();
         }
         #endregion
 
@@ -39,7 +39,7 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
         #endregion
 
         #region - Private Methods
-        private void SetUpSavedHomesPage() {
+        private void SetUpRealtorChatPage() {
             // Data
             _ = RetrieveConversationsAsync();
 

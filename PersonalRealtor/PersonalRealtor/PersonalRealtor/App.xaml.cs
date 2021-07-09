@@ -5,6 +5,7 @@ using MonkeyCache.FileStore;
 using PersonalRealtor.Views.Pages.Base;
 using PersonalRealtor.Views.Pages.BrowseListings.UI;
 using PersonalRealtor.Views.Pages.GeneralInquiry.Composer;
+using PersonalRealtor.Views.Pages.Login.Composer;
 using PersonalRealtor.Views.Pages.Main.Composer;
 using PersonalRealtor.Views.Pages.Main.UI;
 using PersonalRealtor.Views.Pages.Menu;
@@ -111,6 +112,16 @@ namespace PersonalRealtor
                     Image = new Image() { Source = "menu_chat.png" },
                     Action = () => {
                         main.Detail = new PRNavigationPage(RealtorChatListUIComposer.MakeRealtorChatListUI());
+                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
+                        ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
+                        main.IsPresented = false;
+                    }
+                },
+                new MenuOption<Image>() {
+                    Title = "Login",
+                    Image = new Image() { Source = "menu_chat.png" },
+                    Action = () => {
+                        main.Detail = new PRNavigationPage(LoginUIComposer.MakeLoginUI());
                         ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
                         ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
                         main.IsPresented = false;

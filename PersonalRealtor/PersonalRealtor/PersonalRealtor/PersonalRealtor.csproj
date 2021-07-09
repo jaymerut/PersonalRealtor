@@ -65,6 +65,9 @@
     <Folder Include="Views\Pages\RealtorChatList\" />
     <Folder Include="Views\Pages\RealtorChatList\Composer\" />
     <Folder Include="Views\Pages\RealtorChatList\UI\" />
+    <Folder Include="Views\Pages\Login\" />
+    <Folder Include="Views\Pages\Login\Composer\" />
+    <Folder Include="Views\Pages\Login\UI\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />

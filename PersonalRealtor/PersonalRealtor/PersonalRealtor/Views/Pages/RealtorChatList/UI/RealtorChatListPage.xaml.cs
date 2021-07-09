@@ -22,7 +22,7 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
 
             InitializeComponent();
 
-            SetUpSavedHomesPage();
+            SetUpRealtorChatListPage();
         }
         #endregion
 
@@ -33,8 +33,8 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
         }
         #endregion
 
-        #region - Private Methods
-        private void SetUpSavedHomesPage() {
+        #region - PriNavvate Methods
+        private void SetUpRealtorChatListPage() {
             // Data
             _ = RetrieveConversationsAsync();
 
