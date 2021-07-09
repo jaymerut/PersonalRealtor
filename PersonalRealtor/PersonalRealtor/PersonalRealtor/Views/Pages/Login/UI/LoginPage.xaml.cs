@@ -40,7 +40,6 @@ namespace PersonalRealtor.Views.Pages.Login.UI {
         private void Refresh() {
             var isLoggedIn = Barrel.Current.Get<bool>(key: LoginBarrelKey);
 
-            this.FrameLogin.IsVisible = !isLoggedIn;
             this.EntryUserName.IsVisible = !isLoggedIn;
             this.EntryPassword.IsVisible = !isLoggedIn;
             this.ButtonLogin.IsVisible = !isLoggedIn;

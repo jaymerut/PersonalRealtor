@@ -108,10 +108,17 @@ namespace PersonalRealtor
                     }
                 },
                 new MenuOption<Image>() {
-                    Title = "Chat With Your Realtor!",
+                    Title = "Realtor Chat!",
                     Image = new Image() { Source = "menu_chat.png" },
                     Action = () => {
-                        main.Detail = new PRNavigationPage(RealtorChatListUIComposer.MakeRealtorChatListUI());
+                        var isLoggedIn = Barrel.Current.Get<bool>(key: "AdminLogin");
+
+                        if (isLoggedIn) {
+                            main.Detail = new PRNavigationPage(RealtorChatListUIComposer.MakeRealtorChatListUI());
+                        } else {
+                            main.Detail = new PRNavigationPage(RealtorChatUIComposer.MakeRealtorChatUI());
+                        }
+
                         ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
                         ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
                         main.IsPresented = false;
