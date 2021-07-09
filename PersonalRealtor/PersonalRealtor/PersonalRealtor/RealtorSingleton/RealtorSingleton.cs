@@ -33,12 +33,12 @@ namespace PersonalRealtor
             get
             {
                 lock (padlock)
-                {
+                { 
                     if (instance == null)
                     {
 
                         var assembly = typeof(RealtorListingsPage).GetTypeInfo().Assembly;
-                        Stream stream = assembly.GetManifestResourceStream("PersonalRealtor.Realtors.ScottBryant.json");
+                        Stream stream = assembly.GetManifestResourceStream("PersonalRealtor.Realtors.CoreyMarshall.json");
                         using (var reader = new System.IO.StreamReader(stream))
                         {
                             var jsonString = reader.ReadToEnd();

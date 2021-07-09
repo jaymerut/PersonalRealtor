@@ -15,6 +15,7 @@
     <PackageReference Include="MonkeyCache" Version="1.5.2" />
     <PackageReference Include="MonkeyCache.FileStore" Version="1.5.2" />
     <PackageReference Include="Com.OneSignal" Version="3.10.6" />
+    <PackageReference Include="Twilio" Version="5.63.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -59,6 +60,11 @@
     <Folder Include="Views\Pages\SavedHomes\Composer\" />
     <Folder Include="Components\Helpers\" />
     <Folder Include="Views\Pages\RealtorChat\Composer\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Delegates\" />
+    <Folder Include="Views\Pages\RealtorChatList\" />
+    <Folder Include="Views\Pages\RealtorChatList\Composer\" />
+    <Folder Include="Views\Pages\RealtorChatList\UI\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />

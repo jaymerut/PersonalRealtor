@@ -10,6 +10,7 @@ using PersonalRealtor.Views.Pages.Main.UI;
 using PersonalRealtor.Views.Pages.Menu;
 using PersonalRealtor.Views.Pages.Menu.Composer;
 using PersonalRealtor.Views.Pages.RealtorChat.Composer;
+using PersonalRealtor.Views.Pages.RealtorChatList.Composer;
 using PersonalRealtor.Views.Pages.RealtorListings.Composer;
 using PersonalRealtor.Views.Pages.SavedHomes.Composer;
 using Xamarin.Forms;
@@ -30,7 +31,7 @@ namespace PersonalRealtor
             //Remove this method to stop OneSignal Debugging  
             OneSignal.Current.SetLogLevel(LOG_LEVEL.VERBOSE, LOG_LEVEL.NONE);
 
-            OneSignal.Current.StartInit("YOUR_ONESIGNAL_APP_ID")
+            OneSignal.Current.StartInit("1c757b00-e5c4-4309-954c-e02d24304b80")
             .Settings(new Dictionary<string, bool>() {
                 { IOSSettings.kOSSettingsKeyAutoPrompt, false },
                 { IOSSettings.kOSSettingsKeyInAppLaunchURL, false } })
@@ -109,7 +110,7 @@ namespace PersonalRealtor
                     Title = "Chat With Your Realtor!",
                     Image = new Image() { Source = "menu_chat.png" },
                     Action = () => {
-                        main.Detail = new PRNavigationPage(RealtorChatUIComposer.MakeRealtorChatUI());
+                        main.Detail = new PRNavigationPage(RealtorChatListUIComposer.MakeRealtorChatListUI());
                         ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
                         ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
                         main.IsPresented = false;

@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using PersonalRealtor.Services.Delegates;
+using PersonalRealtor.ViewModels;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace PersonalRealtor.Views.Pages.RealtorChat.UI
-{
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RealtorChatPage : ContentPage
-    {
+namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
+    public partial class RealtorChatListPage : ContentPage {
         #region - Variables
         private DataTemplateSelector DataTemplateSelector;
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
@@ -20,7 +15,7 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
         #endregion
 
         #region - Constructors
-        public RealtorChatPage(DataTemplateSelector dataTemplateSelector, IConversationResourceService service) {
+        public RealtorChatListPage(DataTemplateSelector dataTemplateSelector, IConversationResourceService service) {
             this.DataTemplateSelector = dataTemplateSelector;
             this.BindingContext = this;
             this.ConversationResourceService = service;
@@ -47,26 +42,25 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
             RealtorChatListView.ItemTemplate = this.DataTemplateSelector;
 
             this.ActivityIndicatorListView.IsVisible = false;
-
-            this.ButtonSend.BackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
-            this.ButtonSend.TextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
         }
 
         // Data Logic
         private async Task RetrieveConversationsAsync() {
+            this.Objects.Clear();
             var conversations = this.ConversationResourceService.RetrieveConversations();
+            foreach (var convo in conversations) {
+                var viewModel = new ConversationViewModel();
+                viewModel.Title = convo.FriendlyName;
+                viewModel.DateUpdated = convo.DateUpdated;
 
+                this.Objects.Add(viewModel);
+            }
         }
 
         private void RealtorChatListView_ItemSelected(Object sender, SelectedItemChangedEventArgs e) {
             if (e.SelectedItem != null) {
                 // TODO: Anything to happen if a user selects a message?
             }
-        }
-
-        // UIResponders
-        public async void ButtonSend_Clicked(System.Object sender, System.EventArgs e) {
-            
         }
         #endregion
 

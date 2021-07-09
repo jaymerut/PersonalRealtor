@@ -17606,6 +17606,9 @@ namespace PersonalRealtor.Droid
 			// aapt resource value: 0x7F0E0000
 			public const int consumer_onesignal_keep = 2131623936;
 			
+			// aapt resource value: 0x7F0E0001
+			public const int rootcert = 2131623937;
+			
 			static Raw()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

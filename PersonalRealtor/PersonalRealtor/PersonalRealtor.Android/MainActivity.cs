@@ -28,7 +28,7 @@ namespace PersonalRealtor.Droid
             // Remove this method to stop OneSignal Debugging  
             OneSignal.Current.SetLogLevel(LOG_LEVEL.VERBOSE, LOG_LEVEL.NONE);
 
-            OneSignal.Current.StartInit("YOUR_ONESIGNAL_APP_ID")
+            OneSignal.Current.StartInit("1c757b00-e5c4-4309-954c-e02d24304b80")
              .InFocusDisplaying(OSInFocusDisplayOption.Notification)
              .EndInit();
         }

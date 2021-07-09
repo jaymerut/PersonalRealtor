@@ -66,6 +66,9 @@
     <PackageReference Include="Xamarin.AndroidX.Palette">
       <Version>1.0.0.7</Version>
     </PackageReference>
+    <PackageReference Include="Twilio.Chat.Xamarin">
+      <Version>0.7.2</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
