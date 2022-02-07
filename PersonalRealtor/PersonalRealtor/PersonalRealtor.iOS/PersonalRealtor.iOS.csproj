@@ -74,6 +74,7 @@
     <Compile Include="Controls\SelectableViewCellRenderer.cs" />
     <Compile Include="Controls\CustomEntryRenderer.cs" />
     <Compile Include="Controls\CustomEditorRenderer.cs" />
+    <Compile Include="Services\FirestoreService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -173,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>
