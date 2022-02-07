@@ -102,10 +102,6 @@
               "target": "Package",
               "version": "[3.10.6, )"
             },
-            "Firebase.Xamarin": {
-              "target": "Package",
-              "version": "[0.3.6, )"
-            },
             "MonkeyCache": {
               "target": "Package",
               "version": "[1.5.2, )"

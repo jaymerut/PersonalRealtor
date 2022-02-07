@@ -150,7 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PersonalRealtor\PersonalRealtor.csproj">
-      <Project>{226F521F-199F-4A21-B803-589CF74776FD}</Project>
+      <Project>{7CB40DCD-20B2-40EA-A2D8-5B1C050B5333}</Project>
       <Name>PersonalRealtor</Name>
     </ProjectReference>
   </ItemGroup>

@@ -16,29 +16,6 @@
           "lib/netstandard1.0/Com.OneSignal.dll": {}
         }
       },
-      "Firebase.Xamarin/0.3.6": {
-        "type": "package",
-        "compile": {
-          "lib/Firebase.Xamarin.dll": {},
-          "lib/JWT.dll": {},
-          "lib/Newtonsoft.Json.dll": {},
-          "lib/System.Reactive.Core.dll": {},
-          "lib/System.Reactive.Interfaces.dll": {},
-          "lib/System.Reactive.Linq.dll": {},
-          "lib/System.Reactive.PlatformServices.dll": {},
-          "lib/crypto.dll": {}
-        },
-        "runtime": {
-          "lib/Firebase.Xamarin.dll": {},
-          "lib/JWT.dll": {},
-          "lib/Newtonsoft.Json.dll": {},
-          "lib/System.Reactive.Core.dll": {},
-          "lib/System.Reactive.Interfaces.dll": {},
-          "lib/System.Reactive.Linq.dll": {},
-          "lib/System.Reactive.PlatformServices.dll": {},
-          "lib/crypto.dll": {}
-        }
-      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
         "type": "package",
         "dependencies": {
@@ -1411,30 +1388,6 @@
         "lib/netstandard1.0/Com.OneSignal.Abstractions.pdb",
         "lib/netstandard1.0/Com.OneSignal.dll",
         "lib/netstandard1.0/Com.OneSignal.pdb"
-      ]
-    },
-    "Firebase.Xamarin/0.3.6": {
-      "sha512": "NarWViC3HJP8Q8F5l0Hd0ukPpC8EBt0qjjl6LfvujtzSw5tO/t5jllmTO0kCZBtnAR+rw1WsNVns0n8Teh4cSw==",
-      "type": "package",
-      "path": "firebase.xamarin/0.3.6",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "content/_._",
-        "firebase.xamarin.0.3.6.nupkg.sha512",
-        "firebase.xamarin.nuspec",
-        "lib/Firebase.Xamarin.dll",
-        "lib/JWT.dll",
-        "lib/Newtonsoft.Json.dll",
-        "lib/System.Reactive.Core.dll",
-        "lib/System.Reactive.Interfaces.dll",
-        "lib/System.Reactive.Linq.dll",
-        "lib/System.Reactive.PlatformServices.dll",
-        "lib/crypto.dll",
-        "tools/init.ps1",
-        "tools/install.ps1",
-        "tools/uninstall.ps1"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.0": {
@@ -5552,7 +5505,6 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "Com.OneSignal >= 3.10.6",
-      "Firebase.Xamarin >= 0.3.6",
       "MonkeyCache >= 1.5.2",
       "MonkeyCache.FileStore >= 1.5.2",
       "NETStandard.Library >= 2.0.3",
@@ -5605,10 +5557,6 @@
           "Com.OneSignal": {
             "target": "Package",
             "version": "[3.10.6, )"
-          },
-          "Firebase.Xamarin": {
-            "target": "Package",
-            "version": "[0.3.6, )"
           },
           "MonkeyCache": {
             "target": "Package",
@@ -5666,17 +5614,5 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Firebase.Xamarin 0.3.6' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Firebase.Xamarin",
-      "targetGraphs": [
-        ".NETStandard,Version=v2.0"
-      ]
-    }
-  ]
+  }
 }
