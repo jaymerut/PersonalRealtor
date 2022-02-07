@@ -16,6 +16,7 @@
     <PackageReference Include="MonkeyCache.FileStore" Version="1.5.2" />
     <PackageReference Include="Com.OneSignal" Version="3.10.6" />
     <PackageReference Include="Twilio" Version="5.63.0" />
+    <PackageReference Include="Firebase.Xamarin" Version="0.3.6" />
   </ItemGroup>
 
   <ItemGroup>
@@ -72,6 +73,8 @@
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />
     <None Remove="Realtors\ScottBryant.json" />
+    <None Remove="Microsoft.AspNetCore.SignalR.Client" />
+    <None Remove="Firebase.Xamarin" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\ViewCells\ChatMessageViewCell.xaml.cs">

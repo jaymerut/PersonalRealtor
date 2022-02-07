@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "sju67OyAiz8Y1SsUQ0pd+C6OnGAq8O3/zu5CTf5d27oKVO8Fsi2L4B8t1LqAceN0PPiYnLJbWwo+dyXd9HPe6w==",
+  "dgSpecHash": "CyRIoiEZiAR0NKFPrhPL0YcTD3dXgnnEYbKh+AsXlsBXSZO3dD/Q3u3VbZ+qGMTVl23KqZdLPRB/EX/rWILNaQ==",
   "success": true,
   "projectFilePath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj",
   "expectedPackageFiles": [
     "/Users/jaymerutkoski/.nuget/packages/com.onesignal/3.10.6/com.onesignal.3.10.6.nupkg.sha512",
+    "/Users/jaymerutkoski/.nuget/packages/firebase.xamarin/0.3.6/firebase.xamarin.0.3.6.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.0/microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/microsoft.identitymodel.jsonwebtokens/5.3.0/microsoft.identitymodel.jsonwebtokens.5.3.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/microsoft.identitymodel.logging/5.3.0/microsoft.identitymodel.logging.5.3.0.nupkg.sha512",
@@ -94,5 +95,16 @@
     "/Users/jaymerutkoski/.nuget/packages/xamarin.essentials/1.5.3.2/xamarin.essentials.1.5.3.2.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/xamarin.forms/5.0.0.2012/xamarin.forms.5.0.0.2012.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Firebase.Xamarin 0.3.6' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Firebase.Xamarin",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

@@ -17,7 +17,15 @@
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
+        "frameworks": {
+          "xamarinios10": {
+            "projectReferences": {}
+          }
+        },
         "packagesConfigPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/packages.config"
+      },
+      "frameworks": {
+        "xamarinios10": {}
       }
     },
     "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.iOS/PersonalRealtor.iOS.csproj": {
@@ -124,6 +132,10 @@
               "target": "Package",
               "version": "[3.10.6, )"
             },
+            "Firebase.Xamarin": {
+              "target": "Package",
+              "version": "[0.3.6, )"
+            },
             "MonkeyCache": {
               "target": "Package",
               "version": "[1.5.2, )"
@@ -177,7 +189,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.403/RuntimeIdentifierGraph.json"
         }
       }
     }
