@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZwPgdwKgSLJv+F1arrl25xXwBGRURUnjaqVomnhCF/28PR0ff4O7KCdjCefZyiZS+jY6+8wuxQE5f5isnpVnxg==",
+  "dgSpecHash": "zS5HKwe0SsPbHIW+jO2kcZqu8s7+oQ49SA8saSJyb+RR+08xpoDakv+owf5g+khmT3uRugdh3KKgTACi0juRjw==",
   "success": true,
   "projectFilePath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "/Users/jaymerutkoski/.nuget/packages/morelinq/3.3.2/morelinq.3.3.2.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/Users/jaymerutkoski/.nuget/packages/plugin.cloudfirestore/4.1.0/plugin.cloudfirestore.4.1.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/plugin.segmentedcontrol.netstandard/5.4.5/plugin.segmentedcontrol.netstandard.5.4.5.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/refit/5.2.1/refit.5.2.1.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -52,6 +53,7 @@
     "/Users/jaymerutkoski/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/system.private.datacontractserialization/4.3.0/system.private.datacontractserialization.4.3.0.nupkg.sha512",
+    "/Users/jaymerutkoski/.nuget/packages/system.reactive/5.0.0/system.reactive.5.0.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/system.reflection/4.3.0/system.reflection.4.3.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/system.reflection.emit/4.3.0/system.reflection.emit.4.3.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/system.reflection.emit.ilgeneration/4.3.0/system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
@@ -66,6 +68,7 @@
     "/Users/jaymerutkoski/.nuget/packages/system.runtime.handles/4.3.0/system.runtime.handles.4.3.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/system.runtime.interopservices/4.3.0/system.runtime.interopservices.4.3.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/system.runtime.interopservices.runtimeinformation/4.3.0/system.runtime.interopservices.runtimeinformation.4.3.0.nupkg.sha512",
+    "/Users/jaymerutkoski/.nuget/packages/system.runtime.interopservices.windowsruntime/4.3.0/system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/system.runtime.numerics/4.3.0/system.runtime.numerics.4.3.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/system.runtime.serialization.primitives/4.3.0/system.runtime.serialization.primitives.4.3.0.nupkg.sha512",
     "/Users/jaymerutkoski/.nuget/packages/system.runtime.serialization.xml/4.3.0/system.runtime.serialization.xml.4.3.0.nupkg.sha512",

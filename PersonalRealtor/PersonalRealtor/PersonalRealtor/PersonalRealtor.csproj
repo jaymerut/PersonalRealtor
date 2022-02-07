@@ -16,6 +16,7 @@
     <PackageReference Include="MonkeyCache.FileStore" Version="1.5.2" />
     <PackageReference Include="Com.OneSignal" Version="3.10.6" />
     <PackageReference Include="Twilio" Version="5.63.0" />
+    <PackageReference Include="Plugin.CloudFirestore" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -72,6 +73,7 @@
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />
     <None Remove="Realtors\ScottBryant.json" />
+    <None Remove="Plugin.CloudFirestore" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\ViewCells\ChatMessageViewCell.xaml.cs">

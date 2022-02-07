@@ -60,6 +60,10 @@
               "target": "Package",
               "version": "[12.0.3, )"
             },
+            "Plugin.CloudFirestore": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Plugin.SegmentedControl.Netstandard": {
               "target": "Package",
               "version": "[5.4.5, )"

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "962488826425",
+    "project_id": "personalrealtor-a5417",
+    "storage_bucket": "personalrealtor-a5417.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:962488826425:android:86d6e6fe097ebdc193ebe8",
+        "android_client_info": {
+          "package_name": "com.PersonalRealtor.Development"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "962488826425-rqke3cdek1lihh9d7s9ejo48dc681prq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0iYfXZEGuIHAOJ5F8uhcFxxmLXkFSlIk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "962488826425-rqke3cdek1lihh9d7s9ejo48dc681prq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "962488826425-rip59p5rqrrnuitrjeu5u51q7per5ljd.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.PersonalRealtor.Development"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
