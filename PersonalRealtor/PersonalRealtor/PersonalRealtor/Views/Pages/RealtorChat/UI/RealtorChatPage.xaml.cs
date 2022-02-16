@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using PersonalRealtor.Network.Firestore.Models;
 using PersonalRealtor.Network.Firestore.Repositories;
 using PersonalRealtor.Services.Delegates;
+using PersonalRealtor.Views.Pages.RealtorChat.Composer;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,18 +19,19 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
         #region - Variables
         private DataTemplateSelector DataTemplateSelector;
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
-        private IConversationResourceService ConversationResourceService;
+        private IRealtorChatService Service;
         #endregion
 
         #region - Constructors
-        public RealtorChatPage(DataTemplateSelector dataTemplateSelector, IConversationResourceService service) {
+        public RealtorChatPage(DataTemplateSelector dataTemplateSelector, IRealtorChatService service) {
             this.DataTemplateSelector = dataTemplateSelector;
             this.BindingContext = this;
-            this.ConversationResourceService = service;
+            this.Service = service;
 
             InitializeComponent();
 
             SetUpRealtorChatPage();
+
         }
         #endregion
 
@@ -42,8 +44,6 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
 
         #region - Private Methods
         private void SetUpRealtorChatPage() {
-            // Data
-            _ = RetrieveConversationsAsync();
 
             RealtorChatListView.ItemsSource = Objects;
             RealtorChatListView.ItemTemplate = this.DataTemplateSelector;
@@ -55,10 +55,7 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
         }
 
         // Data Logic
-        private async Task RetrieveConversationsAsync() {
-            var conversations = this.ConversationResourceService.RetrieveConversations();
-
-        }
+        
 
         private void RealtorChatListView_ItemSelected(Object sender, SelectedItemChangedEventArgs e) {
             if (e.SelectedItem != null) {
