@@ -70,16 +70,20 @@
     <Folder Include="Views\Pages\Login\Composer\" />
     <Folder Include="Views\Pages\Login\UI\" />
     <Folder Include="Network\Firestore\" />
-    <Folder Include="Network\Firestore\Repositories\" />
-    <Folder Include="Network\Firestore\Models\" />
+    <Folder Include="Network\Firestore\Users\" />
+    <Folder Include="Network\Firestore\Users\Models\" />
+    <Folder Include="Network\Firestore\Messages\" />
+    <Folder Include="Network\Firestore\Messages\Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />
     <None Remove="Realtors\ScottBryant.json" />
     <None Remove="Plugin.CloudFirestore" />
     <None Remove="Network\Firestore\" />
-    <None Remove="Network\Firestore\Repositories\" />
-    <None Remove="Network\Firestore\Models\" />
+    <None Remove="Network\Firestore\Users\" />
+    <None Remove="Network\Firestore\Users\Models\" />
+    <None Remove="Network\Firestore\Messages\" />
+    <None Remove="Network\Firestore\Messages\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\ViewCells\ChatMessageViewCell.xaml.cs">

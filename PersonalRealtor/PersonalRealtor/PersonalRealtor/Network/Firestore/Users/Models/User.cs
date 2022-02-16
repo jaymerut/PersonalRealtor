@@ -1,5 +1,5 @@
 ﻿using System;
-namespace PersonalRealtor.Network.Firestore.Models {
+namespace PersonalRealtor.Network.Firestore.Users.Models {
     public class User {
         public string Email { get; set; }
         public string FirstName { get; set; }

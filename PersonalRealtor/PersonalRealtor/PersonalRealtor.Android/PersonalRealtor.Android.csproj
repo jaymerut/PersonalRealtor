@@ -85,6 +85,8 @@
     <Compile Include="EventListeners\OnCompleteEventHandleListener.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
     <Compile Include="Services\FirestoreService.cs" />
+    <Compile Include="Repositories\UserMessagesRepository.cs" />
+    <Compile Include="Repositories\RealtorMessagesRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
