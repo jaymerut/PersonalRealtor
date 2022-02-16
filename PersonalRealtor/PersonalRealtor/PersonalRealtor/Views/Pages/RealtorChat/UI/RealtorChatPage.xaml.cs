@@ -30,8 +30,6 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
             InitializeComponent();
 
             SetUpRealtorChatPage();
-
-            TestFirestoreAsync();
         }
         #endregion
 
@@ -43,10 +41,6 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
         #endregion
 
         #region - Private Methods
-        private async void TestFirestoreAsync() {
-            var collections = await DependencyService.Get<IRepository<User>>().GetAllAsync();
-            Console.WriteLine("Collections retrieved");
-        }
         private void SetUpRealtorChatPage() {
             // Data
             _ = RetrieveConversationsAsync();
