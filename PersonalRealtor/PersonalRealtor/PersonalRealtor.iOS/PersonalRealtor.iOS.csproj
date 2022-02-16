@@ -75,6 +75,8 @@
     <Compile Include="Controls\CustomEntryRenderer.cs" />
     <Compile Include="Controls\CustomEditorRenderer.cs" />
     <Compile Include="Services\FirestoreService.cs" />
+    <Compile Include="Extensions\FirestoreExtension.cs" />
+    <Compile Include="Repositories\UsersRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -175,6 +177,8 @@
   <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="Services\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <ProjectExtensions>
     <VisualStudio>

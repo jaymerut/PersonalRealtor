@@ -14,8 +14,8 @@ namespace PersonalRealtor.Droid.Services {
 
         public static void Init(Android.Content.Context context) {
             var baseOptions = Firebase.FirebaseOptions.FromResource(context);
-            var options = new Firebase.FirebaseOptions.Builder(baseOptions).SetProjectId(baseOptions.StorageBucket.Split('.')[0]).Build();
-            app = Firebase.FirebaseApp.InitializeApp(context, options, AppName);
+            //var options = new Firebase.FirebaseOptions.Builder(baseOptions).SetProjectId(baseOptions.StorageBucket.Split('.')[0]).Build();
+            app = Firebase.FirebaseApp.InitializeApp(context);
         }
     }
 }

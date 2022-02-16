@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Com.OneSignal;
 using Com.OneSignal.Abstractions;
+using PersonalRealtor.Droid.Services;
 
 namespace PersonalRealtor.Droid
 {
@@ -24,6 +25,8 @@ namespace PersonalRealtor.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+
+            FirestoreService.Init(this);
 
             // Remove this method to stop OneSignal Debugging  
             OneSignal.Current.SetLogLevel(LOG_LEVEL.VERBOSE, LOG_LEVEL.NONE);

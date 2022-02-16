@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PersonalRealtor.Network.Firestore.Models;
+using PersonalRealtor.Network.Firestore.Repositories;
 using PersonalRealtor.Services.Delegates;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -28,6 +30,8 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
             InitializeComponent();
 
             SetUpRealtorChatPage();
+
+            TestFirestoreAsync();
         }
         #endregion
 
@@ -39,6 +43,10 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
         #endregion
 
         #region - Private Methods
+        private async void TestFirestoreAsync() {
+            var collections = await DependencyService.Get<IRepository<User>>().GetAllAsync();
+            Console.WriteLine("Collections retrieved");
+        }
         private void SetUpRealtorChatPage() {
             // Data
             _ = RetrieveConversationsAsync();
