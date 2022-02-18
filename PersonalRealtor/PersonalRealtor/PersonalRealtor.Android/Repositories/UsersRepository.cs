@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using PersonalRealtor.Droid.Extensions;
 using PersonalRealtor.Droid.Services;
-using PersonalRealtor.Network.Firestore.Models;
-using PersonalRealtor.Network.Firestore.Repositories;
+using PersonalRealtor.Network.Firestore.Users;
+using PersonalRealtor.Network.Firestore.Users.Models;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(PersonalRealtor.Droid.Repositories.UsersRepository))]
 namespace PersonalRealtor.Droid.Repositories {
-    public class UsersRepository : IRepository<User> {
+    public class UsersRepository : IUsersRepository<User> {
         public IEnumerable<User> GetAll() {
             return this.GetAllAsync().Result;
         }

@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 
 namespace PersonalRealtor.Network.Firestore.Messages {
     public interface IRealtorMessagesRepository<T> {
-        T GetOne(string userID);
-        Task<T> GetOneAsync(string userID);
+        T GetOne(string userID, string messageID);
+        Task<T> GetOneAsync(string userID, string messageID);
 
-        IEnumerable<T> GetAll();
-        Task<IEnumerable<T>> GetAllAsync();
+        IEnumerable<T> GetAll(string userID);
+        Task<IEnumerable<T>> GetAllAsync(string userID);
     }
 }
