@@ -80,13 +80,6 @@
     <Compile Include="Controls\SelectableViewCellRenderer.cs" />
     <Compile Include="Controls\CustomEntryRenderer.cs" />
     <Compile Include="Controls\CustomEditorRenderer.cs" />
-    <Compile Include="Extensions\FirestoreExtension.cs" />
-    <Compile Include="Extensions\JavaObjectExtension.cs" />
-    <Compile Include="EventListeners\OnCompleteEventHandleListener.cs" />
-    <Compile Include="Repositories\UsersRepository.cs" />
-    <Compile Include="Services\FirestoreService.cs" />
-    <Compile Include="Repositories\UserMessagesRepository.cs" />
-    <Compile Include="Repositories\RealtorMessagesRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -166,10 +159,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
-    <Folder Include="Services\" />
-    <Folder Include="Extensions\" />
-    <Folder Include="EventListeners\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <GoogleServicesJson Include="google-services.json" />

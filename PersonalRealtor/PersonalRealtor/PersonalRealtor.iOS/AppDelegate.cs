@@ -24,6 +24,8 @@ namespace PersonalRealtor.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Firebase.Core.App.Configure();
+
             global::Xamarin.Forms.Forms.Init();
             SegmentedControlRenderer.Initialize();
             LoadApplication(new App());
@@ -40,8 +42,6 @@ namespace PersonalRealtor.iOS
 
             // The promptForPushNotificationsWithUserResponse function will show the iOS push notification prompt. We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 7)
             OneSignal.Current.RegisterForPushNotifications();
-
-            Firebase.Core.App.Configure();
 
             return base.FinishedLaunching(app, options);
         }

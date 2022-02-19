@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
 using PersonalRealtor.Views.Pages.RealtorChat.Composer;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -25,6 +28,8 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
 
             SetUpRealtorChatPage();
 
+            //Service.SendToRealtor(new Message() { MessageID = "1111", AuthorID = "9999", ParticipantID = "909", Content = "Does this work?", Timestamp = "test" }, "9999");
+            
         }
         #endregion
 
@@ -45,6 +50,8 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
 
             this.ButtonSend.BackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
             this.ButtonSend.TextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
+
+            
         }
 
         // Data Logic
@@ -58,7 +65,12 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
 
         // UIResponders
         public async void ButtonSend_Clicked(System.Object sender, System.EventArgs e) {
-            
+            GetMessages();
+        }
+
+        private async void GetMessages() {
+            var messages = (await Task.Run(() => Service.GetUserMessages("User100"))).ToList();
+            Console.WriteLine("");
         }
         #endregion
 

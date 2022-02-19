@@ -5,6 +5,12 @@
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
@@ -74,6 +80,9 @@
     <Folder Include="Network\Firestore\Users\Models\" />
     <Folder Include="Network\Firestore\Messages\" />
     <Folder Include="Network\Firestore\Messages\Models\" />
+    <Folder Include="Network\Firestore\Messages\Repositories\" />
+    <Folder Include="Network\Firestore\Messages\Repositories\RealtorMessages\" />
+    <Folder Include="Network\Firestore\Messages\Repositories\UserMessages\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />
@@ -84,6 +93,9 @@
     <None Remove="Network\Firestore\Users\Models\" />
     <None Remove="Network\Firestore\Messages\" />
     <None Remove="Network\Firestore\Messages\Models\" />
+    <None Remove="Network\Firestore\Messages\Repositories\" />
+    <None Remove="Network\Firestore\Messages\Repositories\RealtorMessages\" />
+    <None Remove="Network\Firestore\Messages\Repositories\UserMessages\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\ViewCells\ChatMessageViewCell.xaml.cs">
