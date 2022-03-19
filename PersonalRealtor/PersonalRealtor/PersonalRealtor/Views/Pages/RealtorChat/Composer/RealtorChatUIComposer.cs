@@ -10,47 +10,41 @@ using System.Threading.Tasks;
 
 namespace PersonalRealtor.Views.Pages.RealtorChat.Composer {
     public class RealtorChatUIComposer {
-        public static RealtorChatPage MakeRealtorChatUI() {
+        public static RealtorChatPage MakeRealtorChatUI(string userID) {
             var dataTemplateSelector = new RealtorChatDataTemplateSelector();
-            var service = new RealtorChatService(new UserMessagesRepository(), new RealtorMessagesRepository());
+            var service = new RealtorChatService(new UserMessagesRepository());
 
-            return new RealtorChatPage(dataTemplateSelector, service);
+            return new RealtorChatPage(dataTemplateSelector, service, userID);
         }
 
     }
 
     public interface IRealtorChatService {
-        public Task<IEnumerable<Message>> GetUserMessages(string userID);
-        public Task<IEnumerable<Message>> GetRealtorMessages(string userID);
-        public void SendToUser(Message message, string participantID);
-        public void SendToRealtor(Message message, string authorID);
+        public Task<IEnumerable<Message>> GetMessagesForUser(string userID);
+        public Task<Message> GetOneMessage(string userID, string messageID);
+        public void SendMessage(Message message, string userID);
     }
 
     public class RealtorChatService : IRealtorChatService {
 
         private UserMessagesRepositoryAdapter UserMessagesRepository;
-        private RealtorMessagesRepositoryAdapter RealtorMessagesRepository;
 
-        public RealtorChatService(IUserMessagesRepository userMessagesRepository, IRealtorMessagesRepository realtorMessagesRepository) {
+        public RealtorChatService(IUserMessagesRepository userMessagesRepository) {
             UserMessagesRepository = new UserMessagesRepositoryAdapter(userMessagesRepository);
-            RealtorMessagesRepository = new RealtorMessagesRepositoryAdapter(realtorMessagesRepository);
         }
 
-        public async Task<IEnumerable<Message>> GetUserMessages(string userID) {
-            return await UserMessagesRepository.GetMessages(userID);
+        public async Task<IEnumerable<Message>> GetMessagesForUser(string userID) {
+            return await UserMessagesRepository.GetAllMessagesForUser(userID);
         }
 
-        public async Task<IEnumerable<Message>> GetRealtorMessages(string userID) {
-            return await RealtorMessagesRepository.GetMessages(userID);
+        public async Task<Message> GetOneMessage(string userID, string messageID) {
+            return await UserMessagesRepository.GetOneMessage(userID, messageID);
         }
 
-        public void SendToUser(Message message, string participantID) {
-            RealtorMessagesRepository.SendToUser(message, participantID);
+        public void SendMessage(Message message, string userID) {
+            UserMessagesRepository.SendMessage(message, userID);
         }
 
-        public void SendToRealtor(Message message, string authorID) {
-            UserMessagesRepository.SendToRealtor(message, authorID);
-        }
     }
 
     public class UserMessagesRepositoryAdapter {
@@ -61,29 +55,17 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.Composer {
             Repository = repository;
         }
 
-        public async Task<IEnumerable<Message>> GetMessages(string userID) {
-            return await Repository.GetAllAsync(userID);
+        public async Task<IEnumerable<Message>> GetAllMessagesForUser(string userID) {
+            return await Repository.GetAllMessagesForUserAsync(userID);
         }
 
-        public void SendToRealtor(Message message, string authorID) {
-            Repository.SendToRealtor(message, authorID);
-        }
-    }
-
-    public class RealtorMessagesRepositoryAdapter {
-
-        private IRealtorMessagesRepository Repository;
-
-        public RealtorMessagesRepositoryAdapter(IRealtorMessagesRepository repository) {
-            Repository = repository;
+        public async Task<Message> GetOneMessage(string userID, string messageID) {
+            return await Repository.GetOneMessageAsync(userID, messageID);
         }
 
-        public async Task<IEnumerable<Message>> GetMessages(string userID) {
-            return await Repository.GetAllAsync(userID);
-        }
-
-        public void SendToUser(Message message, string participantID) {
-            Repository.SendToUser(message, participantID);
+        public void SendMessage(Message message, string userID) {
+            Repository.SendMessage(message, userID);
         }
     }
+
 }

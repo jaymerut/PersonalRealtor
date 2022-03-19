@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Com.OneSignal;
 using Com.OneSignal.Abstractions;
 using MonkeyCache.FileStore;
+using PersonalRealtor.Cache.AdminLogin;
+using PersonalRealtor.Cache.Username;
 using PersonalRealtor.Views.Pages.Base;
 using PersonalRealtor.Views.Pages.BrowseListings.UI;
 using PersonalRealtor.Views.Pages.GeneralInquiry.Composer;
@@ -11,6 +14,7 @@ using PersonalRealtor.Views.Pages.Main.UI;
 using PersonalRealtor.Views.Pages.Menu;
 using PersonalRealtor.Views.Pages.Menu.Composer;
 using PersonalRealtor.Views.Pages.RealtorChat.Composer;
+using PersonalRealtor.Views.Pages.RealtorChat.UI;
 using PersonalRealtor.Views.Pages.RealtorChatList.Composer;
 using PersonalRealtor.Views.Pages.RealtorListings.Composer;
 using PersonalRealtor.Views.Pages.SavedHomes.Composer;
@@ -111,12 +115,12 @@ namespace PersonalRealtor
                     Title = "Realtor Chat!",
                     Image = new Image() { Source = "menu_chat.png" },
                     Action = () => {
-                        var isLoggedIn = Barrel.Current.Get<bool>(key: "AdminLogin");
+                        var isAdmin = AdminLoginCache.IsAdminLoggedIn();
 
-                        if (isLoggedIn) {
+                        if (isAdmin) {
                             main.Detail = new PRNavigationPage(RealtorChatListUIComposer.MakeRealtorChatListUI());
                         } else {
-                            main.Detail = new PRNavigationPage(RealtorChatUIComposer.MakeRealtorChatUI());
+                            main.Detail = new PRNavigationPage(RealtorChatUIComposer.MakeRealtorChatUI(UsernameCache.GetCurrentUsername()));
                         }
 
                         ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
@@ -136,5 +140,6 @@ namespace PersonalRealtor
                 }
             };
         }
+
     }
 }

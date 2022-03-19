@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using MonkeyCache.FileStore;
+using PersonalRealtor.Cache.AdminLogin;
+using PersonalRealtor.Cache.Username;
 using Xamarin.Forms;
 
 namespace PersonalRealtor.Views.Pages.Login.UI {
@@ -38,7 +40,7 @@ namespace PersonalRealtor.Views.Pages.Login.UI {
         }
 
         private void Refresh() {
-            var isLoggedIn = Barrel.Current.Get<bool>(key: LoginBarrelKey);
+            var isLoggedIn = AdminLoginCache.IsAdminLoggedIn();
 
             this.EntryUserName.IsVisible = !isLoggedIn;
             this.EntryPassword.IsVisible = !isLoggedIn;
@@ -53,7 +55,8 @@ namespace PersonalRealtor.Views.Pages.Login.UI {
             var password = this.EntryPassword.Text;
 
             if (userName == RealtorSingleton.Instance.UserName.ToLower() && password == RealtorSingleton.Instance.Password) {
-                Barrel.Current.Add(key: LoginBarrelKey, data: true, expireIn: TimeSpan.FromDays(999));
+                AdminLoginCache.AdminLogin();
+                UsernameCache.CreateUsername(RealtorSingleton.Instance.UserName);
 
                 Refresh();
             } else if (userName != RealtorSingleton.Instance.UserName.ToLower() || password != RealtorSingleton.Instance.Password) {
@@ -61,7 +64,8 @@ namespace PersonalRealtor.Views.Pages.Login.UI {
             }
         }
         public void ButtonLogout_Clicked(System.Object sender, System.EventArgs e) {
-            Barrel.Current.Add(key: LoginBarrelKey, data: false, expireIn: TimeSpan.FromDays(999));
+            AdminLoginCache.AdminLogout();
+            UsernameCache.RemoveUsername(RealtorSingleton.Instance.UserName);
 
             Refresh();
         }

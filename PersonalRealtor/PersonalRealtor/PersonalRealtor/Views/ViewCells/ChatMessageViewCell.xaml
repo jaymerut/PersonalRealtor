@@ -3,8 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PersonalRealtor.Views.ViewCells.ChatMessageViewCell">
   <ViewCell.View>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
+      <Frame CornerRadius="20" Margin="10,10,10,10" BackgroundColor="{Binding BackgroundColor}">
+          <StackLayout HorizontalOptions="{Binding HorizontalLayoutOptions}">
+              <Label Text="{Binding Text}" TextColor="{Binding TextColor}" FontSize="14" Margin="5, 5, 5, 5"/>
+              <Label Text="{Binding Timestamp}" TextColor="{Binding TextColor}" FontSize="12" FontAttributes="Italic" HorizontalOptions="End" Margin="5, 5, 5, 5"/>
+          </StackLayout>
+      </Frame>
   </ViewCell.View>
 </ViewCell>

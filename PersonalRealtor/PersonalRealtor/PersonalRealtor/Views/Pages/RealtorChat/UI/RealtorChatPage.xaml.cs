@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using MonkeyCache.FileStore;
+using PersonalRealtor.Cache.AdminLogin;
+using PersonalRealtor.Cache.Username;
+using PersonalRealtor.Components.Helpers;
+using PersonalRealtor.Network.Firestore.Messages.Models;
+using PersonalRealtor.ViewModels;
 using PersonalRealtor.Views.Pages.RealtorChat.Composer;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,20 +22,21 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
         private DataTemplateSelector DataTemplateSelector;
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
         private IRealtorChatService Service;
+        private string UserID;
+        private bool IsAdmin;
         #endregion
 
         #region - Constructors
-        public RealtorChatPage(DataTemplateSelector dataTemplateSelector, IRealtorChatService service) {
+        public RealtorChatPage(DataTemplateSelector dataTemplateSelector, IRealtorChatService service, string userID) {
             this.DataTemplateSelector = dataTemplateSelector;
             this.BindingContext = this;
             this.Service = service;
+            this.UserID = userID;
+            this.IsAdmin = AdminLoginCache.IsAdminLoggedIn();
 
             InitializeComponent();
 
-            SetUpRealtorChatPage();
-
-            //Service.SendToRealtor(new Message() { MessageID = "1111", AuthorID = "9999", ParticipantID = "909", Content = "Does this work?", Timestamp = "test" }, "9999");
-            
+            SetUpRealtorChatPage(); 
         }
         #endregion
 
@@ -43,8 +50,8 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
         #region - Private Methods
         private void SetUpRealtorChatPage() {
 
-            RealtorChatListView.ItemsSource = Objects;
             RealtorChatListView.ItemTemplate = this.DataTemplateSelector;
+            PopulateList();
 
             this.ActivityIndicatorListView.IsVisible = false;
 
@@ -55,6 +62,10 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
         }
 
         // Data Logic
+        private async void PopulateList() {
+            await GetMessages();
+            RealtorChatListView.ItemsSource = Objects;
+        }
         
 
         private void RealtorChatListView_ItemSelected(Object sender, SelectedItemChangedEventArgs e) {
@@ -65,12 +76,54 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
 
         // UIResponders
         public async void ButtonSend_Clicked(System.Object sender, System.EventArgs e) {
-            GetMessages();
+            SendMessage();
         }
 
-        private async void GetMessages() {
-            var messages = (await Task.Run(() => Service.GetUserMessages("User100"))).ToList();
-            Console.WriteLine("");
+        private async Task GetMessages() {
+            var messages = (await Task.Run(() => Service.GetMessagesForUser(this.UserID))).ToList();
+            messages.Sort((x, y) => DateTime.Compare(DateTime.Parse(y.Timestamp), DateTime.Parse(x.Timestamp)));
+            foreach (var message in messages) {
+                Objects.Add(ConvertMessageToViewModel(message));
+            }
+        }
+
+        private void AddMessageToList(Message message) {
+            var existingObjects = Objects.Select(x => x).ToList();
+            Objects.Clear();
+            Objects.Add(ConvertMessageToViewModel(message));
+            foreach(var obj in existingObjects) {
+                Objects.Add(obj);
+            }
+        }
+
+        private void SendMessage() {
+            var message = new Message() {
+                MessageID = RandomHelper.RandomString(20),
+                AuthorID = IsAdmin ? RealtorSingleton.Instance.UserName : UsernameCache.GetCurrentUsername(),
+                ParticipantID = IsAdmin ? this.UserID : RealtorSingleton.Instance.UserName,
+                Content = EditorMessage.Text,
+                Timestamp = DateTime.Now.ToString("MM/dd/yy hh:mm tt")
+            };
+            Service.SendMessage(message, this.UserID);
+            AddMessageToList(message);
+            EditorMessage.Text = "";
+        }
+
+        private ChatMessageViewModel ConvertMessageToViewModel(Message message) {
+            bool isAuthor;
+            if (IsAdmin) {
+                isAuthor = message?.AuthorID?.Equals(RealtorSingleton.Instance.UserName) ?? false;
+            } else {
+                isAuthor = message?.AuthorID?.Equals(UsernameCache.GetCurrentUsername()) ?? false;
+            }
+
+            return new ChatMessageViewModel() {
+                Text = message.Content,
+                Timestamp = message.Timestamp,
+                HorizontalLayoutOptions = isAuthor ? LayoutOptions.Start : LayoutOptions.End,
+                BackgroundColor = isAuthor ? Color.FromHex(RealtorSingleton.Instance.PrimaryColor) : Color.LightGray,
+                TextColor = isAuthor ? Color.White : Color.Black
+            };
         }
         #endregion
 

@@ -81,8 +81,10 @@
     <Folder Include="Network\Firestore\Messages\" />
     <Folder Include="Network\Firestore\Messages\Models\" />
     <Folder Include="Network\Firestore\Messages\Repositories\" />
-    <Folder Include="Network\Firestore\Messages\Repositories\RealtorMessages\" />
     <Folder Include="Network\Firestore\Messages\Repositories\UserMessages\" />
+    <Folder Include="Cache\" />
+    <Folder Include="Cache\AdminLogin\" />
+    <Folder Include="Cache\Username\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />
@@ -94,8 +96,10 @@
     <None Remove="Network\Firestore\Messages\" />
     <None Remove="Network\Firestore\Messages\Models\" />
     <None Remove="Network\Firestore\Messages\Repositories\" />
-    <None Remove="Network\Firestore\Messages\Repositories\RealtorMessages\" />
     <None Remove="Network\Firestore\Messages\Repositories\UserMessages\" />
+    <None Remove="Cache\" />
+    <None Remove="Cache\Login\" />
+    <None Remove="Cache\Username\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\ViewCells\ChatMessageViewCell.xaml.cs">

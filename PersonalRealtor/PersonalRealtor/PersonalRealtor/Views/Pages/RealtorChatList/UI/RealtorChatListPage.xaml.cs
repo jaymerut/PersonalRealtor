@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using PersonalRealtor.Services.Delegates;
 using PersonalRealtor.ViewModels;
+using PersonalRealtor.Views.Pages.RealtorChat.Composer;
+using PersonalRealtor.Views.Pages.RealtorChatList.Composer;
 using Xamarin.Forms;
 
 namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
@@ -11,14 +14,14 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
         #region - Variables
         private DataTemplateSelector DataTemplateSelector;
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
-        private IConversationResourceService ConversationResourceService;
+        private IRealtorChatListService Service;
         #endregion
 
         #region - Constructors
-        public RealtorChatListPage(DataTemplateSelector dataTemplateSelector, IConversationResourceService service) {
+        public RealtorChatListPage(DataTemplateSelector dataTemplateSelector, IRealtorChatListService service) {
             this.DataTemplateSelector = dataTemplateSelector;
             this.BindingContext = this;
-            this.ConversationResourceService = service;
+            this.Service = service;
 
             InitializeComponent();
 
@@ -35,23 +38,26 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
 
         #region - PriNavvate Methods
         private void SetUpRealtorChatListPage() {
-            // Data
-            _ = RetrieveConversationsAsync();
-
-            RealtorChatListView.ItemsSource = Objects;
             RealtorChatListView.ItemTemplate = this.DataTemplateSelector;
+
+            // Data
+            PopulateList();            
 
             this.ActivityIndicatorListView.IsVisible = false;
         }
 
         // Data Logic
-        private async Task RetrieveConversationsAsync() {
-            this.Objects.Clear();
-            var conversations = this.ConversationResourceService.RetrieveConversations();
+        private async void PopulateList() {
+            await GetConversationNames();
+            RealtorChatListView.ItemsSource = Objects;
+        }
+
+        private async Task GetConversationNames() {
+            var conversations = (await Task.Run(() => Service.GetAllConversationNamesAsync())).ToList();
+
             foreach (var convo in conversations) {
                 var viewModel = new ConversationViewModel();
-                viewModel.Title = convo.FriendlyName;
-                viewModel.DateUpdated = convo.DateUpdated;
+                viewModel.Title = convo;
 
                 this.Objects.Add(viewModel);
             }
@@ -59,8 +65,14 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
 
         private void RealtorChatListView_ItemSelected(Object sender, SelectedItemChangedEventArgs e) {
             if (e.SelectedItem != null) {
-                // TODO: Anything to happen if a user selects a message?
+                NavigateToRealtorChat(e.SelectedItem as ConversationViewModel);
             }
+        }
+
+        private void NavigateToRealtorChat(ConversationViewModel viewModel) {
+            _ = Navigation.PushAsync(RealtorChatUIComposer.MakeRealtorChatUI(viewModel.Title));
+
+            RealtorChatListView.SelectedItem = null;
         }
         #endregion
 
