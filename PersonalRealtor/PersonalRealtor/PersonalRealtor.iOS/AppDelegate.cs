@@ -33,7 +33,7 @@ namespace PersonalRealtor.iOS
             // Remove this method to stop OneSignal Debugging  
             OneSignal.Current.SetLogLevel(LOG_LEVEL.VERBOSE, LOG_LEVEL.NONE);
 
-            OneSignal.Current.StartInit("YOUR_ONESIGNAL_APP_ID")
+            OneSignal.Current.StartInit("42cbe000-002c-4276-acad-dacea9dc46d9")
             .Settings(new Dictionary<string, bool>() {
                 { IOSSettings.kOSSettingsKeyAutoPrompt, false },
                 { IOSSettings.kOSSettingsKeyInAppLaunchURL, false } })

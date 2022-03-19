@@ -3,7 +3,6 @@ using PersonalRealtor.Views.Pages.RealtorChat.UI;
 using PersonalRealtor.Components.DataTemplateSelectors;
 using Xamarin.Forms;
 using PersonalRealtor.Network.Firestore.Messages.Models;
-using PersonalRealtor.Network.Firestore.Messages.Repositories.RealtorMessages;
 using PersonalRealtor.Network.Firestore.Messages.Repositories.UserMessages;
 using System.Collections.Generic;
 using System.Threading.Tasks;
