@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using Com.OneSignal;
 using MonkeyCache.FileStore;
 using PersonalRealtor.Cache.AdminLogin;
 using PersonalRealtor.Cache.Username;
+using PersonalRealtor.Network.Firestore.OneSignal.Models;
+using PersonalRealtor.Network.Firestore.OneSignal.Repositories.RealtorOneSignal;
 using Xamarin.Forms;
 
 namespace PersonalRealtor.Views.Pages.Login.UI {
     public partial class LoginPage : ContentPage {
         #region - Variables
         private readonly string LoginBarrelKey = "AdminLogin";
+        private RealtorOneSignalRepository OneSignalRepository;
         #endregion
 
         #region - Constructors
@@ -16,6 +20,8 @@ namespace PersonalRealtor.Views.Pages.Login.UI {
             this.BindingContext = this;
 
             InitializeComponent();
+
+            OneSignalRepository = new RealtorOneSignalRepository();
 
             SetUpLoginPage();
         }
@@ -47,6 +53,10 @@ namespace PersonalRealtor.Views.Pages.Login.UI {
             this.ButtonLogin.IsVisible = !isLoggedIn;
             this.ButtonLogout.IsVisible = isLoggedIn;
         }
+
+        private void IdsAvailable(string userID, string pushToken) {
+            OneSignalRepository.UpdatePlayerId(new OneSignalInfo(RealtorSingleton.Instance.UserName, userID));
+        }
         #endregion
 
         #region - Public API
@@ -57,6 +67,7 @@ namespace PersonalRealtor.Views.Pages.Login.UI {
             if (userName == RealtorSingleton.Instance.UserName.ToLower() && password == RealtorSingleton.Instance.Password) {
                 AdminLoginCache.AdminLogin();
                 UsernameCache.CreateUsername(RealtorSingleton.Instance.UserName);
+                OneSignal.Current.IdsAvailable(IdsAvailable);
 
                 Refresh();
             } else if (userName != RealtorSingleton.Instance.UserName.ToLower() || password != RealtorSingleton.Instance.Password) {

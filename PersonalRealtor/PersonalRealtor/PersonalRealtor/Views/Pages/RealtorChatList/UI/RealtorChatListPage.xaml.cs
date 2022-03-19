@@ -53,11 +53,12 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
         }
 
         private async Task GetConversationNames() {
-            var conversations = (await Task.Run(() => Service.GetAllConversationNamesAsync())).ToList();
+            var conversations = (await Task.Run(() => Service.GetAllMessageConversationsAsync())).ToList();
 
             foreach (var convo in conversations) {
                 var viewModel = new ConversationViewModel();
-                viewModel.Title = convo;
+                viewModel.Title = convo.Id;
+                viewModel.PlayerId = convo.PlayerId;
 
                 this.Objects.Add(viewModel);
             }
@@ -70,7 +71,7 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
         }
 
         private void NavigateToRealtorChat(ConversationViewModel viewModel) {
-            _ = Navigation.PushAsync(RealtorChatUIComposer.MakeRealtorChatUI(viewModel.Title));
+            _ = Navigation.PushAsync(RealtorChatUIComposer.MakeRealtorChatUI(viewModel.Title, viewModel.PlayerId));
 
             RealtorChatListView.SelectedItem = null;
         }

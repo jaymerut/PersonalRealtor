@@ -73,7 +73,7 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
 
         private void RealtorChatListView_ItemSelected(Object sender, SelectedItemChangedEventArgs e) {
             if (e.SelectedItem != null) {
-                // TODO: Anything to happen if a user selects a message?
+                RealtorChatListView.SelectedItem = null;
             }
         }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using PersonalRealtor.Components.DataTemplateSelectors;
+using PersonalRealtor.Network.Firestore.Messages.Models;
 using PersonalRealtor.Network.Firestore.Messages.Repositories.UserMessages;
 using PersonalRealtor.Services;
 using PersonalRealtor.Views.Pages.RealtorChatList.UI;
@@ -18,7 +19,7 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.Composer {
     }
 
     public interface IRealtorChatListService {
-        public Task<IEnumerable<string>> GetAllConversationNamesAsync();
+        public Task<IEnumerable<MessageDocument>> GetAllMessageConversationsAsync();
     }
 
     public class RealtorChatService : IRealtorChatListService {
@@ -29,8 +30,8 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.Composer {
             UserMessagesRepository = new UserMessagesRepositoryAdapter(userMessagesRepository);
         }
 
-        public async Task<IEnumerable<string>> GetAllConversationNamesAsync() {
-            return await UserMessagesRepository.GetAllConversationNames();
+        public async Task<IEnumerable<MessageDocument>> GetAllMessageConversationsAsync() {
+            return await UserMessagesRepository.GetAllMessageConversations();
         }
 
     }
@@ -43,8 +44,8 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.Composer {
             Repository = repository;
         }
 
-        public async Task<IEnumerable<string>> GetAllConversationNames() {
-            return await Repository.GetAllConversationNamesAsync();
+        public async Task<IEnumerable<MessageDocument>> GetAllMessageConversations() {
+            return await Repository.GetAllMessageConversationsAsync();
         }
 
     }

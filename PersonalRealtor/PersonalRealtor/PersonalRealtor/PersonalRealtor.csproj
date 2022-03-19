@@ -86,6 +86,10 @@
     <Folder Include="Cache\AdminLogin\" />
     <Folder Include="Cache\Username\" />
     <Folder Include="Cache\OneSignal\" />
+    <Folder Include="Network\Firestore\OneSignal\" />
+    <Folder Include="Network\Firestore\OneSignal\Models\" />
+    <Folder Include="Network\Firestore\OneSignal\Repositories\" />
+    <Folder Include="Network\Firestore\OneSignal\Repositories\RealtorOneSignal\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />
@@ -102,6 +106,10 @@
     <None Remove="Cache\Login\" />
     <None Remove="Cache\Username\" />
     <None Remove="Cache\OneSignal\" />
+    <None Remove="Network\Firestore\OneSignal\" />
+    <None Remove="Network\Firestore\OneSignal\Models\" />
+    <None Remove="Network\Firestore\OneSignal\Repositories\" />
+    <None Remove="Network\Firestore\OneSignal\Repositories\RealtorOneSignal\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\ViewCells\ChatMessageViewCell.xaml.cs">

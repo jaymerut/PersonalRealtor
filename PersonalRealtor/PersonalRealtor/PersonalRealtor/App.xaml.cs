@@ -4,7 +4,9 @@ using Com.OneSignal;
 using Com.OneSignal.Abstractions;
 using MonkeyCache.FileStore;
 using PersonalRealtor.Cache.AdminLogin;
+using PersonalRealtor.Cache.OneSignal;
 using PersonalRealtor.Cache.Username;
+using PersonalRealtor.Network.Firestore.OneSignal.Repositories.RealtorOneSignal;
 using PersonalRealtor.Views.Pages.Base;
 using PersonalRealtor.Views.Pages.BrowseListings.UI;
 using PersonalRealtor.Views.Pages.GeneralInquiry.Composer;
@@ -61,12 +63,16 @@ namespace PersonalRealtor
 
         private MainPage MakeMainUI()
         {
+            OneSignal.Current.IdsAvailable(IdsAvailable);
             var main = MainUIComposer.MainUI();
             main.Flyout = MenuUIComposer.MenuUI(MakeMenuOptions(main));
             main.Detail = new PRNavigationPage(new BrowseListingsPage());
             ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
             ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
             return main;
+        }
+        private void IdsAvailable(string userID, string pushToken) {
+            OneSignalCache.RegisterPlayerID(userID);
         }
         private MenuOption<Image>[] MakeMenuOptions(MainPage main)
         {
@@ -120,7 +126,8 @@ namespace PersonalRealtor
                         if (isAdmin) {
                             main.Detail = new PRNavigationPage(RealtorChatListUIComposer.MakeRealtorChatListUI());
                         } else {
-                            main.Detail = new PRNavigationPage(RealtorChatUIComposer.MakeRealtorChatUI(UsernameCache.GetCurrentUsername()));
+                            SaveRealtorPlayerId();
+                            main.Detail = new PRNavigationPage(RealtorChatUIComposer.MakeRealtorChatUI(UsernameCache.GetCurrentUsername(), RealtorOneSignalCache.GetRealtorPlayerID()));
                         }
 
                         ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
@@ -141,5 +148,12 @@ namespace PersonalRealtor
             };
         }
 
+        private async void SaveRealtorPlayerId() {
+            var repository = new RealtorOneSignalRepository();
+            if (string.IsNullOrEmpty(RealtorOneSignalCache.GetRealtorPlayerID())) {
+                var signalInfo = await repository.GetRealtorOneSignalInfoAsync(RealtorSingleton.Instance.UserName);
+                RealtorOneSignalCache.SaveRealtorPlayerID(signalInfo.PlayerId);
+            }
+        }
     }
 }

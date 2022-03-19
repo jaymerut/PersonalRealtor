@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PersonalRealtor.Cache.OneSignal;
 using PersonalRealtor.Network.Firestore.Messages.Models;
 using Plugin.CloudFirestore;
 
@@ -10,11 +11,11 @@ namespace PersonalRealtor.Network.Firestore.Messages.Repositories.UserMessages {
         public UserMessagesRepository() {
         }
 
-        public async Task<IEnumerable<string>> GetAllConversationNamesAsync() {
+        public async Task<IEnumerable<MessageDocument>> GetAllMessageConversationsAsync() {
             var results = await CrossCloudFirestore.Current.Instance
                 .Collection("UserMessages")
                 .GetAsync().ConfigureAwait(true);
-            return results.Documents.Select(x => x.Id);
+            return results.ToObjects<MessageDocument>();
         }
         public async Task<IEnumerable<Message>> GetAllMessagesForUserAsync(string userID) {
             var results = await CrossCloudFirestore.Current.Instance
@@ -38,7 +39,7 @@ namespace PersonalRealtor.Network.Firestore.Messages.Repositories.UserMessages {
             CrossCloudFirestore.Current.Instance
                 .Collection("UserMessages")
                 .Document(userID)
-                .SetAsync(new MessageDocument() { Id = userID });
+                .SetAsync(new MessageDocument(userID, OneSignalCache.GetPlayerID()));
 
             CrossCloudFirestore.Current.Instance
                 .Collection("UserMessages")

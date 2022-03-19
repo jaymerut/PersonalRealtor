@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace PersonalRealtor.Views.Pages.RealtorChat.Composer {
     public class RealtorChatUIComposer {
-        public static RealtorChatPage MakeRealtorChatUI(string userID) {
+        public static RealtorChatPage MakeRealtorChatUI(string userID, string playerId) {
             var dataTemplateSelector = new RealtorChatDataTemplateSelector();
             var service = new RealtorChatService(new UserMessagesRepository());
 
-            return new RealtorChatPage(dataTemplateSelector, service, userID);
+            return new RealtorChatPage(dataTemplateSelector, service, userID, playerId);
         }
 
     }
