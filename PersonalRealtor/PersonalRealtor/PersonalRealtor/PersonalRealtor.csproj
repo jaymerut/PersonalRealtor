@@ -85,6 +85,7 @@
     <Folder Include="Cache\" />
     <Folder Include="Cache\AdminLogin\" />
     <Folder Include="Cache\Username\" />
+    <Folder Include="Cache\OneSignal\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />
@@ -100,6 +101,7 @@
     <None Remove="Cache\" />
     <None Remove="Cache\Login\" />
     <None Remove="Cache\Username\" />
+    <None Remove="Cache\OneSignal\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\ViewCells\ChatMessageViewCell.xaml.cs">

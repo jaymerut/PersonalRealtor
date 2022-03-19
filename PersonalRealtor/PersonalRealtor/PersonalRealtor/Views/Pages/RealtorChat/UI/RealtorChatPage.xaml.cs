@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Com.OneSignal;
 using MonkeyCache.FileStore;
 using PersonalRealtor.Cache.AdminLogin;
 using PersonalRealtor.Cache.Username;
@@ -23,15 +24,17 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
         private IRealtorChatService Service;
         private string UserID;
+        private string PlayerId;
         private bool IsAdmin;
         #endregion
 
         #region - Constructors
-        public RealtorChatPage(DataTemplateSelector dataTemplateSelector, IRealtorChatService service, string userID) {
+        public RealtorChatPage(DataTemplateSelector dataTemplateSelector, IRealtorChatService service, string userID, string playerId) {
             this.DataTemplateSelector = dataTemplateSelector;
             this.BindingContext = this;
             this.Service = service;
             this.UserID = userID;
+            this.PlayerId = playerId;
             this.IsAdmin = AdminLoginCache.IsAdminLoggedIn();
 
             InitializeComponent();
@@ -105,6 +108,7 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
                 Timestamp = DateTime.Now.ToString("MM/dd/yy hh:mm tt")
             };
             Service.SendMessage(message, this.UserID);
+            SendNotification(message.Content);
             AddMessageToList(message);
             EditorMessage.Text = "";
         }
@@ -124,6 +128,16 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
                 BackgroundColor = isAuthor ? Color.FromHex(RealtorSingleton.Instance.PrimaryColor) : Color.LightGray,
                 TextColor = isAuthor ? Color.White : Color.Black
             };
+        }
+
+        private void SendNotification(string message) {
+            var notification = new Dictionary<string, object>();
+
+            notification["headings"] = new Dictionary<string, string>() { { "en", "New Message!" } };
+            notification["contents"] = new Dictionary<string, string>() { { "en", message } };
+            notification["include_player_ids"] = new List<string>() { this.PlayerId };
+
+            OneSignal.Current.PostNotification(notification);
         }
         #endregion
 
