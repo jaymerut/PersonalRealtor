@@ -18,7 +18,7 @@ namespace OneSignalNotificationServiceExtension {
             BestAttemptContent = (UNMutableNotificationContent)request.Content.MutableCopy();
 
             // Modify the notification content here...
-            BestAttemptContent.Title = $"{BestAttemptContent.Title}[modified]";
+            BestAttemptContent.Title = $"{BestAttemptContent.Title}";
 
             ContentHandler(BestAttemptContent);
         }

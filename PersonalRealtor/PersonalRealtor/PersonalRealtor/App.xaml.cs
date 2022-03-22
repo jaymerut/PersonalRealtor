@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Com.OneSignal;
 using Com.OneSignal.Abstractions;
 using MonkeyCache.FileStore;
@@ -63,6 +64,7 @@ namespace PersonalRealtor
 
         private MainPage MakeMainUI()
         {
+            SaveRealtorPlayerId();
             OneSignal.Current.IdsAvailable(IdsAvailable);
             var main = MainUIComposer.MainUI();
             main.Flyout = MenuUIComposer.MenuUI(MakeMenuOptions(main));
@@ -126,7 +128,6 @@ namespace PersonalRealtor
                         if (isAdmin) {
                             main.Detail = new PRNavigationPage(RealtorChatListUIComposer.MakeRealtorChatListUI());
                         } else {
-                            SaveRealtorPlayerId();
                             main.Detail = new PRNavigationPage(RealtorChatUIComposer.MakeRealtorChatUI(UsernameCache.GetCurrentUsername(), RealtorOneSignalCache.GetRealtorPlayerID()));
                         }
 
@@ -150,10 +151,10 @@ namespace PersonalRealtor
 
         private async void SaveRealtorPlayerId() {
             var repository = new RealtorOneSignalRepository();
-            if (string.IsNullOrEmpty(RealtorOneSignalCache.GetRealtorPlayerID())) {
+            //if (string.IsNullOrEmpty(RealtorOneSignalCache.GetRealtorPlayerID())) {
                 var signalInfo = await repository.GetRealtorOneSignalInfoAsync(RealtorSingleton.Instance.UserName);
                 RealtorOneSignalCache.SaveRealtorPlayerID(signalInfo.PlayerId);
-            }
+            //}
         }
     }
 }
