@@ -68,6 +68,7 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
         private async void PopulateList() {
             await GetMessages();
             RealtorChatListView.ItemsSource = Objects;
+            RealtorChatListView.ScrollTo(Objects[Objects.Count - 1], ScrollToPosition.End, false);
         }
         
 
@@ -84,33 +85,32 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
 
         private async Task GetMessages() {
             var messages = (await Task.Run(() => Service.GetMessagesForUser(this.UserID))).ToList();
-            messages.Sort((x, y) => DateTime.Compare(DateTime.Parse(y.Timestamp), DateTime.Parse(x.Timestamp)));
+            messages.Sort((x, y) => DateTime.Compare(DateTime.Parse(x.Timestamp), DateTime.Parse(y.Timestamp)));
             foreach (var message in messages) {
                 Objects.Add(ConvertMessageToViewModel(message));
             }
         }
 
         private void AddMessageToList(Message message) {
-            var existingObjects = Objects.Select(x => x).ToList();
-            Objects.Clear();
             Objects.Add(ConvertMessageToViewModel(message));
-            foreach(var obj in existingObjects) {
-                Objects.Add(obj);
-            }
+
+            RealtorChatListView.ScrollTo(Objects[Objects.Count - 1], ScrollToPosition.End, true);
         }
 
         private void SendMessage() {
-            var message = new Message() {
-                MessageID = RandomHelper.RandomString(20),
-                AuthorID = IsAdmin ? RealtorSingleton.Instance.UserName : UsernameCache.GetCurrentUsername(),
-                ParticipantID = IsAdmin ? this.UserID : RealtorSingleton.Instance.UserName,
-                Content = EditorMessage.Text,
-                Timestamp = DateTime.Now.ToString("MM/dd/yy hh:mm tt")
-            };
-            Service.SendMessage(message, this.UserID);
-            SendNotification(message.Content);
-            AddMessageToList(message);
-            EditorMessage.Text = "";
+            if (!string.IsNullOrEmpty(EditorMessage.Text.Trim())) {
+                var message = new Message() {
+                    MessageID = RandomHelper.RandomString(20),
+                    AuthorID = IsAdmin ? RealtorSingleton.Instance.UserName : UsernameCache.GetCurrentUsername(),
+                    ParticipantID = IsAdmin ? this.UserID : RealtorSingleton.Instance.UserName,
+                    Content = EditorMessage.Text,
+                    Timestamp = DateTime.Now.ToString("MM/dd/yy hh:mm tt")
+                };
+                Service.SendMessage(message, this.UserID);
+                SendNotification(message.Content);
+                AddMessageToList(message);
+                EditorMessage.Text = "";
+            }
         }
 
         private ChatMessageViewModel ConvertMessageToViewModel(Message message) {
