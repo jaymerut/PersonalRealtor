@@ -27,6 +27,9 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>Apple Distribution: Jayme Rutkoski (BT4J67MR3F)</CodesignKey>
+    <MtouchExtraArgs>--registrar:static</MtouchExtraArgs>
+    <CodesignProvision>PersonalRealtor</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -46,11 +49,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>Apple Distribution: Jayme Rutkoski (BT4J67MR3F)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>None</MtouchLink>
     <MtouchInterpreter>-all</MtouchInterpreter>
+    <CodesignProvision>PersonalRealtor</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -61,6 +65,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -136,6 +141,7 @@
     <BundleResource Include="Resources\menu_my_saved_homes.png" />
     <BundleResource Include="Resources\bookmark_unselected.png" />
     <BundleResource Include="Resources\bookmark_selected.png" />
+    <BundleResource Include="GoogleService-Info.plist" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -151,12 +157,20 @@
     <PackageReference Include="Plugin.SegmentedControl.Netstandard">
       <Version>5.4.5</Version>
     </PackageReference>
+    <PackageReference Include="Twilio.Chat.Xamarin">
+      <Version>0.7.2</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\PersonalRealtor\PersonalRealtor.csproj">
-      <Project>{226F521F-199F-4A21-B803-589CF74776FD}</Project>
+      <Project>{7CB40DCD-20B2-40EA-A2D8-5B1C050B5333}</Project>
       <Name>PersonalRealtor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\OneSignalNotificationServiceExtension\OneSignalNotificationServiceExtension.csproj">
+      <IsAppExtension>true</IsAppExtension>
+      <Project>{F2561169-C437-4C36-850E-22BB85AEAE51}</Project>
+      <Name>OneSignalNotificationServiceExtension</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

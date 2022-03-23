@@ -6,6 +6,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Com.OneSignal;
+using Com.OneSignal.Abstractions;
 
 namespace PersonalRealtor.Droid
 {
@@ -17,11 +19,19 @@ namespace PersonalRealtor.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
+            Firebase.FirebaseApp.InitializeApp(this);
             base.OnCreate(savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+
+            // Remove this method to stop OneSignal Debugging  
+            OneSignal.Current.SetLogLevel(LOG_LEVEL.VERBOSE, LOG_LEVEL.NONE);
+
+            OneSignal.Current.StartInit("1c757b00-e5c4-4309-954c-e02d24304b80")
+             .InFocusDisplaying(OSInFocusDisplayOption.Notification)
+             .EndInit();
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

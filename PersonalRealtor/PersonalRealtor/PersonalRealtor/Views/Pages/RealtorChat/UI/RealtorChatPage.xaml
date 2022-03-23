@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PersonalRealtor.Views.Pages.RealtorChat.UI.RealtorChatPage">
+             x:Class="PersonalRealtor.Views.Pages.RealtorChat.UI.RealtorChatPage"
+             xmlns:control="clr-namespace:PersonalRealtor.Controls"
+             BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Realtor Chat!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <AbsoluteLayout>
+            <ActivityIndicator x:Name="ActivityIndicatorListView" IsRunning="True" AbsoluteLayout.LayoutBounds="0.5, 0.5, 25, 25" AbsoluteLayout.LayoutFlags="All" />
+            <StackLayout Spacing="0" BackgroundColor="#D6D6D6" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <ListView x:Name="RealtorChatListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White" SeparatorVisibility="None" HasUnevenRows="True" ItemSelected="RealtorChatListView_ItemSelected"/>
+                <StackLayout BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="End" HeightRequest="300">
+                    <control:CustomEditor x:Name="EditorMessage" Placeholder="Enter your message here" PlaceholderColor="#6B6B6B" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20, 10, 20, 0" />
+                    <Button x:Name="ButtonSend" Text="Send Message" Clicked="ButtonSend_Clicked" FontSize="18" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Margin="20, 10, 20, 20" HeightRequest="60" />
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

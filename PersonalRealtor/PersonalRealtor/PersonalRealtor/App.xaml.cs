@@ -1,18 +1,27 @@
-﻿using MonkeyCache.FileStore;
-using PersonalRealtor.Views;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Com.OneSignal;
+using Com.OneSignal.Abstractions;
+using MonkeyCache.FileStore;
+using PersonalRealtor.Cache.AdminLogin;
+using PersonalRealtor.Cache.OneSignal;
+using PersonalRealtor.Cache.Username;
+using PersonalRealtor.Network.Firestore.OneSignal.Repositories.RealtorOneSignal;
 using PersonalRealtor.Views.Pages.Base;
 using PersonalRealtor.Views.Pages.BrowseListings.UI;
 using PersonalRealtor.Views.Pages.GeneralInquiry.Composer;
+using PersonalRealtor.Views.Pages.Login.Composer;
 using PersonalRealtor.Views.Pages.Main.Composer;
 using PersonalRealtor.Views.Pages.Main.UI;
 using PersonalRealtor.Views.Pages.Menu;
 using PersonalRealtor.Views.Pages.Menu.Composer;
+using PersonalRealtor.Views.Pages.RealtorChat.Composer;
 using PersonalRealtor.Views.Pages.RealtorChat.UI;
+using PersonalRealtor.Views.Pages.RealtorChatList.Composer;
 using PersonalRealtor.Views.Pages.RealtorListings.Composer;
 using PersonalRealtor.Views.Pages.SavedHomes.Composer;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace PersonalRealtor
 {
@@ -26,6 +35,19 @@ namespace PersonalRealtor
             Barrel.ApplicationId = "RealtorListings";
 
             MainPage = MakeMainUI();
+
+            //Remove this method to stop OneSignal Debugging  
+            OneSignal.Current.SetLogLevel(LOG_LEVEL.VERBOSE, LOG_LEVEL.NONE);
+
+            OneSignal.Current.StartInit("1c757b00-e5c4-4309-954c-e02d24304b80")
+            .Settings(new Dictionary<string, bool>() {
+                { IOSSettings.kOSSettingsKeyAutoPrompt, false },
+                { IOSSettings.kOSSettingsKeyInAppLaunchURL, false } })
+            .InFocusDisplaying(OSInFocusDisplayOption.Notification)
+            .EndInit();
+
+            // The promptForPushNotificationsWithUserResponse function will show the iOS push notification prompt. We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 7)
+            OneSignal.Current.RegisterForPushNotifications();
         }
 
         protected override void OnStart()
@@ -42,12 +64,17 @@ namespace PersonalRealtor
 
         private MainPage MakeMainUI()
         {
+            SaveRealtorPlayerId();
+            OneSignal.Current.IdsAvailable(IdsAvailable);
             var main = MainUIComposer.MainUI();
             main.Flyout = MenuUIComposer.MenuUI(MakeMenuOptions(main));
             main.Detail = new PRNavigationPage(new BrowseListingsPage());
             ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
             ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
             return main;
+        }
+        private void IdsAvailable(string userID, string pushToken) {
+            OneSignalCache.RegisterPlayerID(userID);
         }
         private MenuOption<Image>[] MakeMenuOptions(MainPage main)
         {
@@ -93,16 +120,41 @@ namespace PersonalRealtor
                     }
                 },
                 new MenuOption<Image>() {
-                    Title = "Chat With Your Realtor!",
+                    Title = "Realtor Chat!",
                     Image = new Image() { Source = "menu_chat.png" },
                     Action = () => {
-                        main.Detail = new PRNavigationPage(new RealtorChatPage());
+                        var isAdmin = AdminLoginCache.IsAdminLoggedIn();
+
+                        if (isAdmin) {
+                            main.Detail = new PRNavigationPage(RealtorChatListUIComposer.MakeRealtorChatListUI());
+                        } else {
+                            main.Detail = new PRNavigationPage(RealtorChatUIComposer.MakeRealtorChatUI(UsernameCache.GetCurrentUsername(), RealtorOneSignalCache.GetRealtorPlayerID()));
+                        }
+
+                        ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
+                        ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
+                        main.IsPresented = false;
+                    }
+                },
+                new MenuOption<Image>() {
+                    Title = "Login",
+                    Image = new Image() { Source = "menu_chat.png" },
+                    Action = () => {
+                        main.Detail = new PRNavigationPage(LoginUIComposer.MakeLoginUI());
                         ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
                         ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
                         main.IsPresented = false;
                     }
                 }
             };
+        }
+
+        private async void SaveRealtorPlayerId() {
+            var repository = new RealtorOneSignalRepository();
+            //if (string.IsNullOrEmpty(RealtorOneSignalCache.GetRealtorPlayerID())) {
+                var signalInfo = await repository.GetRealtorOneSignalInfoAsync(RealtorSingleton.Instance.UserName);
+                RealtorOneSignalCache.SaveRealtorPlayerID(signalInfo.PlayerId);
+            //}
         }
     }
 }

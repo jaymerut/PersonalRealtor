@@ -48,7 +48,7 @@ namespace PersonalRealtor.Components.Helpers {
                 Price = propertyDetailsProp.Price > 0 ? $"${(propertyDetailsProp.Price ?? 0).ToString("N0")}" : "",
                 Bath = propertyDetailsProp.BathsFull > 0 ? $"{propertyDetailsProp.BathsFull} baths" : "",
                 Bed = propertyDetailsProp.Beds > 0 ? $"{propertyDetailsProp.Beds} beds" : "",
-                Sqft = propertyDetailsProp.BuildingSize.Size > 0 ? $"{propertyDetailsProp.BuildingSize.Size} {propertyDetailsProp.BuildingSize.Units}" : ""
+                Sqft = (propertyDetailsProp.BuildingSize != null && propertyDetailsProp.BuildingSize.Size > 0) ? $"{propertyDetailsProp.BuildingSize.Size} {propertyDetailsProp.BuildingSize.Units}" : ""
             };
         }
     }

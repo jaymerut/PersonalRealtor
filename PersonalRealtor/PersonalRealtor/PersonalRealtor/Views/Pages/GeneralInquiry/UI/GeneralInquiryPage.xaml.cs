@@ -53,6 +53,7 @@ namespace PersonalRealtor.Views.Pages.GeneralInquiry.UI
             {
                 // Some other exception occurred  
             }
+
         }
 
         public void ButtonSite_Clicked(System.Object sender, System.EventArgs e)

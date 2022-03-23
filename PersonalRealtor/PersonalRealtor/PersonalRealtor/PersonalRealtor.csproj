@@ -5,6 +5,12 @@
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
@@ -14,6 +20,9 @@
     <PackageReference Include="morelinq" Version="3.3.2" />
     <PackageReference Include="MonkeyCache" Version="1.5.2" />
     <PackageReference Include="MonkeyCache.FileStore" Version="1.5.2" />
+    <PackageReference Include="Com.OneSignal" Version="3.10.6" />
+    <PackageReference Include="Twilio" Version="5.63.0" />
+    <PackageReference Include="Plugin.CloudFirestore" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -57,9 +66,54 @@
     <Folder Include="Views\Pages\GeneralInquiry\Composer\" />
     <Folder Include="Views\Pages\SavedHomes\Composer\" />
     <Folder Include="Components\Helpers\" />
+    <Folder Include="Views\Pages\RealtorChat\Composer\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Delegates\" />
+    <Folder Include="Views\Pages\RealtorChatList\" />
+    <Folder Include="Views\Pages\RealtorChatList\Composer\" />
+    <Folder Include="Views\Pages\RealtorChatList\UI\" />
+    <Folder Include="Views\Pages\Login\" />
+    <Folder Include="Views\Pages\Login\Composer\" />
+    <Folder Include="Views\Pages\Login\UI\" />
+    <Folder Include="Network\Firestore\" />
+    <Folder Include="Network\Firestore\Users\" />
+    <Folder Include="Network\Firestore\Users\Models\" />
+    <Folder Include="Network\Firestore\Messages\" />
+    <Folder Include="Network\Firestore\Messages\Models\" />
+    <Folder Include="Network\Firestore\Messages\Repositories\" />
+    <Folder Include="Network\Firestore\Messages\Repositories\UserMessages\" />
+    <Folder Include="Cache\" />
+    <Folder Include="Cache\AdminLogin\" />
+    <Folder Include="Cache\Username\" />
+    <Folder Include="Cache\OneSignal\" />
+    <Folder Include="Network\Firestore\OneSignal\" />
+    <Folder Include="Network\Firestore\OneSignal\Models\" />
+    <Folder Include="Network\Firestore\OneSignal\Repositories\" />
+    <Folder Include="Network\Firestore\OneSignal\Repositories\RealtorOneSignal\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />
     <None Remove="Realtors\ScottBryant.json" />
+    <None Remove="Plugin.CloudFirestore" />
+    <None Remove="Network\Firestore\" />
+    <None Remove="Network\Firestore\Users\" />
+    <None Remove="Network\Firestore\Users\Models\" />
+    <None Remove="Network\Firestore\Messages\" />
+    <None Remove="Network\Firestore\Messages\Models\" />
+    <None Remove="Network\Firestore\Messages\Repositories\" />
+    <None Remove="Network\Firestore\Messages\Repositories\UserMessages\" />
+    <None Remove="Cache\" />
+    <None Remove="Cache\Login\" />
+    <None Remove="Cache\Username\" />
+    <None Remove="Cache\OneSignal\" />
+    <None Remove="Network\Firestore\OneSignal\" />
+    <None Remove="Network\Firestore\OneSignal\Models\" />
+    <None Remove="Network\Firestore\OneSignal\Repositories\" />
+    <None Remove="Network\Firestore\OneSignal\Repositories\RealtorOneSignal\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\ViewCells\ChatMessageViewCell.xaml.cs">
+      <DependentUpon>ChatMessageViewCell.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

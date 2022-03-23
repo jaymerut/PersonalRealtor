@@ -24,6 +24,10 @@ namespace PersonalRealtor.Views.Pages.Menu.UI
             this.BackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
         }
 
+        protected override void OnAppearing() {
+            base.OnAppearing();
+        }
+
         void ListView_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
 

@@ -66,6 +66,12 @@
     <PackageReference Include="Xamarin.AndroidX.Palette">
       <Version>1.0.0.7</Version>
     </PackageReference>
+    <PackageReference Include="Twilio.Chat.Xamarin">
+      <Version>0.7.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.GooglePlayServices.Basement">
+      <Version>117.6.0.4</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -147,12 +153,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PersonalRealtor\PersonalRealtor.csproj">
-      <Project>{226F521F-199F-4A21-B803-589CF74776FD}</Project>
+      <Project>{7CB40DCD-20B2-40EA-A2D8-5B1C050B5333}</Project>
       <Name>PersonalRealtor</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <GoogleServicesJson Include="google-services.json" />
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -38,6 +38,10 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "Com.OneSignal": {
+              "target": "Package",
+              "version": "[3.10.6, )"
+            },
             "MonkeyCache": {
               "target": "Package",
               "version": "[1.5.2, )"
@@ -56,6 +60,10 @@
               "target": "Package",
               "version": "[12.0.3, )"
             },
+            "Plugin.CloudFirestore": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Plugin.SegmentedControl.Netstandard": {
               "target": "Package",
               "version": "[5.4.5, )"
@@ -63,6 +71,10 @@
             "Refit": {
               "target": "Package",
               "version": "[5.2.1, )"
+            },
+            "Twilio": {
+              "target": "Package",
+              "version": "[5.63.0, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -87,7 +99,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.406/RuntimeIdentifierGraph.json"
         }
       }
     }

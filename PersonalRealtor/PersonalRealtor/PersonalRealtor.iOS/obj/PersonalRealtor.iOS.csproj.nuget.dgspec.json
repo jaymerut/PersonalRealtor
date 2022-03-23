@@ -4,6 +4,30 @@
     "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.iOS/PersonalRealtor.iOS.csproj": {}
   },
   "projects": {
+    "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.csproj": {
+      "restore": {
+        "projectUniqueName": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.csproj",
+        "projectName": "OneSignalNotificationServiceExtension",
+        "projectPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.csproj",
+        "packagesPath": "/Users/jaymerutkoski/.nuget/packages/",
+        "projectStyle": "PackagesConfig",
+        "configFilePaths": [
+          "/Users/jaymerutkoski/.config/NuGet/NuGet.Config"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "xamarinios10": {
+            "projectReferences": {}
+          }
+        },
+        "packagesConfigPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/packages.config"
+      },
+      "frameworks": {
+        "xamarinios10": {}
+      }
+    },
     "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.iOS/PersonalRealtor.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -26,6 +50,9 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
+              "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.csproj": {
+                "projectPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.csproj"
+              },
               "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj": {
                 "projectPath": "/Users/jaymerutkoski/Desktop/Personal Projects/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor/PersonalRealtor.csproj"
               }
@@ -39,6 +66,10 @@
             "Plugin.SegmentedControl.Netstandard": {
               "target": "Package",
               "version": "[5.4.5, )"
+            },
+            "Twilio.Chat.Xamarin": {
+              "target": "Package",
+              "version": "[0.7.2, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -97,6 +128,10 @@
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
           "dependencies": {
+            "Com.OneSignal": {
+              "target": "Package",
+              "version": "[3.10.6, )"
+            },
             "MonkeyCache": {
               "target": "Package",
               "version": "[1.5.2, )"
@@ -115,6 +150,10 @@
               "target": "Package",
               "version": "[12.0.3, )"
             },
+            "Plugin.CloudFirestore": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Plugin.SegmentedControl.Netstandard": {
               "target": "Package",
               "version": "[5.4.5, )"
@@ -122,6 +161,10 @@
             "Refit": {
               "target": "Package",
               "version": "[5.2.1, )"
+            },
+            "Twilio": {
+              "target": "Package",
+              "version": "[5.63.0, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -146,7 +189,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.406/RuntimeIdentifierGraph.json"
         }
       }
     }
