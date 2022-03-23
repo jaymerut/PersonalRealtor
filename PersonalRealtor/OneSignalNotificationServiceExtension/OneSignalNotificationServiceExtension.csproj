@@ -68,7 +68,7 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodesignKey>Apple Distribution: Jayme Rutkoski (BT4J67MR3F)</CodesignKey>
+    <CodesignKey>iPhone Distribution: Jayme Rutkoski (BT4J67MR3F)</CodesignKey>
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
@@ -80,7 +80,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <MtouchVerbosity></MtouchVerbosity>
-    <CodesignProvision>PersonalRealtorOneSignal</CodesignProvision>
+    <CodesignProvision>PersonalRealtor Development OneSignal</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
