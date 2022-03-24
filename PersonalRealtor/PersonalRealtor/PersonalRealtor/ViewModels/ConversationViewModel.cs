@@ -6,6 +6,6 @@ namespace PersonalRealtor.ViewModels {
         public string Title { get; set; }
         public string PlayerId { get; set; }
         public DateTime? DateUpdated { get; set; }
-        public Action OnHideConvo { get; set; }
+        public Action<string> OnHideConvo { get; set; }
     }
 }

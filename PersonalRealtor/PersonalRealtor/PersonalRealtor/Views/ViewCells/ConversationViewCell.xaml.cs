@@ -16,7 +16,7 @@ namespace PersonalRealtor.Views.ViewCells {
 
         private void SwipeItemView_Invoked(System.Object sender, System.EventArgs e) {
             ConversationViewModel viewModel = (ConversationViewModel)BindingContext;
-            viewModel?.OnHideConvo();
+            viewModel?.OnHideConvo(viewModel.PlayerId);
         }
     }
 }

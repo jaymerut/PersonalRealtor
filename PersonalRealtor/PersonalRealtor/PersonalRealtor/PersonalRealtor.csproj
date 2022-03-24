@@ -90,6 +90,7 @@
     <Folder Include="Network\Firestore\OneSignal\Models\" />
     <Folder Include="Network\Firestore\OneSignal\Repositories\" />
     <Folder Include="Network\Firestore\OneSignal\Repositories\RealtorOneSignal\" />
+    <Folder Include="Cache\HiddenConversation\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Realtors\CoreyMarshall.json" />
@@ -110,6 +111,7 @@
     <None Remove="Network\Firestore\OneSignal\Models\" />
     <None Remove="Network\Firestore\OneSignal\Repositories\" />
     <None Remove="Network\Firestore\OneSignal\Repositories\RealtorOneSignal\" />
+    <None Remove="Cache\HiddenConversations\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\ViewCells\ChatMessageViewCell.xaml.cs">
