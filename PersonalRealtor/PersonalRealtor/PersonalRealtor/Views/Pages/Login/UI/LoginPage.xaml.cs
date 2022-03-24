@@ -76,7 +76,7 @@ namespace PersonalRealtor.Views.Pages.Login.UI {
         }
         public void ButtonLogout_Clicked(System.Object sender, System.EventArgs e) {
             AdminLoginCache.AdminLogout();
-            UsernameCache.RemoveUsername(RealtorSingleton.Instance.UserName);
+            UsernameCache.RemoveUsername();
 
             Refresh();
         }

@@ -70,7 +70,9 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
         private async void PopulateList() {
             await GetMessages();
             RealtorChatListView.ItemsSource = Objects;
-            RealtorChatListView.ScrollTo(Objects[Objects.Count - 1], ScrollToPosition.End, false);
+            if (Objects.Count > 0) {
+                RealtorChatListView.ScrollTo(Objects[Objects.Count - 1], ScrollToPosition.End, false);
+            }
         }
         
 
@@ -82,14 +84,28 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
 
         // UIResponders
         public async void ButtonSend_Clicked(System.Object sender, System.EventArgs e) {
-            SendMessage();
+            if (!UsernameCache.HasUsername()) {
+                var username = await DisplayPromptAsync("Set Your Name", "It looks like this is your first message! Please enter your name here:");
+                if (string.IsNullOrEmpty(username)) {
+                    await DisplayAlert("Invalid Name", "You'll need to set a name in order to send messages.", "Okay");
+                } else {
+                    UsernameCache.CreateUsername(username);
+                    this.UserID = username;
+                }
+            }
+
+            if (UsernameCache.HasUsername()) {
+                SendMessage();
+            }
         }
 
         private async Task GetMessages() {
-            var messages = (await Task.Run(() => Service.GetMessagesForUser(this.UserID))).ToList();
-            messages.Sort((x, y) => DateTime.Compare(DateTime.Parse(x.Timestamp), DateTime.Parse(y.Timestamp)));
-            foreach (var message in messages) {
-                Objects.Add(ConvertMessageToViewModel(message));
+            if (!string.IsNullOrEmpty(this.UserID)) {
+                var messages = (await Task.Run(() => Service.GetMessagesForUser(this.UserID))).ToList();
+                messages.Sort((x, y) => DateTime.Compare(DateTime.Parse(x.Timestamp), DateTime.Parse(y.Timestamp)));
+                foreach (var message in messages) {
+                    Objects.Add(ConvertMessageToViewModel(message));
+                }
             }
         }
 
