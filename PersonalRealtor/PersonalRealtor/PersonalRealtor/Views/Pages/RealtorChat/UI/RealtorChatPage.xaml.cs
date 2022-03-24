@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Com.OneSignal;
 using MonkeyCache.FileStore;
 using PersonalRealtor.Cache.AdminLogin;
+using PersonalRealtor.Cache.OneSignal;
 using PersonalRealtor.Cache.Username;
 using PersonalRealtor.Components.Helpers;
 using PersonalRealtor.Network.Firestore.Messages.Models;
@@ -61,7 +62,8 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
             this.ButtonSend.BackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
             this.ButtonSend.TextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
 
-            
+            OneSignal.Current.RegisterForPushNotifications();
+            OneSignal.Current.IdsAvailable(IdsAvailable);
         }
 
         // Data Logic
@@ -138,6 +140,9 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
             notification["include_player_ids"] = new List<string>() { this.PlayerId };
 
             OneSignal.Current.PostNotification(notification);
+        }
+        private void IdsAvailable(string userID, string pushToken) {
+            OneSignalCache.RegisterPlayerID(userID);
         }
         #endregion
 

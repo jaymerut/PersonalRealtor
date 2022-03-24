@@ -35,13 +35,9 @@ namespace PersonalRealtor.iOS
 
             OneSignal.Current.StartInit("1c757b00-e5c4-4309-954c-e02d24304b80")
             .Settings(new Dictionary<string, bool>() {
-                { IOSSettings.kOSSettingsKeyAutoPrompt, false },
                 { IOSSettings.kOSSettingsKeyInAppLaunchURL, false } })
             .InFocusDisplaying(OSInFocusDisplayOption.Notification)
             .EndInit();
-
-            // The promptForPushNotificationsWithUserResponse function will show the iOS push notification prompt. We recommend removing the following code and instead using an In-App Message to prompt for notification permission (See step 7)
-            OneSignal.Current.RegisterForPushNotifications();
 
             return base.FinishedLaunching(app, options);
         }
