@@ -2,14 +2,26 @@
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PersonalRealtor.Views.ViewCells.ConversationViewCell">
-  <ViewCell.View>
-      <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
-        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="14,20,14,10">
-            <Label x:Name="LabelTitle" FontSize="18" Text="{Binding Title}" HorizontalOptions="Start" />
-        </StackLayout>
+    <ViewCell.View>
+        <SwipeView>
+            <SwipeView.RightItems>
+                <SwipeItems>
+                    <SwipeItemView Invoked="SwipeItemView_Invoked">
+                        <Grid WidthRequest="80" BackgroundColor="Red">
+                            <Image Source="delete.png" Aspect="AspectFit" HeightRequest="30" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Grid>
+                    </SwipeItemView>
+                </SwipeItems>
+            </SwipeView.RightItems>
+            <SwipeView.Content>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="14,20,14,10">
+                        <Label x:Name="LabelTitle" FontSize="18" Text="{Binding Title}" HorizontalOptions="Start" />
+                    </StackLayout>
 
-        <BoxView BackgroundColor="#D9D9D9" HeightRequest="2" HorizontalOptions="FillAndExpand"/>
-
-    </StackLayout>
-  </ViewCell.View>
+                    <BoxView BackgroundColor="#D9D9D9" HeightRequest="2" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+            </SwipeView.Content>
+        </SwipeView>
+    </ViewCell.View>
 </ViewCell>

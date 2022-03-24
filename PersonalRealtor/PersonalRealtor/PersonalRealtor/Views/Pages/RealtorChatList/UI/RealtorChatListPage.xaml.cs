@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using PersonalRealtor.Cache.HiddenConversation;
 using PersonalRealtor.Services.Delegates;
 using PersonalRealtor.ViewModels;
 using PersonalRealtor.Views.Pages.RealtorChat.Composer;
@@ -56,11 +57,30 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
             var conversations = (await Task.Run(() => Service.GetAllMessageConversationsAsync())).ToList();
 
             foreach (var convo in conversations) {
-                var viewModel = new ConversationViewModel();
-                viewModel.Title = convo.Id;
-                viewModel.PlayerId = convo.PlayerId;
+                var viewModel = new ConversationViewModel() {
+                    Title = convo.Id,
+                    PlayerId = convo.PlayerId
+                };
+                viewModel.OnHideConvo = (playerID) => {
+                    HiddenConversationCache.HideConversation(playerID);
 
-                this.Objects.Add(viewModel);
+                    ConversationViewModel convoToRemove = null;
+
+                    foreach (ConversationViewModel convo in Objects) {
+                        if (convo.PlayerId?.Equals(playerID) ?? false) {
+                            convoToRemove = convo;
+                            break;
+                        }
+                    }
+
+                    if (convoToRemove != null) {
+                        Objects.Remove(convoToRemove);
+                    }
+                };
+
+                if (!HiddenConversationCache.GetHiddenConversations().Contains(convo.PlayerId)) {
+                    this.Objects.Add(viewModel);
+                }
             }
         }
 
@@ -75,6 +95,7 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
 
             RealtorChatListView.SelectedItem = null;
         }
+
         #endregion
 
         #region - Public API
