@@ -56,9 +56,13 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
             var conversations = (await Task.Run(() => Service.GetAllMessageConversationsAsync())).ToList();
 
             foreach (var convo in conversations) {
-                var viewModel = new ConversationViewModel();
-                viewModel.Title = convo.Id;
-                viewModel.PlayerId = convo.PlayerId;
+                var viewModel = new ConversationViewModel() {
+                    Title = convo.Id,
+                    PlayerId = convo.PlayerId
+                };
+                viewModel.OnHideConvo = () => {
+                    
+                };
 
                 this.Objects.Add(viewModel);
             }
@@ -75,6 +79,7 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
 
             RealtorChatListView.SelectedItem = null;
         }
+
         #endregion
 
         #region - Public API

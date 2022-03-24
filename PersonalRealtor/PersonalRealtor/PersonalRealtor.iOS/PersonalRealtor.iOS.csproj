@@ -142,6 +142,7 @@
     <BundleResource Include="Resources\bookmark_unselected.png" />
     <BundleResource Include="Resources\bookmark_selected.png" />
     <BundleResource Include="GoogleService-Info.plist" />
+    <BundleResource Include="Resources\delete.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
