@@ -17,33 +17,33 @@ namespace PersonalRealtor.Network.Firestore.Messages.Repositories.UserMessages {
                 .GetAsync().ConfigureAwait(true);
             return results.ToObjects<MessageDocument>();
         }
-        public async Task<IEnumerable<Message>> GetAllMessagesForUserAsync(string userID) {
+        public async Task<IEnumerable<Message>> GetAllMessagesForUserAsync(string playerID) {
             var results = await CrossCloudFirestore.Current.Instance
                 .Collection("UserMessages")
-                .Document(userID)
+                .Document(playerID)
                 .Collection("Messages")
                 .GetAsync().ConfigureAwait(true);
             return results.ToObjects<Message>();
         }
 
-        public async Task<Message> GetOneMessageAsync(string userID, string messageID) {
+        public async Task<Message> GetOneMessageAsync(string playerID, string messageID) {
             var result = await CrossCloudFirestore.Current.Instance
                 .Collection("UserMessages")
-                .Document(userID)
+                .Document(playerID)
                 .Collection("Messages")
                 .Document(messageID).GetAsync().ConfigureAwait(true);
             return result.ToObject<Message>();
         }
 
-        public void SendMessage(Message message, string userID) {
+        public void SendMessage(Message message, string username) {
             CrossCloudFirestore.Current.Instance
                 .Collection("UserMessages")
-                .Document(userID)
-                .SetAsync(new MessageDocument(userID, OneSignalCache.GetPlayerID()));
+                .Document(OneSignalCache.GetPlayerID())
+                .SetAsync(new MessageDocument(OneSignalCache.GetPlayerID(), username));
 
             CrossCloudFirestore.Current.Instance
                 .Collection("UserMessages")
-                .Document(userID)
+                .Document(OneSignalCache.GetPlayerID())
                 .Collection("Messages")
                 .Document(message.MessageID)
                 .SetAsync(message);

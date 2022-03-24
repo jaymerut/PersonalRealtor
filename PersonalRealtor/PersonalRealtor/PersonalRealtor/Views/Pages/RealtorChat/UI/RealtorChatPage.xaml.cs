@@ -24,17 +24,17 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
         private DataTemplateSelector DataTemplateSelector;
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
         private IRealtorChatService Service;
-        private string UserID;
+        private string Username;
         private string PlayerId;
         private bool IsAdmin;
         #endregion
 
         #region - Constructors
-        public RealtorChatPage(DataTemplateSelector dataTemplateSelector, IRealtorChatService service, string userID, string playerId) {
+        public RealtorChatPage(DataTemplateSelector dataTemplateSelector, IRealtorChatService service, string username, string playerId) {
             this.DataTemplateSelector = dataTemplateSelector;
             this.BindingContext = this;
             this.Service = service;
-            this.UserID = userID;
+            this.Username = username;
             this.PlayerId = playerId;
             this.IsAdmin = AdminLoginCache.IsAdminLoggedIn();
 
@@ -90,7 +90,7 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
                     await DisplayAlert("Invalid Name", "You'll need to set a name in order to send messages.", "Okay");
                 } else {
                     UsernameCache.CreateUsername(username);
-                    this.UserID = username;
+                    this.Username = username;
                 }
             }
 
@@ -100,8 +100,8 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
         }
 
         private async Task GetMessages() {
-            if (!string.IsNullOrEmpty(this.UserID)) {
-                var messages = (await Task.Run(() => Service.GetMessagesForUser(this.UserID))).ToList();
+            if (!string.IsNullOrEmpty(this.Username)) {
+                var messages = (await Task.Run(() => Service.GetMessagesForUser(this.PlayerId))).ToList();
                 messages.Sort((x, y) => DateTime.Compare(DateTime.Parse(x.Timestamp), DateTime.Parse(y.Timestamp)));
                 foreach (var message in messages) {
                     Objects.Add(ConvertMessageToViewModel(message));
@@ -120,11 +120,11 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.UI
                 var message = new Message() {
                     MessageID = RandomHelper.RandomString(20),
                     AuthorID = IsAdmin ? RealtorSingleton.Instance.UserName : UsernameCache.GetCurrentUsername(),
-                    ParticipantID = IsAdmin ? this.UserID : RealtorSingleton.Instance.UserName,
+                    ParticipantID = IsAdmin ? this.Username : RealtorSingleton.Instance.UserName,
                     Content = EditorMessage.Text,
                     Timestamp = DateTime.Now.ToString("MM/dd/yy hh:mm tt")
                 };
-                Service.SendMessage(message, this.UserID);
+                Service.SendMessage(message, this.Username);
                 SendNotification(message.Content);
                 AddMessageToList(message);
                 EditorMessage.Text = "";
