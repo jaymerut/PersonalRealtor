@@ -6,8 +6,8 @@ using PersonalRealtor.Network.Firestore.Messages.Models;
 namespace PersonalRealtor.Network.Firestore.Messages.Repositories.UserMessages {
     public interface IUserMessagesRepository {
         Task<IEnumerable<MessageDocument>> GetAllMessageConversationsAsync();
-        Task<IEnumerable<Message>> GetAllMessagesForUserAsync(string userID);
-        Task<Message> GetOneMessageAsync(string userID, string messageID);
-        void SendMessage(Message message, string userID);
+        Task<IEnumerable<Message>> GetAllMessagesForUserAsync(string playerID);
+        Task<Message> GetOneMessageAsync(string playerID, string messageID);
+        void SendMessage(Message message, string username);
     }
 }

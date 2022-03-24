@@ -11,12 +11,11 @@ namespace PersonalRealtor.Cache.Username {
         public static void CreateUsername(string username) {
             Barrel.Current.Add(key: BarrelKey, data: username, expireIn: TimeSpan.FromDays(365));
         }
-        public static void RemoveUsername(string username) {
-            Barrel.Current.Add(key: BarrelKey, data: username, expireIn: TimeSpan.FromDays(365));
+        public static void RemoveUsername() {
+            Barrel.Current.Add(key: BarrelKey, data: "", expireIn: TimeSpan.FromDays(365));
         }
         public static string GetCurrentUsername() {
-            //return Barrel.Current.Get<string>(key: BarrelKey);
-            return "User100";
+            return Barrel.Current.Get<string>(key: BarrelKey);
         }
     }
 }

@@ -58,8 +58,8 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
 
             foreach (var convo in conversations) {
                 var viewModel = new ConversationViewModel() {
-                    Title = convo.Id,
-                    PlayerId = convo.PlayerId
+                    Title = convo.Username,
+                    PlayerId = convo.Id
                 };
                 viewModel.OnHideConvo = (playerID) => {
                     HiddenConversationCache.HideConversation(playerID);
@@ -78,7 +78,7 @@ namespace PersonalRealtor.Views.Pages.RealtorChatList.UI {
                     }
                 };
 
-                if (!HiddenConversationCache.GetHiddenConversations().Contains(convo.PlayerId)) {
+                if (!HiddenConversationCache.GetHiddenConversations().Contains(convo.Id)) {
                     this.Objects.Add(viewModel);
                 }
             }

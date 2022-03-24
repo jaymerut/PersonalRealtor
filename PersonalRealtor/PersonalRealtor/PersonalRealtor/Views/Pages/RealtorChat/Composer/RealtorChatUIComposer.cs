@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace PersonalRealtor.Views.Pages.RealtorChat.Composer {
     public class RealtorChatUIComposer {
-        public static RealtorChatPage MakeRealtorChatUI(string userID, string playerId) {
+        public static RealtorChatPage MakeRealtorChatUI(string username, string playerId) {
             var dataTemplateSelector = new RealtorChatDataTemplateSelector();
             var service = new RealtorChatService(new UserMessagesRepository());
 
-            return new RealtorChatPage(dataTemplateSelector, service, userID, playerId);
+            return new RealtorChatPage(dataTemplateSelector, service, username, playerId);
         }
 
     }
 
     public interface IRealtorChatService {
-        public Task<IEnumerable<Message>> GetMessagesForUser(string userID);
-        public Task<Message> GetOneMessage(string userID, string messageID);
-        public void SendMessage(Message message, string userID);
+        public Task<IEnumerable<Message>> GetMessagesForUser(string playerID);
+        public Task<Message> GetOneMessage(string playerID, string messageID);
+        public void SendMessage(Message message, string username);
     }
 
     public class RealtorChatService : IRealtorChatService {
@@ -32,16 +32,16 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.Composer {
             UserMessagesRepository = new UserMessagesRepositoryAdapter(userMessagesRepository);
         }
 
-        public async Task<IEnumerable<Message>> GetMessagesForUser(string userID) {
-            return await UserMessagesRepository.GetAllMessagesForUser(userID);
+        public async Task<IEnumerable<Message>> GetMessagesForUser(string playerID) {
+            return await UserMessagesRepository.GetAllMessagesForUser(playerID);
         }
 
-        public async Task<Message> GetOneMessage(string userID, string messageID) {
-            return await UserMessagesRepository.GetOneMessage(userID, messageID);
+        public async Task<Message> GetOneMessage(string playerID, string messageID) {
+            return await UserMessagesRepository.GetOneMessage(playerID, messageID);
         }
 
-        public void SendMessage(Message message, string userID) {
-            UserMessagesRepository.SendMessage(message, userID);
+        public void SendMessage(Message message, string username) {
+            UserMessagesRepository.SendMessage(message, username);
         }
 
     }
@@ -54,16 +54,16 @@ namespace PersonalRealtor.Views.Pages.RealtorChat.Composer {
             Repository = repository;
         }
 
-        public async Task<IEnumerable<Message>> GetAllMessagesForUser(string userID) {
-            return await Repository.GetAllMessagesForUserAsync(userID);
+        public async Task<IEnumerable<Message>> GetAllMessagesForUser(string playerID) {
+            return await Repository.GetAllMessagesForUserAsync(playerID);
         }
 
-        public async Task<Message> GetOneMessage(string userID, string messageID) {
-            return await Repository.GetOneMessageAsync(userID, messageID);
+        public async Task<Message> GetOneMessage(string playerID, string messageID) {
+            return await Repository.GetOneMessageAsync(playerID, messageID);
         }
 
-        public void SendMessage(Message message, string userID) {
-            Repository.SendMessage(message, userID);
+        public void SendMessage(Message message, string username) {
+            Repository.SendMessage(message, username);
         }
     }
 
