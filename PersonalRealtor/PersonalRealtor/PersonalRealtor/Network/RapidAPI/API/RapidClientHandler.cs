@@ -11,7 +11,7 @@ namespace PersonalRealtor.Network.RapidAPI.API
     {
         #region - Variables
         private const string apiKey = "4a10242a63msh939c8fbd5f14a8cp19e8d8jsn6bd2993356d5";
-        private const string apiHost = "realtor.p.rapidapi.com";
+        private const string apiHost = "realty-in-us.p.rapidapi.com";
         #endregion
 
 
