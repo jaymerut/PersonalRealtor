@@ -17,5 +17,14 @@ namespace PersonalRealtor.Network.RapidAPI.API
 
         [Get("/properties/v2/detail?property_id={propertyId}")]
         Task<PropertyDetailsResponse> GetPropertyDetails(String propertyId);
+
+        [Get("/properties/v2/list-sold")]
+        Task<PropertiesListingsSoldResponse> SearchSoldListings(PropertiesListingsSoldRequest request);
+
+        [Get("/properties/v2/list-for-rent")]
+        Task<PropertiesListingsForRentResponse> SearchForRentListings(PropertiesListingsForRentRequest request);
+
+        [Get("/properties/v2/list-for_sale")]
+        Task<PropertiesListingsForSaleResponse> SearchForSaleListings(PropertiesListingsForSaleRequest request);
     }
 }
