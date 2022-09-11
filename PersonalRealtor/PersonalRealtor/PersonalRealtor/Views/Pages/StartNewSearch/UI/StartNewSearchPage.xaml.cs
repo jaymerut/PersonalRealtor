@@ -15,7 +15,7 @@ namespace PersonalRealtor.Views.Pages.StartNewSearch.UI {
         private RapidAPI RapidAPI = new RapidAPI();
         private DataTemplateSelector DataTemplateSelector;
         private ObservableCollection<Object> Objects = new ObservableCollection<Object>();
-        private LocationsAutoCompleteResponse Response;
+        private AutocompleteLocationViewModel CurrentLocationSelected;
         public int SelectedSegment;
 
         public StartNewSearchPage(DataTemplateSelector dataTemplateSelector) {
@@ -40,8 +40,6 @@ namespace PersonalRealtor.Views.Pages.StartNewSearch.UI {
             var result = await RapidAPI.GetLocationsAutoComplete(new LocationsAutoCompleteRequest() {
                 Input = text
             });
-
-            this.Response = result;
 
             var groupList = result.Autocomplete.GroupBy(x => x.AreaType).Select(g => new AutocompleteLocationGroup() {
                 GroupName = g.Key,
@@ -68,12 +66,14 @@ namespace PersonalRealtor.Views.Pages.StartNewSearch.UI {
                         if (!String.IsNullOrEmpty(location.PostalCode)) {
                             locationText = $"{location.PostalCode}, {locationText}";
                         }
-                        Objects.Add(new AutocompleteLocationViewModel() {
+                        var viewModel = new AutocompleteLocationViewModel() {
                             Text = locationText,
                             City = location.City,
                             StateCode = location.StateCode,
                             PostalCode = location.PostalCode
-                        });
+                        };
+                        if (CurrentLocationSelected == null) { CurrentLocationSelected = viewModel; }
+                        Objects.Add(viewModel);
                     }
                 }
             }
@@ -97,18 +97,26 @@ namespace PersonalRealtor.Views.Pages.StartNewSearch.UI {
         }
 
         void Entry_TextChanged(object sender, TextChangedEventArgs e) {
+            CurrentLocationSelected = null;
             if (e.NewTextValue.Length > 2) {
                 _ = RetrieveAutocompleteLocationsAsync(e.NewTextValue);
                 AutocompleteFrame.IsVisible = true;
+                ButtonSearch.IsVisible = true;
             } else {
                 Objects.Clear();
                 AutocompleteFrame.IsVisible = false;
+                ButtonSearch.IsVisible = false;
             }
         }
 
         private void AutocompleteListView_ItemSelected(Object sender, SelectedItemChangedEventArgs e) {
             if (e.SelectedItem != null) {
-                // TODO
+                if (e.SelectedItem is AutocompleteLocationViewModel) {
+                    EntryAutocomplete.Text = ((AutocompleteLocationViewModel)e.SelectedItem).Text;
+                    CurrentLocationSelected = (AutocompleteLocationViewModel)e.SelectedItem;
+                    Objects.Clear();
+                    AutocompleteFrame.IsVisible = false;
+                }
             }
         }
 
