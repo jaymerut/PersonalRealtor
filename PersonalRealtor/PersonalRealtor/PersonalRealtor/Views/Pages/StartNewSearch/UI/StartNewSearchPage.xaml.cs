@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using PersonalRealtor.Models;
 using PersonalRealtor.Network.RapidAPI.API;
 using PersonalRealtor.Network.RapidAPI.Models;
+using PersonalRealtor.ViewModels;
 using Xamarin.Forms;
 
 namespace PersonalRealtor.Views.Pages.StartNewSearch.UI {
@@ -50,8 +51,22 @@ namespace PersonalRealtor.Views.Pages.StartNewSearch.UI {
             Objects.Clear();
 
             foreach (var group in groupList) {
+                if (group.GroupName == "city" || group.GroupName == "postal_code") {
+
+                }
                 foreach (var location in group.Values) {
-                    Objects.Add(location);
+                    if (group.GroupName == "city" || group.GroupName == "postal_code") {
+                        var locationText = $"{location.City}, {location.StateCode}";
+                        if (!String.IsNullOrEmpty(location.PostalCode)) {
+                            locationText = $"{location.PostalCode}, {locationText}";
+                        }
+                        Objects.Add(new AutocompleteLocationViewModel() {
+                            Text = locationText,
+                            City = location.City,
+                            StateCode = location.StateCode,
+                            PostalCode = location.PostalCode
+                        });
+                    }
                 }
             }
         }

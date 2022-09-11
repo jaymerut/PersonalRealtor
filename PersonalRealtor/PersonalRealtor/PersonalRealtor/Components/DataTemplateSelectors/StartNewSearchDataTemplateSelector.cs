@@ -1,5 +1,5 @@
 ﻿using System;
-using PersonalRealtor.Models;
+using PersonalRealtor.ViewModels;
 using PersonalRealtor.Views.ViewCells;
 using Xamarin.Forms;
 
@@ -11,7 +11,7 @@ namespace PersonalRealtor.Components.DataTemplateSelectors {
             DataTemplateAutocompleteLocation = new DataTemplate(typeof(AutocompleteLocationViewCell));
         }
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container) {
-            if (item is AutocompleteLocation) {
+            if (item is AutocompleteLocationViewModel) {
                 return DataTemplateAutocompleteLocation;
             }
             return new DataTemplate(typeof(ViewCell));

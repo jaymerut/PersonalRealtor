@@ -14,6 +14,14 @@ namespace PersonalRealtor.Models {
         public string StateCode { get; set; }
         [JsonProperty("country")]
         public string Country { get; set; }
+        [JsonProperty("neighborhood")]
+        public string Neighborhood { get; set; }
+        [JsonProperty("school")]
+        public string School { get; set; }
+        [JsonProperty("school_district")]
+        public string SchoolDistrict { get; set; }
+        [JsonProperty("postal_code")]
+        public string PostalCode { get; set; }
     }
 
     public enum AreaType {
