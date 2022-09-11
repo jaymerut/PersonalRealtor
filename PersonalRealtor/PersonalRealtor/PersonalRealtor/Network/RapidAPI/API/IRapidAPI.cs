@@ -26,5 +26,8 @@ namespace PersonalRealtor.Network.RapidAPI.API
 
         [Get("/properties/v2/list-for_sale")]
         Task<PropertiesListingsForSaleResponse> SearchForSaleListings(PropertiesListingsForSaleRequest request);
+
+        [Get("/locations/auto-complete")]
+        Task<LocationsAutoCompleteResponse> GetLocationsAutoComplete(LocationsAutoCompleteRequest request);
     }
 }

@@ -65,6 +65,9 @@ namespace PersonalRealtor.Network.RapidAPI.API
         public async Task<PropertiesListingsForSaleResponse> SearchForSaleListings(PropertiesListingsForSaleRequest request) {
             return await this.API.SearchForSaleListings(request);
         }
+        public async Task<LocationsAutoCompleteResponse> GetLocationsAutoComplete(LocationsAutoCompleteRequest request) {
+            return await this.API.GetLocationsAutoComplete(request);
+        }
 
     }
 }
