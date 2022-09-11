@@ -3,10 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PersonalRealtor.Views.Pages.BrowseListings.UI.BrowseListingsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Browse Listings!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <AbsoluteLayout>
+            <ActivityIndicator x:Name="ActivityIndicatorListView" IsRunning="True" AbsoluteLayout.LayoutBounds="0.5, 0.5, 25, 25" AbsoluteLayout.LayoutFlags="All" />
+            <StackLayout Spacing="0" BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <ScrollView x:Name="ScrollViewList" BackgroundColor="Transparent" VerticalOptions="FillAndExpand">
+                    <ListView x:Name="BrowseListingsListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" SeparatorVisibility="None" HasUnevenRows="True" ItemSelected="BrowseListingsListView_ItemSelected"/>
+                </ScrollView>
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

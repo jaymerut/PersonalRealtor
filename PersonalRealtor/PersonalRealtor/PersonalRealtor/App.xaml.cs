@@ -9,6 +9,7 @@ using PersonalRealtor.Cache.OneSignal;
 using PersonalRealtor.Cache.Username;
 using PersonalRealtor.Network.Firestore.OneSignal.Repositories.RealtorOneSignal;
 using PersonalRealtor.Views.Pages.Base;
+using PersonalRealtor.Views.Pages.BrowseListings.Composer;
 using PersonalRealtor.Views.Pages.BrowseListings.UI;
 using PersonalRealtor.Views.Pages.GeneralInquiry.Composer;
 using PersonalRealtor.Views.Pages.Login.Composer;
@@ -54,7 +55,7 @@ namespace PersonalRealtor
             SaveRealtorPlayerId();
             var main = MainUIComposer.MainUI();
             main.Flyout = MenuUIComposer.MenuUI(MakeMenuOptions(main));
-            main.Detail = new PRNavigationPage(new BrowseListingsPage());
+            main.Detail = new PRNavigationPage(BrowseListingsUIComposer.MakeBrowseListingsUI());
             ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
             ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
             return main;
@@ -77,7 +78,7 @@ namespace PersonalRealtor
                     Title = "Browse Homes",
                     Image = new Image() { Source = "menu_browse_listings.png" },
                     Action = () => {
-                        main.Detail = new PRNavigationPage(new BrowseListingsPage());
+                        main.Detail = new PRNavigationPage(BrowseListingsUIComposer.MakeBrowseListingsUI());
                         ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
                         ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
                         main.IsPresented = false;
