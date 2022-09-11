@@ -12,7 +12,6 @@ namespace PersonalRealtor.Views.ViewCells {
     public partial class BrowseListingsAutocompleteViewCell : ViewCell {
 
         private BrowseListingsAutocompleteViewModel ViewModel;
-        public int SelectedSegment;
 
         public BrowseListingsAutocompleteViewCell() {
             InitializeComponent();
@@ -32,23 +31,8 @@ namespace PersonalRealtor.Views.ViewCells {
 
         private void BindingContext_Changed(object sender, EventArgs eventArgs) {
             this.ViewModel = (BrowseListingsAutocompleteViewModel)GetValue(BindingContextProperty);
-        }
-
-        private void SegmentedControl_OnSegmentSelected(System.Object sender, Plugin.Segmented.Event.SegmentSelectEventArgs e) {
-            var selectedOption = this.SegmentedControl.Children.ToList()[e.NewValue];
-            switch (selectedOption.Text) {
-                case "For Sale":
-                    SelectedSegment = 0;
-                    break;
-                case "For Rent":
-                    SelectedSegment = 1;
-                    break;
-                case "Sold":
-                    SelectedSegment = 2;
-                    break;
-                default:
-                    break;
-            }
+            if (this.ViewModel != null)
+                EntryAutocomplete.Text = this.ViewModel.Text;
         }
     }
 }

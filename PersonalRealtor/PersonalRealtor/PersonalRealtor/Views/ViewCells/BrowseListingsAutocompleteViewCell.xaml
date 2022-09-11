@@ -1,19 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:control="clr-namespace:Plugin.Segmented.Control;assembly=Plugin.Segmented"
-             xmlns:customcontrol="clr-namespace:PersonalRealtor.Controls"
+             xmlns:control="clr-namespace:PersonalRealtor.Controls"
              x:Class="PersonalRealtor.Views.ViewCells.BrowseListingsAutocompleteViewCell">
   <ViewCell.View>
       <StackLayout Spacing="0" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-            <control:SegmentedControl x:Name="SegmentedControl" SelectedSegment="{Binding SegmentSelection}" OnSegmentSelected="SegmentedControl_OnSegmentSelected" TintColor="Black" TextColor="Black" SelectedTextColor="White" DisabledColor="Gray" >
-                <control:SegmentedControl.Children>
-                    <control:SegmentedControlOption Text="For Sale" />  
-                    <control:SegmentedControlOption Text="For Rent" />
-                    <control:SegmentedControlOption Text="Sold" />
-                </control:SegmentedControl.Children>  
-            </control:SegmentedControl>
-            <customcontrol:CustomEntry x:Name="EntryAutocomplete" Placeholder="Address, School, City, Zip, or Neighborhood" PlaceholderColor="#6B6B6B" HeightRequest="40" HorizontalOptions="FillAndExpand" Margin="10, 20" />
+            <control:CustomEntry x:Name="EntryAutocomplete" Placeholder="Address, School, City, Zip, or Neighborhood" PlaceholderColor="#6B6B6B" HeightRequest="40" HorizontalOptions="FillAndExpand" Margin="10, 20" />
        </StackLayout>
   </ViewCell.View>
 </ViewCell>

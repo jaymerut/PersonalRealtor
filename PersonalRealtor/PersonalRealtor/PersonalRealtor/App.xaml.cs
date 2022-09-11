@@ -22,6 +22,7 @@ using PersonalRealtor.Views.Pages.RealtorChat.UI;
 using PersonalRealtor.Views.Pages.RealtorChatList.Composer;
 using PersonalRealtor.Views.Pages.RealtorListings.Composer;
 using PersonalRealtor.Views.Pages.SavedHomes.Composer;
+using PersonalRealtor.Views.Pages.StartNewSearch.Composer;
 using Xamarin.Forms;
 
 namespace PersonalRealtor
@@ -55,7 +56,7 @@ namespace PersonalRealtor
             SaveRealtorPlayerId();
             var main = MainUIComposer.MainUI();
             main.Flyout = MenuUIComposer.MenuUI(MakeMenuOptions(main));
-            main.Detail = new PRNavigationPage(BrowseListingsUIComposer.MakeBrowseListingsUI());
+            main.Detail = new PRNavigationPage(StartNewSearchUIComposer.MakeStartNewSearchUI());
             ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
             ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
             return main;
@@ -78,7 +79,7 @@ namespace PersonalRealtor
                     Title = "Browse Homes",
                     Image = new Image() { Source = "menu_browse_listings.png" },
                     Action = () => {
-                        main.Detail = new PRNavigationPage(BrowseListingsUIComposer.MakeBrowseListingsUI());
+                        main.Detail = new PRNavigationPage(StartNewSearchUIComposer.MakeStartNewSearchUI());
                         ((PRNavigationPage)main.Detail).BarBackgroundColor = Color.FromHex(RealtorSingleton.Instance.PrimaryColor);
                         ((PRNavigationPage)main.Detail).BarTextColor = Color.FromHex(RealtorSingleton.Instance.SecondaryColor);
                         main.IsPresented = false;
