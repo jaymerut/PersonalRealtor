@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PersonalRealtor.Models;
+using PersonalRealtor.ViewModels;
 using PersonalRealtor.Views.Pages.Details.Composer;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -33,6 +34,10 @@ namespace PersonalRealtor.Views.Pages.BrowseListings.UI
 
         #region - Private Methods
         private void SetUpBrowseListingsPage() {
+            if (Objects.Count == 0) {
+                Objects.Add(new BrowseListingsAutocompleteViewModel());
+                ActivityIndicatorListView.IsVisible = false;
+            }
             BrowseListingsListView.ItemsSource = Objects;
             BrowseListingsListView.ItemTemplate = this.DataTemplateSelector;
         }
