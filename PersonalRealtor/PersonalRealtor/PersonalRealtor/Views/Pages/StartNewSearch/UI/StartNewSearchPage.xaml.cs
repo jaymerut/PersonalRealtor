@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using PersonalRealtor.Models;
 using PersonalRealtor.Network.RapidAPI.API;
 using PersonalRealtor.Network.RapidAPI.Models;
 using Xamarin.Forms;
@@ -34,12 +35,25 @@ namespace PersonalRealtor.Views.Pages.StartNewSearch.UI {
             SelectedSegment = 0;
         }
 
-        private async Task RetrieveAutocompleteLocationsAsync() {
+        private async Task RetrieveAutocompleteLocationsAsync(String text) {
             var result = await RapidAPI.GetLocationsAutoComplete(new LocationsAutoCompleteRequest() {
-                Input = this.EntryAutocomplete.Text
+                Input = text
             });
 
             this.Response = result;
+
+            var groupList = result.Autocomplete.GroupBy(x => x.AreaType).Select(g => new AutocompleteLocationGroup() {
+                GroupName = g.Key,
+                Values = g.Select(v => v).ToList()
+            }).ToList();
+
+            Objects.Clear();
+
+            foreach (var group in groupList) {
+                foreach (var location in group.Values) {
+                    Objects.Add(location);
+                }
+            }
         }
 
         private void SegmentedControl_OnSegmentSelected(System.Object sender, Plugin.Segmented.Event.SegmentSelectEventArgs e) {
@@ -59,6 +73,14 @@ namespace PersonalRealtor.Views.Pages.StartNewSearch.UI {
             }
         }
 
+        void Entry_TextChanged(object sender, TextChangedEventArgs e) {
+            if (e.NewTextValue.Length > 2) {
+                _ = RetrieveAutocompleteLocationsAsync(e.NewTextValue);
+            } else {
+                Objects.Clear();
+            }
+        }
+
         private void AutocompleteListView_ItemSelected(Object sender, SelectedItemChangedEventArgs e) {
             if (e.SelectedItem != null) {
                 // TODO
@@ -66,7 +88,7 @@ namespace PersonalRealtor.Views.Pages.StartNewSearch.UI {
         }
 
         public void ButtonSearch_Clicked(System.Object sender, System.EventArgs e) {
-            
+            // TODO
         }
     }
 }
