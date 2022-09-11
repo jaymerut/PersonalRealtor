@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<controls:SelectableViewCell  xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:PersonalRealtor.Controls"
+             x:Class="PersonalRealtor.Views.ViewCells.AutocompleteLocationGroupNameViewCell">
+  <ViewCell.View>
+      <Label Text="{Binding Text}" FontSize="18" FontAttributes="Bold" Margin="10, 10, 5, 10"/>
+  </ViewCell.View>
+</controls:SelectableViewCell>

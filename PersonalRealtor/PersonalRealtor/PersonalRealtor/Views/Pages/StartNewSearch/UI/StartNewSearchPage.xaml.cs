@@ -51,11 +51,19 @@ namespace PersonalRealtor.Views.Pages.StartNewSearch.UI {
             Objects.Clear();
 
             foreach (var group in groupList) {
+                var groupName = "";
                 if (group.GroupName == "city" || group.GroupName == "postal_code") {
-
+                    if (group.GroupName == "city") {
+                        groupName = "CITY";
+                    } else if (group.GroupName == "postal_code") {
+                        groupName = "POSTAL CODE";
+                    }
+                    Objects.Add(new AutocompleteLocationGroupNameViewModel() {
+                        Text = groupName
+                    });
                 }
                 foreach (var location in group.Values) {
-                    if (group.GroupName == "city" || group.GroupName == "postal_code") {
+                    if (!String.IsNullOrEmpty(groupName)) {
                         var locationText = $"{location.City}, {location.StateCode}";
                         if (!String.IsNullOrEmpty(location.PostalCode)) {
                             locationText = $"{location.PostalCode}, {locationText}";
