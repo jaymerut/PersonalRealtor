@@ -15,7 +15,6 @@
           "/Users/jaymerutkoski/.config/NuGet/NuGet.Config"
         ],
         "sources": {
-          "http://devintranet/NuGetFeed/nuget/": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,7 +45,6 @@
           "xamarinios10"
         ],
         "sources": {
-          "http://devintranet/NuGetFeed/nuget/": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -112,7 +110,6 @@
           "netstandard2.0"
         ],
         "sources": {
-          "http://devintranet/NuGetFeed/nuget/": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
