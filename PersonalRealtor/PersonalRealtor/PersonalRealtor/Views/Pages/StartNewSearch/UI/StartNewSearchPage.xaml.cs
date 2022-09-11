@@ -99,8 +99,10 @@ namespace PersonalRealtor.Views.Pages.StartNewSearch.UI {
         void Entry_TextChanged(object sender, TextChangedEventArgs e) {
             if (e.NewTextValue.Length > 2) {
                 _ = RetrieveAutocompleteLocationsAsync(e.NewTextValue);
+                AutocompleteFrame.IsVisible = true;
             } else {
                 Objects.Clear();
+                AutocompleteFrame.IsVisible = false;
             }
         }
 

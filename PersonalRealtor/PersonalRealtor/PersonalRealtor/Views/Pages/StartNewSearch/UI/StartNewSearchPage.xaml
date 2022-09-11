@@ -16,9 +16,11 @@
             </control:SegmentedControl>
             <customcontrol:CustomEntry x:Name="EntryAutocomplete" Placeholder="Address, School, City, Zip, or Neighborhood" PlaceholderColor="#6B6B6B" HeightRequest="40" HorizontalOptions="FillAndExpand" Margin="10, 20" TextChanged="Entry_TextChanged"/>
             <Button x:Name="ButtonSearch" Text="Search Listings" Clicked="ButtonSearch_Clicked" FontSize="18" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="FillAndExpand" Margin="20, 0, 20, 10" HeightRequest="60" />
-            <ScrollView x:Name="ScrollViewList" BackgroundColor="Transparent" VerticalOptions="FillAndExpand">
-                <ListView x:Name="AutocompleteListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" SeparatorVisibility="None" HasUnevenRows="True" ItemSelected="AutocompleteListView_ItemSelected"/>
-            </ScrollView>
+            <Frame x:Name="AutocompleteFrame" BorderColor="Black" Margin="10" CornerRadius="40" IsVisible="False">
+                <ScrollView x:Name="ScrollViewList" BackgroundColor="Transparent" VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Never">
+                    <ListView x:Name="AutocompleteListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" SeparatorVisibility="None" HasUnevenRows="True" ItemSelected="AutocompleteListView_ItemSelected"/>
+                </ScrollView>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
